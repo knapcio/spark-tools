@@ -53,7 +53,7 @@ class RankTests(unittest.TestCase):
                             unsafe="DIVERGED", guard="DIVERGED", skip="HANG", fatal="FATAL",
                             local="DIVERGED", alternating="PASS")
         cls.started = time.monotonic()
-        cls.result = rh.run_matrix(worker, faults, timeout_s=.5, expected=cls.expected,
+        cls.result = rh.run_matrix(worker, faults, timeout_s=5, expected=cls.expected,
                                    out=Path(cls.temp.name) / "matrix")
         cls.elapsed = time.monotonic() - cls.started
         cls.cases = {c["fault"]: c for c in cls.result.cases}

@@ -238,7 +238,7 @@ def percentile(values, q):
     low, high = math.floor(position), math.ceil(position)
     # Keep serialized intervals stable across supported Python versions; their
     # arithmetic can otherwise differ by one binary-float ULP.
-    return round(ordered[low]+(ordered[high]-ordered[low])*(position-low), 15)
+    return round(ordered[low]+(ordered[high]-ordered[low])*(position-low), 12)
 
 
 def bootstrap(values, clusters, samples=200, seed=1234):

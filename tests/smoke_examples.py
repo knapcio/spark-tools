@@ -67,7 +67,7 @@ def main():
             invoke(['lab','rankharness','run','examples/rankharness/toy_toggle.py','--cases','none,invalid_one',
                     '--repeat','2','--out',str(Path(output)/'toggle')])
             invoke(['lab','rankharness','run','examples/rankharness/rank_local_bug.py','--repeat','2',
-                    '--timeout','0.5','--out',str(Path(output)/'local')])
+                    '--timeout','5','--out',str(Path(output)/'local')])
     else:
         print('SKIP rank fixtures: install the ranks extra for CPU PyTorch/Gloo and NumPy')
     print('All available fixture examples passed; GPU and endpoint execution excluded.')

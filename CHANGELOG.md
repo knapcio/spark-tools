@@ -3,6 +3,18 @@
 All notable changes to Spark Tools are documented here. Versions follow
 [Semantic Versioning](https://semver.org/).
 
+## [0.3.1] - 2026-10-10
+
+### Fixed
+
+- Calibration validation and MoE bootstrap reports now serialize computed
+  floats at a stable precision across supported Python versions. This fixes
+  exact example snapshots on Python 3.10 without changing simulator decisions
+  or displayed report precision.
+- CPU rank-harness regressions and examples use the documented five-second
+  worker deadline, avoiding false `HANG` verdicts when PyTorch/Gloo worker
+  execution is slower on shared Linux CI runners.
+
 ## [0.3.0] - 2026-10-10
 
 ### Added
@@ -85,6 +97,7 @@ All notable changes to Spark Tools are documented here. Versions follow
 - Portable examples, calibration fixtures, attribution, packaging and a
   fail-closed export audit.
 
+[0.3.1]: https://github.com/knapcio/spark-tools/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/knapcio/spark-tools/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/knapcio/spark-tools/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/knapcio/spark-tools/releases/tag/v0.1.0

@@ -72,7 +72,7 @@ class CollectiveRegressions(unittest.TestCase):
     def setUpClass(cls):
         cls.temp = tempfile.TemporaryDirectory()
         cls.result = rh.run_matrix(worker, FAULTS,
-                                   timeout_s=.5, repeat=2, out=Path(cls.temp.name) / 'matrix',
+                                   timeout_s=5, repeat=2, out=Path(cls.temp.name) / 'matrix',
                                    expected=EXPECTED)
         cls.runs = [json.loads(line) for line in
                     (cls.result.out / 'verdicts.jsonl').read_text().splitlines()]

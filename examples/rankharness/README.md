@@ -7,7 +7,7 @@ Install the `ranks` extra, then run from the checkout root. Set
 lab rankharness run examples/rankharness/toy_toggle.py \
   --cases none,invalid_one --repeat 2 --out "$EXTERNAL_OUTPUT/toggle"
 lab rankharness run examples/rankharness/rank_local_bug.py \
-  --repeat 2 --timeout 0.5 --out "$EXTERNAL_OUTPUT/local-input"
+  --repeat 2 --timeout 5 --out "$EXTERNAL_OUTPUT/local-input"
 ```
 
 Expected: `none` is PASS and `invalid_one` is FALLBACK; the deliberately unsafe

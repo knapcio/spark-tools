@@ -92,6 +92,16 @@ class Streaming(unittest.TestCase):
 
 
 class Calibration(unittest.TestCase):
+    def test_report_floats_have_bounded_portable_precision(self):
+        from cyclesim.calibrate import validate
+        calibration = json.loads((HERE/'calibration.json').read_text())
+        observations = json.loads((HERE/'holdout.json').read_text())
+        rows = validate(calibration, observations)
+        report_values = [row[key] for row in rows for key in ('measured', 'predicted', 'error_pct')]
+        report_values += [entry[key] for entry in calibration['metric_errors']
+                          for key in ('median_abs_pct', 'max_abs_pct')]
+        self.assertTrue(all(value == round(value, 12) for value in report_values))
+
     def test_alternate_head_observations_retain_their_arm(self):
         from cyclesim.calibrate import validate
         calibration = json.loads((HERE/'calibration.json').read_text())

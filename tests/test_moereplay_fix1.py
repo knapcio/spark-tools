@@ -235,6 +235,10 @@ class SegmentAndStatisticsTests(ScratchTests):
     def test_type7_percentile_small_example(self):
         self.assertEqual([percentile([0,10],q) for q in (.025,.975)],[.25,9.75])
 
+    def test_type7_percentile_has_portable_report_precision(self):
+        self.assertEqual(percentile([0.6992200000000001, 0.6992200000000001], .5),
+                         0.69922)
+
     def test_minimum_bootstrap_replicates(self):
         for n in (-1,1,2,50,199):
             with self.assertRaisesRegex(ValueError,'>=200'):bootstrap([0,10],[['a'],['b']],n)

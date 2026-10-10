@@ -10,6 +10,11 @@ from cyclesim.utilities import dump, sha256
 from cyclesim.model import Model
 
 
+def _report_float(value):
+    """Keep human-facing calibration reports stable across Python builds."""
+    return round(float(value), 12)
+
+
 def split_prompt_roles(observations):
     """Global hash membership, including all fitting instruments and arms.
     Unknown hashes cannot be claimed to be a prompt-disjoint holdout.
@@ -164,13 +169,15 @@ def validate(calib, observations):
             groups[(anchor, metric, x['c'], role, instrument)].append(values)
     for (anchor, metric, c, role, instrument), pairs in groups.items():
         m, p = statistics.median(x[0] for x in pairs), statistics.median(x[1] for x in pairs)
-        rows.append({'anchor':anchor, 'metric':metric, 'c':c, 'n':len(pairs), 'measured':m, 'predicted':p,
-                     'error_pct':100*(p/m-1), 'measurement_status':'measured', 'prediction_status':'estimated',
+        rows.append({'anchor':anchor, 'metric':metric, 'c':c, 'n':len(pairs),
+                     'measured':_report_float(m), 'predicted':_report_float(p),
+                     'error_pct':_report_float(100*(p/m-1)),
+                     'measurement_status':'measured', 'prediction_status':'estimated',
                      'role':role, 'instrument':instrument})
     def summary(xs):
         errors = [abs(x['error_pct']) for x in xs]
-        return {'median_abs_pct':statistics.median(errors) if errors else None,
-                'max_abs_pct':max(errors) if errors else None, 'n_anchors':len(errors),
+        return {'median_abs_pct':_report_float(statistics.median(errors)) if errors else None,
+                'max_abs_pct':_report_float(max(errors)) if errors else None, 'n_anchors':len(errors),
                 'status':'measured error of estimated predictions; cohort/instrument-specific'}
     calib['metric_errors'] = []
     for cohort in sorted({x['role'] for x in rows}):
