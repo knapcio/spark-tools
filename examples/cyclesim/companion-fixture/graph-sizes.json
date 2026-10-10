@@ -1,0 +1,130 @@
+{
+  "c": 1,
+  "k": 3,
+  "domain": "prose",
+  "head": "bf16",
+  "policy": "kstop",
+  "capture_layout": "reuse",
+  "pad_hygiene": true,
+  "boot": "fixture",
+  "configured": [
+    1,
+    4,
+    12,
+    16
+  ],
+  "ranks": {
+    "0": {
+      "c": 1,
+      "k": 3,
+      "domain": "prose",
+      "head": "bf16",
+      "policy": "kstop",
+      "capture_layout": "reuse",
+      "pad_hygiene": true,
+      "descriptors": [
+        {
+          "rows": 2,
+          "norms": 16,
+          "graph_id": 1
+        },
+        {
+          "rows": 3,
+          "norms": 16,
+          "graph_id": 2
+        },
+        {
+          "rows": 4,
+          "norms": 16,
+          "graph_id": 3
+        }
+      ],
+      "evidence": "captured FULL graphs",
+      "executed_passes": 2.0
+    },
+    "1": {
+      "c": 1,
+      "k": 3,
+      "domain": "prose",
+      "head": "bf16",
+      "policy": "kstop",
+      "capture_layout": "reuse",
+      "pad_hygiene": true,
+      "descriptors": [
+        {
+          "rows": 2,
+          "norms": 16,
+          "graph_id": 1
+        },
+        {
+          "rows": 3,
+          "norms": 16,
+          "graph_id": 2
+        },
+        {
+          "rows": 4,
+          "norms": 16,
+          "graph_id": 3
+        }
+      ],
+      "evidence": "captured FULL graphs",
+      "executed_passes": 2.0
+    },
+    "2": {
+      "c": 1,
+      "k": 3,
+      "domain": "prose",
+      "head": "bf16",
+      "policy": "kstop",
+      "capture_layout": "reuse",
+      "pad_hygiene": true,
+      "descriptors": [
+        {
+          "rows": 2,
+          "norms": 16,
+          "graph_id": 1
+        },
+        {
+          "rows": 3,
+          "norms": 16,
+          "graph_id": 2
+        },
+        {
+          "rows": 4,
+          "norms": 16,
+          "graph_id": 3
+        }
+      ],
+      "evidence": "captured FULL graphs",
+      "executed_passes": 2.0
+    },
+    "3": {
+      "c": 1,
+      "k": 3,
+      "domain": "prose",
+      "head": "bf16",
+      "policy": "kstop",
+      "capture_layout": "reuse",
+      "pad_hygiene": true,
+      "descriptors": [
+        {
+          "rows": 2,
+          "norms": 16,
+          "graph_id": 1
+        },
+        {
+          "rows": 3,
+          "norms": 16,
+          "graph_id": 2
+        },
+        {
+          "rows": 4,
+          "norms": 16,
+          "graph_id": 3
+        }
+      ],
+      "evidence": "captured FULL graphs",
+      "executed_passes": 2.0
+    }
+  }
+}

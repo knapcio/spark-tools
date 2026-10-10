@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "target": "sm_121",
+  "entries": [
+    {
+      "name": "pass",
+      "kind": "cuda",
+      "source": "copy.cu",
+      "flags": [],
+      "kernels": {
+        "sample_copy": {
+          "threads": 128,
+          "dynamic_shared_bytes": 0
+        }
+      },
+      "thresholds": {
+        "max_registers": 128,
+        "max_spill_bytes": 0,
+        "max_shared_bytes": 101376,
+        "min_occupancy_pct": 25
+      }
+    }
+  ]
+}

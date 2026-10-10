@@ -1,0 +1,51 @@
+{
+  "mode": "STATIC_NO_GPU",
+  "ordering": {
+    "sass": {
+      "required_0": true,
+      "required_1": true,
+      "sequence_0": true
+    }
+  },
+  "resources": [
+    {
+      "barriers": 1,
+      "checks": {
+        "binary_registers": true,
+        "launch_geometry": true,
+        "occupancy": true,
+        "registers": true,
+        "shared_memory": true,
+        "spills": true
+      },
+      "name": "sample_copy",
+      "occupancy": {
+        "active_blocks_per_sm": 12,
+        "active_blocks_total": 576,
+        "allocated_registers_per_block": 2048,
+        "allocated_shared_per_block": 1280,
+        "limitation": "subpartition and barrier limits omitted; may overestimate occupancy",
+        "limits": {
+          "blocks": 24,
+          "registers": 32,
+          "shared": 80,
+          "warps": 12
+        },
+        "method": "rounded CPU approximation",
+        "status": "estimated",
+        "warp_occupancy_pct": 100.0
+      },
+      "registers": 16,
+      "spill_load_bytes": 0,
+      "spill_store_bytes": 0,
+      "stack_bytes": 0,
+      "static_shared_bytes": 256,
+      "status": "PASS",
+      "target": "sm_121",
+      "total_shared_bytes": 256
+    }
+  ],
+  "schema": 1,
+  "status": "PASS",
+  "target": "sm_121"
+}

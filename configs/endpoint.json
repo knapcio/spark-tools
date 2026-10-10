@@ -1,0 +1,17 @@
+{
+  "body": {
+    "max_tokens": 4,
+    "messages": [
+      {
+        "content": "Reply with exactly OK and nothing else.",
+        "role": "user"
+      }
+    ],
+    "model": "example-model",
+    "stream": false,
+    "temperature": 0
+  },
+  "endpoint": "http://127.0.0.1:8000",
+  "timeout_s": 90,
+  "token_env": "OPENAI_API_KEY"
+}

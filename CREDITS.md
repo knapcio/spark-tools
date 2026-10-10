@@ -1,0 +1,44 @@
+# Credits
+
+| Work used | Author / source | Licence and scope |
+|---|---|---|
+| Decode-cycle accounting, prefix-survival arithmetic, interval union, file/counter utilities and CPU replay labs | knapcio | Apache-2.0 where marked in the source; original MIT recipe notice also retained |
+| Static compiler adapter, resource parser, instruction checks and CPU occupancy wrapper | knapcio | MIT; headers and licence retained |
+| A/B/A' comparisons, bracket screens, native trajectory pair statistics, preregistration, first-divergence near-tie gate and null-calibrated quality rule | knapcio | Existing decision/HTTP logic with packaging adapters, Apache-2.0 |
+| Runtime and scheduler contracts that motivated the labs | [vLLM contributors](https://github.com/vllm-project/vllm) | Apache-2.0; ideas only, no runtime source bundled |
+| Packed expert weights and FP8 projection layout used by the calibrated example | [Elias Frantar / IST-DASLab](https://github.com/IST-DASLab/marlin), Neural Magic and vLLM contributors | Apache-2.0; no kernel source bundled |
+| Sparse attention metadata and static compilation context | [FlashInfer contributors](https://github.com/flashinfer-ai/flashinfer) | Apache-2.0; no source bundled |
+| Ahead-of-time compilation API | [Triton contributors](https://github.com/triton-lang/triton) | MIT; optional external compiler |
+| GB10 target, resource limits and CPU occupancy calculator API | [NVIDIA CUDA contributors](https://docs.nvidia.com/cuda/) | NVIDIA toolkit terms; installed headers are not bundled |
+| Optional CPU Gloo rank transport | [PyTorch contributors](https://github.com/pytorch/pytorch) | BSD-3-Clause; optional dependency |
+| Optional rank retention arrays | [NumPy contributors](https://github.com/numpy/numpy) | BSD-3-Clause; optional dependency |
+| GLM-5.3 shapes and native draft architecture | [Z.ai](https://huggingface.co/zai-org/GLM-5.3) | Model terms apply separately; dimensions and anonymised timing numbers only |
+| Calibration recipe and mixed-precision context | [tonyd2wild / Tony](https://github.com/tonyd2wild/GLM-5.3-Int4-Int8Mix-TP4-4x-DGX-Spark), [Tech2wild](https://huggingface.co/Tech2wild/GLM-5.3-Int4-Int8Mix) | Recipe and checkpoint terms apply separately; no source or weights bundled |
+| Dynamic speculative lookahead context | Huang, Guo and Wang (SpecDec++); Mamou et al. (DISCO) | Research ideas only, no paper code copied |
+| Speculative verification context | Leviathan, Kalman and Matias; Chen et al. | Research ideas only, no paper code copied |
+| Bounded prefill scheduling context | Agrawal et al., Sarathi-Serve, OSDI 2024 | Research ideas only, no paper code copied |
+| Sparse attention design context for the calibration | [CosmicRaisins](https://github.com/CosmicRaisins/glm-5.2-gb10); [Matt Mastracci](https://github.com/mmastrac/glm-5.3-flash-4x-gx10) | CosmicRaisins upstream Apache-2.0; discussion ideas only |
+| Community investigation of native draft execution | keys / @u1tra_instinct; [Ash Hart and TensorFold contributors](https://github.com/ashhart/TensorFold); jayleaton | Ideas and measured context only; no code copied or relicensed |
+| Collective transport context for the calibration | Luke Alonso / @lukealonso; Jason Cook / @original-el8; Local Inference Lab; rhys101; tonyd2wild | b12x lineage Apache-2.0; no transport source bundled |
+| Benchmark interpretation context | sparkDash contributors; Alex Ellis and RigMark contributors | sparkDash MIT; benchmark observations only, no prompt bank or benchmark code bundled |
+
+These community attributions are preserved from the source credits. Unrelated
+loader, cache, memory-sharing and serving components were excluded and are not
+dependencies of this project. Referencing a project does not relicense it.
+
+The portable source repositories include an MIT recipe licence alongside
+Apache-2.0 tool headers. The MIT notice is retained in
+[LICENSES/MIT-portable-tools.txt](LICENSES/MIT-portable-tools.txt).
+The original static-checker MIT notice is retained separately in
+[LICENSES/MIT-static-checker.txt](LICENSES/MIT-static-checker.txt). The project
+and its packaging changes are Apache-2.0; external dependencies, models and
+toolchains keep their own terms. No third-party runtime or kernel is bundled.
+
+The scheduler fast policy and inert request fixture are knapcio CPU lab code
+under Apache-2.0, informed by the vLLM scheduler contract credited above. The
+rank fault matrices, bounded process cleanup and CPU retention probes are
+knapcio code under Apache-2.0. The HTTP transport and hash-bound
+preregistration pattern retain knapcio's existing panel logic (Apache-2.0).
+Research ideas have no source-code licence dependency here: no paper code or
+text is redistributed. Model, recipe and community context above is retained
+from the source credit files; no weights or unrelated runtime code is copied.

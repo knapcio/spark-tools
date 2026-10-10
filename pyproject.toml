@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spark-tools"
+version = "0.1.0"
+description = "Offline runtime experiments and static GB10 kernel checks"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [{name = "knapcio", email = "knapcio@gmail.com"}]
+classifiers = ["Operating System :: OS Independent", "Programming Language :: Python :: 3"]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+ranks = ["torch>=2.4", "numpy>=1.26"]
+
+[project.scripts]
+gb10check = "gb10check.cli:main"
+cyclesim = "cyclesim.cli:main"
+moereplay = "moereplay.cli:main"
+abharness = "abharness.cli:main"
+qpanel = "qpanel.cli:main"
+lab = "common.lab_cli:main"
+spark-export-audit = "common.audit:main"
+
+[tool.setuptools]
+license-files = ["LICENSE", "NOTICE", "LICENSES/*.txt"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["gb10check*", "cyclesim*", "moereplay*", "abharness*", "qpanel*", "lab*", "common*"]
+
+[tool.setuptools.package-data]
+gb10check = ["*.cpp"]
+cyclesim = ["NOTICE"]
+moereplay = ["*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

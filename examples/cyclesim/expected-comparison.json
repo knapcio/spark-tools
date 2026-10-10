@@ -1,0 +1,16 @@
+{
+  "fp8_projection": {
+    "measured_prose_gain_pct": [
+      3.6,
+      3.9
+    ],
+    "predicted_prose_gain_pct": 2.097617248112482
+  },
+  "glue_lite": {
+    "measured_prose_gain_pct": 0.43,
+    "predicted_prose_gain_pct": 0.4099367686373423
+  },
+  "interpretation": "hypotheses compared individually; no combined performance claim",
+  "model": "GLM-5.3",
+  "tp": 4
+}

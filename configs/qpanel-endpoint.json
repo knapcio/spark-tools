@@ -1,0 +1,27 @@
+{
+  "endpoints": {
+    "A": "http://127.0.0.1:8000",
+    "A2": "http://127.0.0.1:8000",
+    "B": "http://127.0.0.1:8000"
+  },
+  "tasks": [
+    {
+      "body": {
+        "max_tokens": 4,
+        "messages": [
+          {
+            "content": "Reply with exactly OK and nothing else.",
+            "role": "user"
+          }
+        ],
+        "model": "example-model",
+        "stream": false,
+        "temperature": 0
+      },
+      "expected": "OK",
+      "key": "probe"
+    }
+  ],
+  "timeout_s": 90,
+  "token_env": "OPENAI_API_KEY"
+}

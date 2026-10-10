@@ -1,0 +1,11 @@
+{
+  "committed": 2.2,
+  "drafts": 10.0,
+  "nominal_draft_tokens_per_cycle": 2.0,
+  "passes_status": "unknown (nominal tokens include kstop padding)",
+  "status": "measured",
+  "survival": [
+    0.8,
+    0.4
+  ]
+}

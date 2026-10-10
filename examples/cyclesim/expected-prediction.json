@@ -1,0 +1,105 @@
+[
+  {
+    "c": 1,
+    "domain": "prose",
+    "k": 3,
+    "requested_k": 3,
+    "head": "bf16",
+    "policy": "kstop",
+    "tau": 0.9,
+    "status": "estimated",
+    "scenario_basis": "structural_prior",
+    "cycle_bench_hard_panel": {
+      "cycle_ms": 73.48201804566905,
+      "committed_per_cycle": 2.3216255123842804,
+      "tok_s_per_stream": 31.594471329589652,
+      "aggregate_tok_s": 31.594471329589652,
+      "status": "estimated"
+    },
+    "sparkdash_calibrated": {
+      "cycle_ms": 67.82429191890972,
+      "committed_per_cycle": 2.3216255123842804,
+      "tok_s_per_stream": 34.230000000000004,
+      "aggregate_tok_s": 34.230000000000004,
+      "status": "estimated sparkDash-only instrument transfer; RigMark unfitted"
+    },
+    "rigmark_calibrated": {
+      "tok_s_per_stream": 28.649,
+      "cycle_ms": 81.03687781019512,
+      "committed_per_cycle": 2.3216255123842804,
+      "aggregate_tok_s": 28.649,
+      "status": "estimated independent RigMark T=0 low-effort panel fit; run5 held out; prompt generalization unknown"
+    },
+    "sparkdash_rigmark_calibrated": {
+      "cycle_ms": 67.82429191890972,
+      "committed_per_cycle": 2.3216255123842804,
+      "tok_s_per_stream": 34.230000000000004,
+      "aggregate_tok_s": 34.230000000000004,
+      "status": "estimated sparkDash-only instrument transfer; RigMark unfitted",
+      "deprecated_alias_for": "sparkdash_calibrated"
+    },
+    "delta_vs_baseline": {
+      "cycle_ms": 0.0,
+      "committed_per_cycle": 0.0,
+      "hard_tok_s": 0.0,
+      "calibrated_tok_s": 0.0
+    },
+    "uncertainty": {
+      "calibrated_tok_s_band": [
+        28.671,
+        42.46315031152649
+      ],
+      "hard_tok_s_band": [
+        26.463484881410015,
+        39.19371268131988
+      ],
+      "calibration_max_abs_pct": 19.388929580412274,
+      "status": "estimated throughput transfer max-error envelope; not a confidence interval"
+    },
+    "survival": [
+      0.7642571516207988,
+      0.39119462267064287,
+      0.16617373809283872
+    ],
+    "acceptance_status": "measured matching capture or estimated calibrated prefix/arm transfer",
+    "draft_passes_per_cycle": 2,
+    "draft_pass_ms": 3.696873763899648,
+    "passes_status": "assumed prior; executed c1 distribution unknown",
+    "graph_rows": 4,
+    "expert_union": 17.599999999999994,
+    "stale_row_penalty_ms": 0,
+    "routing_status": "assumed occupancy; reuse/pad hygiene prevent extra stale routes",
+    "category_ms": {
+      "host_sampling": 6.972416649049327,
+      "indexer": 0.22365191481190339,
+      "mla": 1.8439101362228394,
+      "collectives": 4.338872902839415,
+      "shared_dense": 11.133189365784702,
+      "vocab_head": 1.982996306388609,
+      "moe_routed": 30.671345612895088,
+      "router": 0.6093755136612923,
+      "attention_gemms": 13.230645350671914,
+      "draft_graph": 7.393747527799296
+    },
+    "category_bytes": {
+      "host_sampling": null,
+      "indexer": null,
+      "mla": null,
+      "collectives": null,
+      "shared_dense": null,
+      "vocab_head": 475791360.0,
+      "moe_routed": 6423183359.999998,
+      "router": null,
+      "attention_gemms": 2151604224.0,
+      "draft_graph": null
+    },
+    "category_status": "estimated prior or measured expected-work table transfer; empirical arm delta separate",
+    "empirical_cycle_delta_ms": 0.0,
+    "closure_ms": -4.91813323445534,
+    "closure_status": "signed capture residual; includes overlap and profiler distortion",
+    "kernel_table": null,
+    "notes": [
+      "c*per-stream assumes synchronous equal streams; asynchronous aggregate can differ."
+    ]
+  }
+]

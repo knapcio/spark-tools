@@ -1,0 +1,18 @@
+{
+  "configuration": {
+    "decision_rule": "loss <= max(abs(null net loss), sqrt(n*p*(1-p)))",
+    "foreground_concurrency": 1,
+    "items": 116,
+    "null": "A versus same-model shape-perturbed A2",
+    "rule": "null-pass-v1",
+    "temperature": 0
+  },
+  "schema": 1,
+  "sources": {
+    "cli.py": "8427a9eaed223089f53aa00ab90233517aed8d1681b1d3cb8a4ef774b65beb1b",
+    "config.py": "6752948fd75efe68f74bde9489f5a6fcf54dacc969cbba0d580d6b5749a40a1a",
+    "endpoint.py": "68cc9246925557e044a627e95c8fdf7b7c8b00587542fbf588af2862e0a10059",
+    "logic.py": "9321aeae0701a741b893db1963e7b63dcb357b869b64f06267231d298890a4d7",
+    "prereg.py": "2f853296435735dc6f4555f571bed126141e5919875fad17f9e352f9fcc51c3a"
+  }
+}

@@ -1,0 +1,79 @@
+# spark-tools
+
+A simulator and lab for testing runtime ideas and statically checking kernel
+changes for NVIDIA GB10 / DGX Spark. The simulator, `cyclesim`, models the cost
+of a decode cycle; the lab brings together scheduler/rank replay, MoE replay
+and static GB10 kernel checks. Use these tools to compare ideas on a CPU before
+spending time on hardware experiments.
+
+| Tool | What it does | GPU needed? | Model dependence |
+|---|---|---|---|
+| `gb10check` | Reads compiler resources and checks PTX/SASS ordering | No | Model-agnostic; GB10 target and explicit launch geometry |
+| `cyclesim` | Predicts decode-cycle cost and throughput | No | Needs timing calibration; includes a GLM-5.3 TP4 example |
+| `moereplay` | Expert placement and critical-rank route costs | No | Fixed 256 experts, top-8, four ranks and packed-weight geometry; timings need calibration |
+| `lab` | Replays scheduling and rank faults; checks files and counters | No | Model-agnostic; scheduler timing needs calibration |
+| `abharness` | Compares A/B/A-prime measurements and checks near ties | Client: no | Model-agnostic; caller supplies instrumented observations |
+| `qpanel` | Compares task passes against an A/A2 null calibration | Client: no | Model-agnostic; caller supplies tasks and scoring |
+
+## Five-minute quickstart
+
+From the checkout, with Python 3.10+ on macOS or Linux:
+
+```sh
+python3 -m venv ../spark-tools-env
+. ../spark-tools-env/bin/activate
+export PYTHONDONTWRITEBYTECODE=1
+python3 -m pip install -e '.[test]'
+gb10check parse --config examples/gb10check/pass.json
+cyclesim predict --config examples/cyclesim/calibration.json
+cyclesim whatif --config examples/cyclesim/calibration.json \
+  --kernel-ms draft_graph=-1.50970368
+python3 -m examples.cyclesim.smoke
+python3 examples/moereplay/run.py
+lab acceptance --before examples/lab/before.prom --after examples/lab/after.prom --k 2
+```
+
+The checker reports `PASS`; the other commands print predictions or counter
+summaries as JSON. These examples need no GPU, Docker or endpoint. Each tool
+has `--help`. Use `lab schedreplay --help` or `lab rankharness --help` for the
+replay commands. Rank replay needs the optional CPU PyTorch/Gloo and NumPy
+dependencies: `python3 -m pip install -e '.[ranks]'`.
+
+## Platforms
+
+`gb10check` runs anywhere with Docker and a compatible CUDA toolchain image:
+macOS via Colima, Linux natively, and on a DGX Spark. Static compilation needs
+no GPU. Use an arm64 image for Apple silicon or DGX Spark; x86 Linux accepts
+an amd64 image with `--platform linux/amd64`. Saved-output parsing needs only
+Python.
+
+`cyclesim`, `moereplay` and `lab` run in Python on macOS/Linux. Scheduler and
+file utilities use the standard library; rank replay adds CPU PyTorch/Gloo and
+NumPy. `abharness` and `qpanel` run from any machine that can reach an
+OpenAI-compatible endpoint. The endpoint's server may need a GPU.
+
+## Examples and limits
+
+Each example has a command, expected output and runtime:
+[static checks](examples/gb10check/), [cycle model](examples/cyclesim/),
+[MoE routes](examples/moereplay/), [scheduler](examples/schedreplay/),
+[rank faults](examples/rankharness/), [file/counter utilities](examples/lab/),
+[A/B/A-prime and near ties](examples/abharness/), and
+[quality calibration](examples/qpanel/).
+
+Static checks cannot establish GPU correctness or speed. Replay leaves out
+real allocator, network, cache and asynchronous execution effects. The six
+included cycle validation observations have 3.71% maximum absolute error
+across three protocols. Earlier throughput comparisons reached 19.39% error at one
+stream and 17.85% at two/four streams. These numbers describe one setup, not
+accuracy guarantees. New models need measurements; endpoint fixtures do not
+measure a real model. See [calibration](docs/calibration.md),
+[endpoint usage](docs/endpoints.md) and [scope](docs/scope.md).
+
+MoE replay uses fixed 256-expert, top-8, four-rank and packed-weight geometry.
+Runtime support is unknown: no runtime version pin or compatibility check is
+recorded. Layout and collective assumptions do not establish serving support.
+
+By knapcio. Apache-2.0 with retained upstream MIT notices. See
+[CREDITS.md](CREDITS.md), [NOTICE](NOTICE), [LICENSE](LICENSE) and
+[export policy](docs/export-policy.md) for attribution and release checks.

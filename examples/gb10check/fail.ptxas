@@ -1,0 +1,4 @@
+ptxas info    : Compiling entry function 'sample_pressure' for 'sm_121'
+ptxas info    : Function properties for sample_pressure
+    512 bytes stack frame, 64 bytes spill stores, 64 bytes spill loads
+ptxas info    : Used 128 registers, used 0 barriers

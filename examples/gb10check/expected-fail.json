@@ -1,0 +1,44 @@
+{
+  "mode": "STATIC_NO_GPU",
+  "ordering": {},
+  "resources": [
+    {
+      "barriers": 0,
+      "checks": {
+        "launch_geometry": false,
+        "occupancy": false,
+        "registers": true,
+        "shared_memory": false,
+        "spills": false
+      },
+      "name": "sample_pressure",
+      "occupancy": {
+        "active_blocks_per_sm": 0,
+        "active_blocks_total": 0,
+        "allocated_registers_per_block": 16384,
+        "allocated_shared_per_block": 111616,
+        "limitation": "subpartition and barrier limits omitted; may overestimate occupancy",
+        "limits": {
+          "blocks": 24,
+          "registers": 4,
+          "shared": 0,
+          "warps": 12
+        },
+        "method": "rounded CPU approximation",
+        "status": "estimated",
+        "warp_occupancy_pct": 0.0
+      },
+      "registers": 128,
+      "spill_load_bytes": 64,
+      "spill_store_bytes": 64,
+      "stack_bytes": 512,
+      "static_shared_bytes": 0,
+      "status": "FAIL",
+      "target": "sm_121",
+      "total_shared_bytes": 110592
+    }
+  ],
+  "schema": 1,
+  "status": "FAIL",
+  "target": "sm_121"
+}

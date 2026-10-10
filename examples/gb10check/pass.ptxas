@@ -1,0 +1,4 @@
+ptxas info    : Compiling entry function 'sample_copy' for 'sm_121'
+ptxas info    : Function properties for sample_copy
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 16 registers, used 1 barriers, 256 bytes smem

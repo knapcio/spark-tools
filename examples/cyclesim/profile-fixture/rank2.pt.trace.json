@@ -1,0 +1,3895 @@
+{
+  "distributedInfo": {
+    "rank": 2
+  },
+  "traceEvents": [
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 0,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 0,
+        "correlation": 0
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 2,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 1,
+        "correlation": 0
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 4,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 2,
+        "correlation": 0
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 6,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 3,
+        "correlation": 0
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 8,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 4,
+        "correlation": 0
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 10,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 5,
+        "correlation": 0
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 12,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 6,
+        "correlation": 0
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 14,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 7,
+        "correlation": 0
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 16,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 8,
+        "correlation": 0
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 18,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 9,
+        "correlation": 0
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 20,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 10,
+        "correlation": 0
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 22,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 11,
+        "correlation": 0
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 24,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 12,
+        "correlation": 0
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 26,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 13,
+        "correlation": 0
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 28,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 14,
+        "correlation": 0
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 30,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 15,
+        "correlation": 0
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 100,
+      "dur": 1,
+      "args": {
+        "graph id": 10,
+        "graph node id": 0,
+        "correlation": 0
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 1000,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 0,
+        "correlation": 1
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 1002,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 1,
+        "correlation": 1
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 1004,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 2,
+        "correlation": 1
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 1006,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 3,
+        "correlation": 1
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 1008,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 4,
+        "correlation": 1
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 1010,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 5,
+        "correlation": 1
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 1012,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 6,
+        "correlation": 1
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 1014,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 7,
+        "correlation": 1
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 1016,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 8,
+        "correlation": 1
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 1018,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 9,
+        "correlation": 1
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 1020,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 10,
+        "correlation": 1
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 1022,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 11,
+        "correlation": 1
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 1024,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 12,
+        "correlation": 1
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 1026,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 13,
+        "correlation": 1
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 1028,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 14,
+        "correlation": 1
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 1030,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 15,
+        "correlation": 1
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 1100,
+      "dur": 1,
+      "args": {
+        "graph id": 10,
+        "graph node id": 0,
+        "correlation": 1
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 1110,
+      "dur": 1,
+      "args": {
+        "graph id": 11,
+        "graph node id": 0,
+        "correlation": 1
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 2000,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 0,
+        "correlation": 2
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 2002,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 1,
+        "correlation": 2
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 2004,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 2,
+        "correlation": 2
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 2006,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 3,
+        "correlation": 2
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 2008,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 4,
+        "correlation": 2
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 2010,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 5,
+        "correlation": 2
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 2012,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 6,
+        "correlation": 2
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 2014,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 7,
+        "correlation": 2
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 2016,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 8,
+        "correlation": 2
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 2018,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 9,
+        "correlation": 2
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 2020,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 10,
+        "correlation": 2
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 2022,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 11,
+        "correlation": 2
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 2024,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 12,
+        "correlation": 2
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 2026,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 13,
+        "correlation": 2
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 2028,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 14,
+        "correlation": 2
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 2030,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 15,
+        "correlation": 2
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 2100,
+      "dur": 1,
+      "args": {
+        "graph id": 10,
+        "graph node id": 0,
+        "correlation": 2
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 2110,
+      "dur": 1,
+      "args": {
+        "graph id": 11,
+        "graph node id": 0,
+        "correlation": 2
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 2120,
+      "dur": 1,
+      "args": {
+        "graph id": 12,
+        "graph node id": 0,
+        "correlation": 2
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 3000,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 0,
+        "correlation": 3
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 3002,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 1,
+        "correlation": 3
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 3004,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 2,
+        "correlation": 3
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 3006,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 3,
+        "correlation": 3
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 3008,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 4,
+        "correlation": 3
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 3010,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 5,
+        "correlation": 3
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 3012,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 6,
+        "correlation": 3
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 3014,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 7,
+        "correlation": 3
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 3016,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 8,
+        "correlation": 3
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 3018,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 9,
+        "correlation": 3
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 3020,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 10,
+        "correlation": 3
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 3022,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 11,
+        "correlation": 3
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 3024,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 12,
+        "correlation": 3
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 3026,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 13,
+        "correlation": 3
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 3028,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 14,
+        "correlation": 3
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 3030,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 15,
+        "correlation": 3
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 3100,
+      "dur": 1,
+      "args": {
+        "graph id": 10,
+        "graph node id": 0,
+        "correlation": 3
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 4000,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 0,
+        "correlation": 4
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 4002,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 1,
+        "correlation": 4
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 4004,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 2,
+        "correlation": 4
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 4006,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 3,
+        "correlation": 4
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 4008,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 4,
+        "correlation": 4
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 4010,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 5,
+        "correlation": 4
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 4012,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 6,
+        "correlation": 4
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 4014,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 7,
+        "correlation": 4
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 4016,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 8,
+        "correlation": 4
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 4018,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 9,
+        "correlation": 4
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 4020,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 10,
+        "correlation": 4
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 4022,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 11,
+        "correlation": 4
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 4024,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 12,
+        "correlation": 4
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 4026,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 13,
+        "correlation": 4
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 4028,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 14,
+        "correlation": 4
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 4030,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 15,
+        "correlation": 4
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 4100,
+      "dur": 1,
+      "args": {
+        "graph id": 10,
+        "graph node id": 0,
+        "correlation": 4
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 4110,
+      "dur": 1,
+      "args": {
+        "graph id": 11,
+        "graph node id": 0,
+        "correlation": 4
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 5000,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 0,
+        "correlation": 5
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 5002,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 1,
+        "correlation": 5
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 5004,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 2,
+        "correlation": 5
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 5006,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 3,
+        "correlation": 5
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 5008,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 4,
+        "correlation": 5
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 5010,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 5,
+        "correlation": 5
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 5012,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 6,
+        "correlation": 5
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 5014,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 7,
+        "correlation": 5
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 5016,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 8,
+        "correlation": 5
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 5018,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 9,
+        "correlation": 5
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 5020,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 10,
+        "correlation": 5
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 5022,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 11,
+        "correlation": 5
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 5024,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 12,
+        "correlation": 5
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 5026,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 13,
+        "correlation": 5
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 5028,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 14,
+        "correlation": 5
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 5030,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 15,
+        "correlation": 5
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 5100,
+      "dur": 1,
+      "args": {
+        "graph id": 10,
+        "graph node id": 0,
+        "correlation": 5
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 5110,
+      "dur": 1,
+      "args": {
+        "graph id": 11,
+        "graph node id": 0,
+        "correlation": 5
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 5120,
+      "dur": 1,
+      "args": {
+        "graph id": 12,
+        "graph node id": 0,
+        "correlation": 5
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 6000,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 0,
+        "correlation": 6
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 6002,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 1,
+        "correlation": 6
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 6004,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 2,
+        "correlation": 6
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 6006,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 3,
+        "correlation": 6
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 6008,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 4,
+        "correlation": 6
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 6010,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 5,
+        "correlation": 6
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 6012,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 6,
+        "correlation": 6
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 6014,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 7,
+        "correlation": 6
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 6016,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 8,
+        "correlation": 6
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 6018,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 9,
+        "correlation": 6
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 6020,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 10,
+        "correlation": 6
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 6022,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 11,
+        "correlation": 6
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 6024,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 12,
+        "correlation": 6
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 6026,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 13,
+        "correlation": 6
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 6028,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 14,
+        "correlation": 6
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 6030,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 15,
+        "correlation": 6
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 6100,
+      "dur": 1,
+      "args": {
+        "graph id": 10,
+        "graph node id": 0,
+        "correlation": 6
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 7000,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 0,
+        "correlation": 7
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 7002,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 1,
+        "correlation": 7
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 7004,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 2,
+        "correlation": 7
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 7006,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 3,
+        "correlation": 7
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 7008,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 4,
+        "correlation": 7
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 7010,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 5,
+        "correlation": 7
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 7012,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 6,
+        "correlation": 7
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 7014,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 7,
+        "correlation": 7
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 7016,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 8,
+        "correlation": 7
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 7018,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 9,
+        "correlation": 7
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 7020,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 10,
+        "correlation": 7
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 7022,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 11,
+        "correlation": 7
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 7024,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 12,
+        "correlation": 7
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 7026,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 13,
+        "correlation": 7
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 7028,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 14,
+        "correlation": 7
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 7030,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 15,
+        "correlation": 7
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 7100,
+      "dur": 1,
+      "args": {
+        "graph id": 10,
+        "graph node id": 0,
+        "correlation": 7
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 7110,
+      "dur": 1,
+      "args": {
+        "graph id": 11,
+        "graph node id": 0,
+        "correlation": 7
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 8000,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 0,
+        "correlation": 8
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 8002,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 1,
+        "correlation": 8
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 8004,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 2,
+        "correlation": 8
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 8006,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 3,
+        "correlation": 8
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 8008,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 4,
+        "correlation": 8
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 8010,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 5,
+        "correlation": 8
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 8012,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 6,
+        "correlation": 8
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 8014,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 7,
+        "correlation": 8
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 8016,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 8,
+        "correlation": 8
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 8018,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 9,
+        "correlation": 8
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 8020,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 10,
+        "correlation": 8
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 8022,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 11,
+        "correlation": 8
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 8024,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 12,
+        "correlation": 8
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 8026,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 13,
+        "correlation": 8
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 8028,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 14,
+        "correlation": 8
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 8030,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 15,
+        "correlation": 8
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 8100,
+      "dur": 1,
+      "args": {
+        "graph id": 10,
+        "graph node id": 0,
+        "correlation": 8
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 8110,
+      "dur": 1,
+      "args": {
+        "graph id": 11,
+        "graph node id": 0,
+        "correlation": 8
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 8120,
+      "dur": 1,
+      "args": {
+        "graph id": 12,
+        "graph node id": 0,
+        "correlation": 8
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 9000,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 0,
+        "correlation": 9
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 9002,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 1,
+        "correlation": 9
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 9004,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 2,
+        "correlation": 9
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 9006,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 3,
+        "correlation": 9
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 9008,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 4,
+        "correlation": 9
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 9010,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 5,
+        "correlation": 9
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 9012,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 6,
+        "correlation": 9
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 9014,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 7,
+        "correlation": 9
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 9016,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 8,
+        "correlation": 9
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 9018,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 9,
+        "correlation": 9
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 9020,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 10,
+        "correlation": 9
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 9022,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 11,
+        "correlation": 9
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 9024,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 12,
+        "correlation": 9
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 9026,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 13,
+        "correlation": 9
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 9028,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 14,
+        "correlation": 9
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 9030,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 15,
+        "correlation": 9
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 9100,
+      "dur": 1,
+      "args": {
+        "graph id": 10,
+        "graph node id": 0,
+        "correlation": 9
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 10000,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 0,
+        "correlation": 10
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 10002,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 1,
+        "correlation": 10
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 10004,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 2,
+        "correlation": 10
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 10006,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 3,
+        "correlation": 10
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 10008,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 4,
+        "correlation": 10
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 10010,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 5,
+        "correlation": 10
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 10012,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 6,
+        "correlation": 10
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 10014,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 7,
+        "correlation": 10
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 10016,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 8,
+        "correlation": 10
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 10018,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 9,
+        "correlation": 10
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 10020,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 10,
+        "correlation": 10
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 10022,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 11,
+        "correlation": 10
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 10024,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 12,
+        "correlation": 10
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 10026,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 13,
+        "correlation": 10
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 10028,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 14,
+        "correlation": 10
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 10030,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 15,
+        "correlation": 10
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 10100,
+      "dur": 1,
+      "args": {
+        "graph id": 10,
+        "graph node id": 0,
+        "correlation": 10
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 10110,
+      "dur": 1,
+      "args": {
+        "graph id": 11,
+        "graph node id": 0,
+        "correlation": 10
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 11000,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 0,
+        "correlation": 11
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 11002,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 1,
+        "correlation": 11
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 11004,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 2,
+        "correlation": 11
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 11006,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 3,
+        "correlation": 11
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 11008,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 4,
+        "correlation": 11
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 11010,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 5,
+        "correlation": 11
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 11012,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 6,
+        "correlation": 11
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 11014,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 7,
+        "correlation": 11
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 11016,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 8,
+        "correlation": 11
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 11018,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 9,
+        "correlation": 11
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 11020,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 10,
+        "correlation": 11
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 11022,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 11,
+        "correlation": 11
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 11024,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 12,
+        "correlation": 11
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 11026,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 13,
+        "correlation": 11
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 11028,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 14,
+        "correlation": 11
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 11030,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 15,
+        "correlation": 11
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 11100,
+      "dur": 1,
+      "args": {
+        "graph id": 10,
+        "graph node id": 0,
+        "correlation": 11
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 11110,
+      "dur": 1,
+      "args": {
+        "graph id": 11,
+        "graph node id": 0,
+        "correlation": 11
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 11120,
+      "dur": 1,
+      "args": {
+        "graph id": 12,
+        "graph node id": 0,
+        "correlation": 11
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 12000,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 0,
+        "correlation": 12
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 12002,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 1,
+        "correlation": 12
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 12004,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 2,
+        "correlation": 12
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 12006,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 3,
+        "correlation": 12
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 12008,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 4,
+        "correlation": 12
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 12010,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 5,
+        "correlation": 12
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 12012,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 6,
+        "correlation": 12
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 12014,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 7,
+        "correlation": 12
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 12016,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 8,
+        "correlation": 12
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 12018,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 9,
+        "correlation": 12
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 12020,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 10,
+        "correlation": 12
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 12022,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 11,
+        "correlation": 12
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 12024,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 12,
+        "correlation": 12
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 12026,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 13,
+        "correlation": 12
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 12028,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 14,
+        "correlation": 12
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 12030,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 15,
+        "correlation": 12
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 12100,
+      "dur": 1,
+      "args": {
+        "graph id": 10,
+        "graph node id": 0,
+        "correlation": 12
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 13000,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 0,
+        "correlation": 13
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 13002,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 1,
+        "correlation": 13
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 13004,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 2,
+        "correlation": 13
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 13006,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 3,
+        "correlation": 13
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 13008,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 4,
+        "correlation": 13
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 13010,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 5,
+        "correlation": 13
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 13012,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 6,
+        "correlation": 13
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 13014,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 7,
+        "correlation": 13
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 13016,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 8,
+        "correlation": 13
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 13018,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 9,
+        "correlation": 13
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 13020,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 10,
+        "correlation": 13
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 13022,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 11,
+        "correlation": 13
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 13024,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 12,
+        "correlation": 13
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 13026,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 13,
+        "correlation": 13
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 13028,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 14,
+        "correlation": 13
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 13030,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 15,
+        "correlation": 13
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 13100,
+      "dur": 1,
+      "args": {
+        "graph id": 10,
+        "graph node id": 0,
+        "correlation": 13
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 13110,
+      "dur": 1,
+      "args": {
+        "graph id": 11,
+        "graph node id": 0,
+        "correlation": 13
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 14000,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 0,
+        "correlation": 14
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 14002,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 1,
+        "correlation": 14
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 14004,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 2,
+        "correlation": 14
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 14006,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 3,
+        "correlation": 14
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 14008,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 4,
+        "correlation": 14
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 14010,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 5,
+        "correlation": 14
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 14012,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 6,
+        "correlation": 14
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 14014,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 7,
+        "correlation": 14
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 14016,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 8,
+        "correlation": 14
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 14018,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 9,
+        "correlation": 14
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 14020,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 10,
+        "correlation": 14
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 14022,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 11,
+        "correlation": 14
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 14024,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 12,
+        "correlation": 14
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 14026,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 13,
+        "correlation": 14
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 14028,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 14,
+        "correlation": 14
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 14030,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 15,
+        "correlation": 14
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 14100,
+      "dur": 1,
+      "args": {
+        "graph id": 10,
+        "graph node id": 0,
+        "correlation": 14
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 14110,
+      "dur": 1,
+      "args": {
+        "graph id": 11,
+        "graph node id": 0,
+        "correlation": 14
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 14120,
+      "dur": 1,
+      "args": {
+        "graph id": 12,
+        "graph node id": 0,
+        "correlation": 14
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 15000,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 0,
+        "correlation": 15
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 15002,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 1,
+        "correlation": 15
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 15004,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 2,
+        "correlation": 15
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 15006,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 3,
+        "correlation": 15
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 15008,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 4,
+        "correlation": 15
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 15010,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 5,
+        "correlation": 15
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 15012,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 6,
+        "correlation": 15
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 15014,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 7,
+        "correlation": 15
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 15016,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 8,
+        "correlation": 15
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 15018,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 9,
+        "correlation": 15
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 15020,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 10,
+        "correlation": 15
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 15022,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 11,
+        "correlation": 15
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 15024,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 12,
+        "correlation": 15
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 15026,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 13,
+        "correlation": 15
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 15028,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 14,
+        "correlation": 15
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 15030,
+      "dur": 1,
+      "args": {
+        "graph id": 1,
+        "graph node id": 15,
+        "correlation": 15
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 15100,
+      "dur": 1,
+      "args": {
+        "graph id": 10,
+        "graph node id": 0,
+        "correlation": 15
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 16000,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 0,
+        "correlation": 16
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 16002,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 1,
+        "correlation": 16
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 16004,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 2,
+        "correlation": 16
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 16006,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 3,
+        "correlation": 16
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 16008,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 4,
+        "correlation": 16
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 16010,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 5,
+        "correlation": 16
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 16012,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 6,
+        "correlation": 16
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 16014,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 7,
+        "correlation": 16
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 16016,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 8,
+        "correlation": 16
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 16018,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 9,
+        "correlation": 16
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 16020,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 10,
+        "correlation": 16
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 16022,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 11,
+        "correlation": 16
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 16024,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 12,
+        "correlation": 16
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 16026,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 13,
+        "correlation": 16
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 16028,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 14,
+        "correlation": 16
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 16030,
+      "dur": 1,
+      "args": {
+        "graph id": 2,
+        "graph node id": 15,
+        "correlation": 16
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 16100,
+      "dur": 1,
+      "args": {
+        "graph id": 10,
+        "graph node id": 0,
+        "correlation": 16
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 16110,
+      "dur": 1,
+      "args": {
+        "graph id": 11,
+        "graph node id": 0,
+        "correlation": 16
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 17000,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 0,
+        "correlation": 17
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 17002,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 1,
+        "correlation": 17
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 17004,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 2,
+        "correlation": 17
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 17006,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 3,
+        "correlation": 17
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 17008,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 4,
+        "correlation": 17
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 17010,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 5,
+        "correlation": 17
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 17012,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 6,
+        "correlation": 17
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 17014,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 7,
+        "correlation": 17
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 17016,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 8,
+        "correlation": 17
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 17018,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 9,
+        "correlation": 17
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 17020,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 10,
+        "correlation": 17
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 17022,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 11,
+        "correlation": 17
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 17024,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 12,
+        "correlation": 17
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 17026,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 13,
+        "correlation": 17
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 17028,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 14,
+        "correlation": 17
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 17030,
+      "dur": 1,
+      "args": {
+        "graph id": 3,
+        "graph node id": 15,
+        "correlation": 17
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 17100,
+      "dur": 1,
+      "args": {
+        "graph id": 10,
+        "graph node id": 0,
+        "correlation": 17
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 17110,
+      "dur": 1,
+      "args": {
+        "graph id": 11,
+        "graph node id": 0,
+        "correlation": 17
+      }
+    },
+    {
+      "ph": "X",
+      "cat": "kernel",
+      "name": "fused_add_rms_norm",
+      "ts": 17120,
+      "dur": 1,
+      "args": {
+        "graph id": 12,
+        "graph node id": 0,
+        "correlation": 17
+      }
+    }
+  ]
+}

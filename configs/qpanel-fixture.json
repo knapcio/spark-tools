@@ -1,0 +1,8 @@
+{
+  "decision_rule": "loss <= max(abs(null net loss), sqrt(n*p*(1-p)))",
+  "foreground_concurrency": 1,
+  "items": 116,
+  "null": "A versus same-model shape-perturbed A2",
+  "rule": "null-pass-v1",
+  "temperature": 0
+}

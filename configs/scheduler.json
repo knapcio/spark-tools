@@ -1,0 +1,6 @@
+{
+  "timing": "scheduler-timing.json",
+  "policy": "fair:4096:40",
+  "admission": true,
+  "max_seqs": 4
+}

@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "target": "sm_121",
+  "thresholds": {
+    "max_registers": 128,
+    "max_spill_bytes": 0,
+    "max_shared_bytes": 101376,
+    "min_occupancy_pct": 25
+  },
+  "ptxas": "fail.ptxas",
+  "kernels": {
+    "sample_pressure": {
+      "threads": 128,
+      "dynamic_shared_bytes": 110592
+    }
+  }
+}

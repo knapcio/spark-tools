@@ -1,0 +1,115 @@
+{
+  "metric_errors": [
+    {
+      "cohort": "holdout",
+      "concurrency": "c1",
+      "instrument": "cycle-timing-cohort-1",
+      "max_abs_pct": 1.594264127883993,
+      "median_abs_pct": 0.8384562685758601,
+      "metric": "cycle_ms",
+      "n_anchors": 2,
+      "status": "measured error of estimated predictions; cohort/instrument-specific"
+    },
+    {
+      "cohort": "holdout",
+      "concurrency": "c1",
+      "instrument": "cycle-timing-cohort-2",
+      "max_abs_pct": 1.7027623996180408,
+      "median_abs_pct": 1.2492570066597652,
+      "metric": "cycle_ms",
+      "n_anchors": 2,
+      "status": "measured error of estimated predictions; cohort/instrument-specific"
+    },
+    {
+      "cohort": "holdout",
+      "concurrency": "c1",
+      "instrument": "cycle-timing-cohort-3",
+      "max_abs_pct": 3.7071967233272884,
+      "median_abs_pct": 3.13505540056922,
+      "metric": "cycle_ms",
+      "n_anchors": 2,
+      "status": "measured error of estimated predictions; cohort/instrument-specific"
+    }
+  ],
+  "rows": [
+    {
+      "anchor": "holdout-1",
+      "c": 1,
+      "error_pct": -0.0826484092677271,
+      "instrument": "cycle-timing-cohort-1",
+      "measured": 73.5428,
+      "measurement_status": "measured",
+      "metric": "cycle_ms",
+      "n": 1,
+      "predicted": 73.48201804566905,
+      "prediction_status": "estimated",
+      "role": "holdout"
+    },
+    {
+      "anchor": "holdout-2",
+      "c": 1,
+      "error_pct": 1.594264127883993,
+      "instrument": "cycle-timing-cohort-1",
+      "measured": 82.1134,
+      "measurement_status": "measured",
+      "metric": "cycle_ms",
+      "n": 1,
+      "predicted": 83.4225044803859,
+      "prediction_status": "estimated",
+      "role": "holdout"
+    },
+    {
+      "anchor": "holdout-3",
+      "c": 1,
+      "error_pct": 0.7957516137014897,
+      "instrument": "cycle-timing-cohort-2",
+      "measured": 72.9019,
+      "measurement_status": "measured",
+      "metric": "cycle_ms",
+      "n": 1,
+      "predicted": 73.48201804566905,
+      "prediction_status": "estimated",
+      "role": "holdout"
+    },
+    {
+      "anchor": "holdout-4",
+      "c": 1,
+      "error_pct": 1.7027623996180408,
+      "instrument": "cycle-timing-cohort-2",
+      "measured": 82.0258,
+      "measurement_status": "measured",
+      "metric": "cycle_ms",
+      "n": 1,
+      "predicted": 83.4225044803859,
+      "prediction_status": "estimated",
+      "role": "holdout"
+    },
+    {
+      "anchor": "holdout-5",
+      "c": 1,
+      "error_pct": 3.7071967233272884,
+      "instrument": "cycle-timing-cohort-3",
+      "measured": 67.651,
+      "measurement_status": "measured",
+      "metric": "cycle_ms",
+      "n": 1,
+      "predicted": 70.15895565529814,
+      "prediction_status": "estimated",
+      "role": "holdout"
+    },
+    {
+      "anchor": "holdout-6",
+      "c": 1,
+      "error_pct": 2.5629140778111514,
+      "instrument": "cycle-timing-cohort-3",
+      "measured": 76.9012,
+      "measurement_status": "measured",
+      "metric": "cycle_ms",
+      "n": 1,
+      "predicted": 78.87211168080572,
+      "prediction_status": "estimated",
+      "role": "holdout"
+    }
+  ],
+  "scope": "held-out cycle timing only; no coverage guarantee"
+}

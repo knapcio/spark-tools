@@ -1,0 +1,499 @@
+{
+  "schema": 5,
+  "domains": {
+    "prose": {
+      "cycle_fit_ms": 73.48201804566905,
+      "survival": [
+        0.7642571516207988,
+        0.39119462267064287,
+        0.16617373809283872
+      ],
+      "draft_passes": 2,
+      "k4_fires_per_cycle": 0.09323583180987204,
+      "k4_survival_delta": [
+        -0.05961734373473637,
+        -0.03848542361527829,
+        -0.04482813960952872,
+        0.03290676416819013
+      ],
+      "domain_union_extra_ms": 0,
+      "status": "estimated from anonymised calibration numbers",
+      "acceptance_status": "estimated from anonymised calibration numbers",
+      "pass_fit_status": "estimated from anonymised calibration numbers"
+    },
+    "code": {
+      "cycle_fit_ms": 83.4225044803859,
+      "survival": [
+        0.8987137698617401,
+        0.725863446171172,
+        0.5442142791007916
+      ],
+      "draft_passes": 3,
+      "k4_fires_per_cycle": 0.44959128065395093,
+      "k4_survival_delta": [
+        0.016334800530985794,
+        -0.06543002864528746,
+        -0.04975197373017537,
+        0.3079019073569482
+      ],
+      "domain_union_extra_ms": 6.243612670817198,
+      "status": "estimated from anonymised calibration numbers",
+      "acceptance_status": "estimated from anonymised calibration numbers",
+      "pass_fit_status": "estimated from anonymised calibration numbers"
+    },
+    "structured": {
+      "cycle_fit_ms": 83.4225044803859,
+      "survival": [
+        0.9721362229102167,
+        0.7708978328173375,
+        0.5727554179566563
+      ],
+      "draft_passes": 3,
+      "k4_fires_per_cycle": 0.4931506849315068,
+      "k4_survival_delta": [
+        -0.009807455786929098,
+        -0.007199202680351124,
+        -0.03850884261419052,
+        0.3527397260273973
+      ],
+      "domain_union_extra_ms": 6.243612670817198,
+      "status": "estimated from anonymised calibration numbers",
+      "acceptance_status": "estimated from anonymised calibration numbers",
+      "pass_fit_status": "estimated from anonymised calibration numbers"
+    },
+    "json": {
+      "cycle_fit_ms": 83.4225044803859,
+      "survival": [
+        0.9721362229102167,
+        0.7708978328173375,
+        0.5727554179566563
+      ],
+      "draft_passes": 3,
+      "k4_fires_per_cycle": 0.4931506849315068,
+      "k4_survival_delta": [
+        -0.009807455786929098,
+        -0.007199202680351124,
+        -0.03850884261419052,
+        0.3527397260273973
+      ],
+      "domain_union_extra_ms": 6.243612670817198,
+      "status": "estimated from anonymised calibration numbers",
+      "acceptance_status": "estimated from anonymised calibration numbers",
+      "pass_fit_status": "estimated from anonymised calibration numbers"
+    }
+  },
+  "category_prior_ms": {
+    "host_sampling": 6.972416649049327,
+    "indexer": 0.22365191481190339,
+    "mla": 1.8439101362228394,
+    "collectives": 4.338872902839415,
+    "shared_dense": 11.133189365784702,
+    "vocab_head": 1.982996306388609,
+    "moe_routed": 30.671345612895102,
+    "router": 0.6093755136612923,
+    "attention_gemms": 13.230645350671914
+  },
+  "category_bytes": {
+    "moe_routed": 6423183360.000001,
+    "vocab_head": 475791360,
+    "attention_gemms": 2151604224.0
+  },
+  "expert_union_c1": 17.6,
+  "draft_pass_ms": 3.696873763899648,
+  "draft_pass_c_increment_ms": 0.65,
+  "empirical_arms": {
+    "prose": {
+      "DH": {
+        "cycle_delta_ms": -3.3230623903709073,
+        "survival_delta": [
+          -0.014820682702001986,
+          -0.02004176868788704,
+          -0.0003384704018435658,
+          0.0
+        ],
+        "status": "paired measured delta; transfer to other sampling settings estimated"
+      },
+      "K4": {
+        "cycle_delta_ms": 1.2894359887555709,
+        "survival_delta": [
+          -0.05961734373473637,
+          -0.03848542361527829,
+          -0.04482813960952872,
+          0.03290676416819013
+        ],
+        "status": "paired measured delta; transfer to other sampling settings estimated"
+      },
+      "BOTH": {
+        "cycle_delta_ms": -1.4002513953724645,
+        "survival_delta": [
+          -0.033879406467106965,
+          -0.028783200388826924,
+          -0.028025559653486576,
+          0.04119850187265917
+        ],
+        "status": "paired measured delta; transfer to other sampling settings estimated"
+      }
+    },
+    "code": {
+      "DH": {
+        "cycle_delta_ms": -4.55039279958018,
+        "survival_delta": [
+          0.019169411612736553,
+          -0.033940450817025125,
+          -0.03320415940063293,
+          0.0
+        ],
+        "status": "paired measured delta; transfer to other sampling settings estimated"
+      },
+      "K4": {
+        "cycle_delta_ms": 5.771464474126333,
+        "survival_delta": [
+          0.016334800530985794,
+          -0.06543002864528746,
+          -0.04975197373017537,
+          0.3079019073569482
+        ],
+        "status": "paired measured delta; transfer to other sampling settings estimated"
+      },
+      "BOTH": {
+        "cycle_delta_ms": 1.8057714579261983,
+        "survival_delta": [
+          0.0024800336275746515,
+          -0.04981084489281207,
+          -0.06738125262715422,
+          0.3224043715846995
+        ],
+        "status": "paired measured delta; transfer to other sampling settings estimated"
+      }
+    },
+    "structured": {
+      "DH": {
+        "cycle_delta_ms": -4.273627961748218,
+        "survival_delta": [
+          -0.00017360608778682618,
+          -0.010773222225437196,
+          -0.018238284000270055,
+          0.0
+        ],
+        "status": "paired measured delta; transfer to other sampling settings estimated"
+      },
+      "K4": {
+        "cycle_delta_ms": 7.0238121465317676,
+        "survival_delta": [
+          -0.009807455786929098,
+          -0.007199202680351124,
+          -0.03850884261419052,
+          0.3527397260273973
+        ],
+        "status": "paired measured delta; transfer to other sampling settings estimated"
+      },
+      "BOTH": {
+        "cycle_delta_ms": 3.360891492651106,
+        "survival_delta": [
+          -0.0031707056688373703,
+          0.004964236148179757,
+          -0.04516921106010452,
+          0.3724137931034483
+        ],
+        "status": "paired measured delta; transfer to other sampling settings estimated"
+      }
+    }
+  },
+  "execution": {
+    "1": {
+      "k": 3,
+      "policy": "kstop",
+      "verify_rows": 4,
+      "capture_layout": "reuse",
+      "pad_hygiene": true,
+      "status": "calibrated execution shape"
+    },
+    "2": {
+      "k": 2,
+      "policy": "uniform_k2",
+      "verify_rows": 6,
+      "capture_layout": "reuse",
+      "pad_hygiene": true,
+      "status": "calibrated execution shape"
+    },
+    "4": {
+      "k": 2,
+      "policy": "uniform_k2",
+      "verify_rows": 12,
+      "capture_layout": "reuse",
+      "pad_hygiene": true,
+      "status": "calibrated execution shape"
+    }
+  },
+  "closure_ms": -4.91813323445534,
+  "dram_ceiling_gbs": 270,
+  "collective_scale": {
+    "1": 1,
+    "2": 1.8,
+    "4": 2.28
+  },
+  "external_factors": {
+    "prose": 1.0834174005609032,
+    "code": 1.092804044159651,
+    "structured": 1.092804044159651,
+    "json": 1.092804044159651
+  },
+  "rigmark_factors": {
+    "code": {
+      "factor": 1.0507478056497728,
+      "fit_runs": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "held_out_run": 5,
+      "status": "independent instrument fit; fifth repeat held out"
+    },
+    "prose": {
+      "factor": 0.9067725710975552,
+      "fit_runs": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "held_out_run": 5,
+      "status": "independent instrument fit; fifth repeat held out"
+    },
+    "structured": {
+      "factor": 1.1175576637708495,
+      "fit_runs": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "held_out_run": 5,
+      "status": "independent instrument fit; fifth repeat held out"
+    }
+  },
+  "external_c_factors": {
+    "1": 1,
+    "2": 1,
+    "4": 1
+  },
+  "errors": {
+    "c1": {
+      "median_abs_pct": 2.9339633874025495,
+      "max_abs_pct": 19.388929580412274,
+      "n_anchors": 27,
+      "status": "measured error of estimated predictions; cohort/instrument-specific"
+    },
+    "c2_c4": {
+      "median_abs_pct": 5.366923294631837,
+      "max_abs_pct": 17.854762194179997,
+      "n_anchors": 10,
+      "status": "measured error of estimated predictions; cohort/instrument-specific"
+    }
+  },
+  "metric_errors": [
+    {
+      "median_abs_pct": 0.8521782266968536,
+      "max_abs_pct": 1.702743356462988,
+      "n_anchors": 6,
+      "status": "measured error of estimated predictions; cohort/instrument-specific",
+      "cohort": "holdout",
+      "concurrency": "c1",
+      "metric": "cycle_ms",
+      "instrument": "benchmark-1"
+    },
+    {
+      "median_abs_pct": 1.0254624002892454,
+      "max_abs_pct": 1.8468775990710506,
+      "n_anchors": 2,
+      "status": "measured error of estimated predictions; cohort/instrument-specific",
+      "cohort": "holdout",
+      "concurrency": "c1",
+      "metric": "cycle_ms",
+      "instrument": "benchmark-2"
+    },
+    {
+      "median_abs_pct": 1.2969357179186014,
+      "max_abs_pct": 6.071731665518665,
+      "n_anchors": 12,
+      "status": "measured error of estimated predictions; cohort/instrument-specific",
+      "cohort": "holdout",
+      "concurrency": "c1",
+      "metric": "cycle_ms",
+      "instrument": "benchmark-3"
+    },
+    {
+      "median_abs_pct": 1.9895912953694916,
+      "max_abs_pct": 3.7071806274844077,
+      "n_anchors": 10,
+      "status": "measured error of estimated predictions; cohort/instrument-specific",
+      "cohort": "holdout",
+      "concurrency": "c1",
+      "metric": "cycle_ms",
+      "instrument": "benchmark-4"
+    },
+    {
+      "median_abs_pct": 2.148054858816062,
+      "max_abs_pct": 5.08171482299411,
+      "n_anchors": 6,
+      "status": "measured error of estimated predictions; cohort/instrument-specific",
+      "cohort": "holdout",
+      "concurrency": "c1",
+      "metric": "committed_per_cycle",
+      "instrument": "benchmark-5"
+    },
+    {
+      "median_abs_pct": 2.6785773265071144,
+      "max_abs_pct": 3.380082226216352,
+      "n_anchors": 2,
+      "status": "measured error of estimated predictions; cohort/instrument-specific",
+      "cohort": "holdout",
+      "concurrency": "c1",
+      "metric": "committed_per_cycle",
+      "instrument": "benchmark-6"
+    },
+    {
+      "median_abs_pct": 2.7348258850020346,
+      "max_abs_pct": 13.94714173546474,
+      "n_anchors": 12,
+      "status": "measured error of estimated predictions; cohort/instrument-specific",
+      "cohort": "holdout",
+      "concurrency": "c1",
+      "metric": "committed_per_cycle",
+      "instrument": "benchmark-7"
+    },
+    {
+      "median_abs_pct": 2.5503860714261526,
+      "max_abs_pct": 13.428094923927159,
+      "n_anchors": 10,
+      "status": "measured error of estimated predictions; cohort/instrument-specific",
+      "cohort": "holdout",
+      "concurrency": "c1",
+      "metric": "committed_per_cycle",
+      "instrument": "benchmark-8"
+    },
+    {
+      "median_abs_pct": 3.514644466994943,
+      "max_abs_pct": 3.602072691926639,
+      "n_anchors": 2,
+      "status": "measured error of estimated predictions; cohort/instrument-specific",
+      "cohort": "holdout",
+      "concurrency": "c1",
+      "metric": "tok_s_per_stream",
+      "instrument": "benchmark-9"
+    },
+    {
+      "median_abs_pct": 2.9326964159079374,
+      "max_abs_pct": 8.254786804976488,
+      "n_anchors": 12,
+      "status": "measured error of estimated predictions; cohort/instrument-specific",
+      "cohort": "holdout",
+      "concurrency": "c1",
+      "metric": "tok_s_per_stream",
+      "instrument": "benchmark-10"
+    },
+    {
+      "median_abs_pct": 0.9602408546841024,
+      "max_abs_pct": 3.5786631504480138,
+      "n_anchors": 10,
+      "status": "measured error of estimated predictions; cohort/instrument-specific",
+      "cohort": "repeated-prompt-transfer",
+      "concurrency": "c1",
+      "metric": "cycle_ms",
+      "instrument": "benchmark-11"
+    },
+    {
+      "median_abs_pct": 6.322389881137069,
+      "max_abs_pct": 11.18144653153953,
+      "n_anchors": 10,
+      "status": "measured error of estimated predictions; cohort/instrument-specific",
+      "cohort": "repeated-prompt-transfer",
+      "concurrency": "c1",
+      "metric": "committed_per_cycle",
+      "instrument": "benchmark-12"
+    },
+    {
+      "median_abs_pct": 10.325581395348827,
+      "max_abs_pct": 10.325581395348827,
+      "n_anchors": 1,
+      "status": "measured error of estimated predictions; cohort/instrument-specific",
+      "cohort": "unknown-prompt-transfer",
+      "concurrency": "c1",
+      "metric": "tok_s_per_stream",
+      "instrument": "benchmark-13"
+    },
+    {
+      "median_abs_pct": 1.814268142681441,
+      "max_abs_pct": 1.8466493079347557,
+      "n_anchors": 3,
+      "status": "measured error of estimated predictions; cohort/instrument-specific",
+      "cohort": "unknown-prompt-transfer",
+      "concurrency": "c1",
+      "metric": "tok_s_per_stream",
+      "instrument": "benchmark-14"
+    },
+    {
+      "median_abs_pct": 3.5833707640864354,
+      "max_abs_pct": 19.388929580412274,
+      "n_anchors": 3,
+      "status": "measured error of estimated predictions; cohort/instrument-specific",
+      "cohort": "unknown-prompt-transfer",
+      "concurrency": "c1",
+      "metric": "tok_s_per_stream",
+      "instrument": "benchmark-15"
+    },
+    {
+      "median_abs_pct": 2.3820914089440928,
+      "max_abs_pct": 2.9339633874025495,
+      "n_anchors": 2,
+      "status": "measured error of estimated predictions; cohort/instrument-specific",
+      "cohort": "unknown-prompt-transfer",
+      "concurrency": "c1",
+      "metric": "tok_s_per_stream",
+      "instrument": "benchmark-16"
+    },
+    {
+      "median_abs_pct": 3.1175216003300035,
+      "max_abs_pct": 3.8384396584472347,
+      "n_anchors": 4,
+      "status": "measured error of estimated predictions; cohort/instrument-specific",
+      "cohort": "unknown-prompt-transfer",
+      "concurrency": "c1",
+      "metric": "tok_s_per_stream",
+      "instrument": "benchmark-17"
+    },
+    {
+      "median_abs_pct": 9.004470630608674,
+      "max_abs_pct": 12.269545663656967,
+      "n_anchors": 2,
+      "status": "measured error of estimated predictions; cohort/instrument-specific",
+      "cohort": "unknown-prompt-transfer",
+      "concurrency": "c2_c4",
+      "metric": "tok_s_per_stream",
+      "instrument": "benchmark-18"
+    },
+    {
+      "median_abs_pct": 4.777829306778231,
+      "max_abs_pct": 17.854762194179997,
+      "n_anchors": 8,
+      "status": "measured error of estimated predictions; cohort/instrument-specific",
+      "cohort": "unknown-prompt-transfer",
+      "concurrency": "c2_c4",
+      "metric": "tok_s_per_stream",
+      "instrument": "benchmark-19"
+    }
+  ],
+  "stack": "calibrated-nvfp4-k3",
+  "fit_protocol": "Disjoint fit and holdout prompts; separate instrument transfer fits. Four instrument repeats fit, fifth held out.",
+  "model": "GLM-5.3",
+  "tp": 4,
+  "shapes": {
+    "hidden_size": 6144,
+    "vocab_size": 154880,
+    "n_routed_experts": 256
+  },
+  "fit_prompt_hashes": [
+    "fit-example"
+  ]
+}

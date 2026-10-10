@@ -1,0 +1,47 @@
+{
+  "A2_pass": 98,
+  "A_pass": 100,
+  "A_rate": 0.8620689655172413,
+  "A_vs_A2": {
+    "fail_to_pass": 0,
+    "fail_to_pass_items": [],
+    "net_loss": 2,
+    "output_changed": 0,
+    "output_changed_items": [],
+    "pass_changed": 2,
+    "pass_to_fail": 2,
+    "pass_to_fail_items": [
+      "98",
+      "99"
+    ],
+    "raw_changed": 0
+  },
+  "A_vs_B": {
+    "fail_to_pass": 0,
+    "fail_to_pass_items": [],
+    "net_loss": 3,
+    "output_changed": 0,
+    "output_changed_items": [],
+    "pass_changed": 3,
+    "pass_to_fail": 3,
+    "pass_to_fail_items": [
+      "97",
+      "98",
+      "99"
+    ],
+    "raw_changed": 0
+  },
+  "B_pass": 97,
+  "binomial_SE_items": 3.713906763541038,
+  "decision": "PASS",
+  "interpretation": "Candidate loss is within the preregistered noise tolerance.",
+  "items": 116,
+  "noise_net_items": 2,
+  "prereg_sha256": "85cb6fdd1e338e77f12b499e265f3e8e427c70ed2f3229ad729c36a513cab1bd",
+  "threshold_items": 3.713906763541038,
+  "truncations": {
+    "A": 0,
+    "A2": 0,
+    "B": 0
+  }
+}

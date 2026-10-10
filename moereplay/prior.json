@@ -1,0 +1,48 @@
+{
+  "a_us": 12.5,
+  "b_us_per_distinct_local_expert": 21.46,
+  "status": "measured",
+  "coefficient_precision": "rounded OLS from EP analysis; historical approximation 20+21D is not the active prior",
+  "points": [
+    {
+      "M": 1,
+      "D": 8,
+      "median_us": 188.17440271377563
+    },
+    {
+      "M": 2,
+      "D": 9,
+      "median_us": 201.86079740524292
+    },
+    {
+      "M": 3,
+      "D": 9,
+      "median_us": 202.86079645156863
+    },
+    {
+      "M": 4,
+      "D": 10,
+      "median_us": 226.19999647140503
+    },
+    {
+      "M": 6,
+      "D": 11,
+      "median_us": 250.0831961631775
+    },
+    {
+      "M": 8,
+      "D": 11,
+      "median_us": 250.50240755081177
+    },
+    {
+      "M": 12,
+      "D": 17,
+      "median_us": 376.98559761047363
+    }
+  ],
+  "rmse_us": 2.534800713784701,
+  "source": {
+    "file": "anonymised calibration",
+    "scope": "real layer-3 fixed route graphs; no L2 flush; workload multiplicities unknown"
+  }
+}

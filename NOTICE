@@ -1,0 +1,11 @@
+spark-tools
+Copyright 2026 knapcio
+
+Original code and the CPU lab adaptations are licensed under Apache-2.0.
+The portable source repositories include knapcio's MIT recipe notice,
+retained in LICENSES/MIT-portable-tools.txt, alongside Apache-2.0 tool headers.
+The static compiler helpers retain their MIT terms;
+see LICENSES/MIT-static-checker.txt and file headers.
+No serving runtime, GPU kernel library, model weights, toolkit header or
+third-party benchmark prompt set is bundled. External tools keep their own
+licences. See CREDITS.md for the ideas and source lineage.

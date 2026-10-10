@@ -1,0 +1,8 @@
+{
+  "code_cycle_regression_max": 0.005,
+  "committed_ratio_min": 0.995,
+  "panels": 3,
+  "prompts_per_kind": 10,
+  "prose_saving_ms": 0.2,
+  "rule": "paired-cycle-v1"
+}

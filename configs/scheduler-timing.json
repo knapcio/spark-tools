@@ -1,0 +1,196 @@
+{
+  "schema": "sched-timing v2",
+  "prefill_fit": [
+    {
+      "tokens": 0,
+      "seconds": 0,
+      "evidence": "assumed origin"
+    },
+    {
+      "tokens": 8192,
+      "seconds": 8.973404022258249,
+      "evidence": "estimated nominal 8192 tokens / measured cold RigMark tok/s",
+      "source": "sample0/numeric-fit"
+    },
+    {
+      "tokens": 16154,
+      "seconds": 25.276711625047028,
+      "evidence": "measured cold repeat1 TTFT (fit anchor, includes overhead)",
+      "source": "sample0/numeric-fit"
+    },
+    {
+      "tokens": 127814,
+      "seconds": 167.3973736250773,
+      "evidence": "measured cold repeat1 TTFT (fit anchor, includes overhead)",
+      "source": "sample0/numeric-fit"
+    },
+    {
+      "tokens": 249837,
+      "seconds": 376.8277547089383,
+      "evidence": "measured cold repeat1 TTFT (fit anchor, includes overhead)",
+      "source": "sample0/numeric-fit"
+    }
+  ],
+  "cycle_table": {
+    "prose": [
+      {
+        "c": 1,
+        "k": 3,
+        "policy": "kstop",
+        "capture_layout": "reuse",
+        "M": 4,
+        "ms": 73.48201804566905,
+        "committed_per_cycle": 2.3216255123842804,
+        "survival": [
+          0.7642571516207988,
+          0.39119462267064287,
+          0.16617373809283872
+        ],
+        "evidence": "estimated",
+        "source": "tools/mac/cyclesim.Model.predict; effective serving K and reuse rows; context transfer assumed"
+      },
+      {
+        "c": 2,
+        "k": 2,
+        "policy": "uniform_k2",
+        "capture_layout": "reuse",
+        "M": 6,
+        "ms": 93.9377543127041,
+        "committed_per_cycle": 2.155451774291442,
+        "survival": [
+          0.7642571516207988,
+          0.39119462267064287
+        ],
+        "evidence": "estimated",
+        "source": "tools/mac/cyclesim.Model.predict; effective serving K and reuse rows; context transfer assumed"
+      },
+      {
+        "c": 4,
+        "k": 2,
+        "policy": "uniform_k2",
+        "capture_layout": "reuse",
+        "M": 12,
+        "ms": 141.87592369602345,
+        "committed_per_cycle": 2.155451774291442,
+        "survival": [
+          0.7642571516207988,
+          0.39119462267064287
+        ],
+        "evidence": "estimated",
+        "source": "tools/mac/cyclesim.Model.predict; effective serving K and reuse rows; context transfer assumed"
+      }
+    ],
+    "code": [
+      {
+        "c": 1,
+        "k": 3,
+        "policy": "kstop",
+        "capture_layout": "reuse",
+        "M": 4,
+        "ms": 83.4225044803859,
+        "committed_per_cycle": 3.1687914951337035,
+        "survival": [
+          0.8987137698617401,
+          0.725863446171172,
+          0.5442142791007916
+        ],
+        "evidence": "estimated",
+        "source": "tools/mac/cyclesim.Model.predict; effective serving K and reuse rows; context transfer assumed"
+      },
+      {
+        "c": 2,
+        "k": 2,
+        "policy": "uniform_k2",
+        "capture_layout": "reuse",
+        "M": 6,
+        "ms": 102.7675560299783,
+        "committed_per_cycle": 2.624577216032912,
+        "survival": [
+          0.8987137698617401,
+          0.725863446171172
+        ],
+        "evidence": "estimated",
+        "source": "tools/mac/cyclesim.Model.predict; effective serving K and reuse rows; context transfer assumed"
+      },
+      {
+        "c": 4,
+        "k": 2,
+        "policy": "uniform_k2",
+        "capture_layout": "reuse",
+        "M": 12,
+        "ms": 154.36314903765788,
+        "committed_per_cycle": 2.624577216032912,
+        "survival": [
+          0.8987137698617401,
+          0.725863446171172
+        ],
+        "evidence": "estimated",
+        "source": "tools/mac/cyclesim.Model.predict; effective serving K and reuse rows; context transfer assumed"
+      }
+    ]
+  },
+  "committed_per_cycle": {
+    "prose": {
+      "value": 2.368989039027311,
+      "evidence": "measured short c1; assumed stable for long-context replay",
+      "source": "sample0/numeric-fit"
+    },
+    "code": {
+      "value": 3.2366053658148237,
+      "evidence": "measured short c1; assumed stable for long-context replay",
+      "source": "sample0/numeric-fit"
+    }
+  },
+  "decode_context_scale_per_60k": 0.18,
+  "decode_context_evidence": "estimated from long-during-decode small-gap median 0.080..0.092 s at 60K vs short c1 0.0734 s",
+  "mixed_fit": {
+    "intercept_s": 0.53,
+    "seconds_per_token": 0.00115234375,
+    "evidence": "estimated fit of measured 4096/2048 long-gap medians, includes decode; not isolated GPU cost",
+    "source": "sample1/numeric-fit"
+  },
+  "cycle_provider": {
+    "provider": "cyclesim.Model.predict snapshot",
+    "evidence": "estimated cycle model import, not direct GPU cycle measurement"
+  },
+  "limits": [
+    "Separate adaptive 2048/4096 token/context/chunk-overhead fits; overhead assumed, APC transfer unsupported for ranking.",
+    "MTP acceptance and rollback are expected-value output boundaries, not native worker execution.",
+    "Two-deep serial device queue; no overlap speedup assumed.",
+    "C6 is memory-gated/unqualified."
+  ],
+  "run_partitions": {
+    "sample0": "in-sample",
+    "sample1": "in-sample",
+    "sample2": "holdout"
+  },
+  "prefill_chunk_model": {
+    "2048": {
+      "overhead_s": 0.53,
+      "seconds_per_token": 0.000357482411104417,
+      "context_seconds_per_token2": 1.169713768509288e-07,
+      "max_context": 16154,
+      "evidence": "estimated",
+      "overhead_evidence": "assumed",
+      "fit_sources": [
+        "sample0/numeric-fit",
+        "sample0/numeric-fit"
+      ],
+      "note": "fixed overhead assumed from long-during-decode intercept; token/context coefficients fit whole-run cold anchors"
+    },
+    "4096": {
+      "overhead_s": 0.53,
+      "seconds_per_token": 0.0009655333285266307,
+      "context_seconds_per_token2": 3.3090112883606638e-09,
+      "max_context": 249837,
+      "evidence": "estimated",
+      "overhead_evidence": "assumed",
+      "fit_sources": [
+        "sample0/numeric-fit",
+        "sample0/numeric-fit"
+      ],
+      "note": "fixed overhead assumed from long-during-decode intercept; token/context coefficients fit whole-run cold anchors"
+    }
+  },
+  "decode_context_source": "sample1/numeric-fit"
+}

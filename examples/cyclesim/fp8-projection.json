@@ -1,0 +1,11 @@
+{
+  "kernel_ms": {
+    "draft_graph": -1.50970368
+  },
+  "assumptions": {
+    "passes": 2,
+    "n": 6144,
+    "k": 12288,
+    "effective_gbs": 100
+  }
+}

@@ -1,0 +1,5 @@
+vllm:spec_decode_num_drafts_total 10
+vllm:spec_decode_num_draft_tokens_total 20
+vllm:spec_decode_num_accepted_tokens_total 12
+vllm:spec_decode_num_accepted_tokens_per_pos_total{position="0"} 8
+vllm:spec_decode_num_accepted_tokens_per_pos_total{position="1"} 4

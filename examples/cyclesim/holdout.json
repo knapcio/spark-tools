@@ -1,0 +1,76 @@
+{
+  "observations": [
+    {
+      "id": "holdout-1",
+      "role": "holdout",
+      "cycle_ms": 73.5428,
+      "domain": "prose",
+      "c": 1,
+      "arm": "OFF",
+      "instrument": "cycle-timing-cohort-1",
+      "prompt_hashes": [
+        "holdout-1"
+      ]
+    },
+    {
+      "id": "holdout-2",
+      "role": "holdout",
+      "cycle_ms": 82.1134,
+      "domain": "code",
+      "c": 1,
+      "arm": "OFF",
+      "instrument": "cycle-timing-cohort-1",
+      "prompt_hashes": [
+        "holdout-2"
+      ]
+    },
+    {
+      "id": "holdout-3",
+      "role": "holdout",
+      "cycle_ms": 72.9019,
+      "domain": "prose",
+      "c": 1,
+      "arm": "OFF",
+      "instrument": "cycle-timing-cohort-2",
+      "prompt_hashes": [
+        "holdout-3"
+      ]
+    },
+    {
+      "id": "holdout-4",
+      "role": "holdout",
+      "cycle_ms": 82.0258,
+      "domain": "code",
+      "c": 1,
+      "arm": "OFF",
+      "instrument": "cycle-timing-cohort-2",
+      "prompt_hashes": [
+        "holdout-4"
+      ]
+    },
+    {
+      "id": "holdout-5",
+      "role": "holdout",
+      "cycle_ms": 67.651,
+      "domain": "prose",
+      "c": 1,
+      "arm": "DH",
+      "instrument": "cycle-timing-cohort-3",
+      "prompt_hashes": [
+        "holdout-5"
+      ]
+    },
+    {
+      "id": "holdout-6",
+      "role": "holdout",
+      "cycle_ms": 76.9012,
+      "domain": "code",
+      "c": 1,
+      "arm": "DH",
+      "instrument": "cycle-timing-cohort-3",
+      "prompt_hashes": [
+        "holdout-6"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "fp8_projection": {
+    "prose_gain_pct": [
+      3.6,
+      3.9
+    ],
+    "code_gain_pct": [
+      5.0,
+      5.4
+    ],
+    "source": "https://github.com/knapcio/GLM-5.3-Int4-Int8Mix-TP4-4x-DGX-Spark/blob/main/docs/eh_proj.md"
+  },
+  "glue_lite": {
+    "prose_gain_pct": 0.43,
+    "code_gain_pct": 1.0,
+    "source": "https://github.com/knapcio/GLM-5.3-Int4-Int8Mix-TP4-4x-DGX-Spark/blob/main/docs/glue-lite.md"
+  }
+}

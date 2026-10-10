@@ -1,0 +1,10 @@
+cyclesim offline tooling
+
+Original code and portable adaptations: knapcio, Apache-2.0.
+Decode-cycle accounting, expert-union occupancy, residual closure and prefix
+survival follow the earlier simulator versions. Graph segmentation, interval
+union and ordinal rank wait follow the original offline profile analysis.
+Profiler formats: PyTorch Kineto/CUPTI and vLLM counters. Packed-weight shape
+context: IST-DASLab Marlin, Neural Magic and vLLM contributors. Collective
+classification context: Luke Alonso, Jason Cook and Local Inference Lab.
+No serving, scheduler, model weights, CUDA or profiler implementation is bundled.

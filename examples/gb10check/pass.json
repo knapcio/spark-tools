@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "target": "sm_121",
+  "thresholds": {
+    "max_registers": 128,
+    "max_spill_bytes": 0,
+    "max_shared_bytes": 101376,
+    "min_occupancy_pct": 25
+  },
+  "ptxas": "pass.ptxas",
+  "sass": "pass.sass",
+  "binary_resources": "pass.resources",
+  "kernels": {
+    "sample_copy": {
+      "threads": 128,
+      "dynamic_shared_bytes": 0
+    }
+  },
+  "ordering": {
+    "sass": {
+      "required": [
+        "BAR\\.SYNC",
+        "STG"
+      ],
+      "sequences": [
+        [
+          "LDS",
+          "BAR\\.SYNC",
+          "STG"
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "admission": true,
+  "admission_evidence": "assumed strict FIFO/64 queue/540s/block-rounded reservations, synthetic engine floor; cancel drain idle or 15s",
+  "batch_queue_depth": 2,
+  "completed": 2,
+  "cycle_provider": {
+    "evidence": "caller-supplied points",
+    "provider": "explicit cycle-table"
+  },
+  "decode_during_prefills": [],
+  "decode_during_prefills_tok_s": null,
+  "duration_s": 168.94302716624657,
+  "engine_capacity_refusals": 0,
+  "engine_kv_floor_tokens": 0,
+  "evidence": "estimated offline replay; no hardware prediction guarantee",
+  "execution_contract": "configured K3; c1 K3/kstop width4, c2/c4 uniform K2/reuse width3",
+  "max_decode_stall_s": 0.12998401881256427,
+  "max_num_seqs": 4,
+  "memory_gate": "configured serving max-num-seqs 4; no memory qualification",
+  "mixed_steps": 0,
+  "mode": "fast",
+  "no_first": 0,
+  "peak_batch_queue": 2,
+  "peak_reserved_tokens": 128448,
+  "policy": "fair:4096:40",
+  "prefill_throughput_evidence": "estimated uncached prompt tokens / charged prefill+mixed step time; excludes pure decode floors",
+  "prefill_throughput_tok_s": 762.3373502595799,
+  "queue_evidence": "audited two-deep schedule-ahead behavior; assumed serial device timing",
+  "queue_wait_s": {
+    "p50": 0.0,
+    "p90": 0.0,
+    "p99": 0.0
+  },
+  "requests": [
+    {
+      "admitted_s": 0,
+      "arrival_s": 0,
+      "cached_prefix_tokens": 0,
+      "end_s": 168.4281789797615,
+      "engine_queue_wait_s": 0,
+      "evidence": "estimated replay; output event timestamps assumed batch completion",
+      "first_s": 168.29819496094893,
+      "input_evidence": {
+        "arrival": "assumed",
+        "output": "assumed",
+        "prefix": "assumed",
+        "sizes": "assumed"
+      },
+      "kv_reservation": 128064,
+      "max_decode_stall_s": 0.12998401881256427,
+      "output_tokens": 2,
+      "prefill_tokens": 128000,
+      "prompt_tokens": 128000,
+      "queue_wait_s": 0,
+      "request_id": "id-559aead08264d5795d3909718cdd05abd49572e84fe55590eef31a88a08fdffd",
+      "session_id": "id-559aead08264d5795d3909718cdd05abd49572e84fe55590eef31a88a08fdffd",
+      "started_s": 0,
+      "status": "completed",
+      "submitted_s": 0,
+      "ttft_s": 168.29819496094893
+    },
+    {
+      "admitted_s": 10,
+      "arrival_s": 10,
+      "cached_prefix_tokens": 0,
+      "end_s": 168.86947597771209,
+      "engine_queue_wait_s": 149.5269341184217,
+      "evidence": "estimated replay; output event timestamps assumed batch completion",
+      "first_s": 168.29819496094893,
+      "input_evidence": {
+        "arrival": "assumed",
+        "output": "assumed",
+        "prefix": "assumed",
+        "sizes": "assumed"
+      },
+      "kv_reservation": 384,
+      "max_decode_stall_s": 0.12998401881256427,
+      "output_tokens": 16,
+      "prefill_tokens": 300,
+      "prompt_tokens": 300,
+      "queue_wait_s": 0,
+      "request_id": "id-df7e70e5021544f4834bbee64a9e3789febc4be81470df629cad6ddb03320a5c",
+      "session_id": "id-df7e70e5021544f4834bbee64a9e3789febc4be81470df629cad6ddb03320a5c",
+      "started_s": 159.5269341184217,
+      "status": "completed",
+      "submitted_s": 10,
+      "ttft_s": 158.29819496094893
+    }
+  ],
+  "schema": "schedreplay-result v1",
+  "sequence_evidence": "independent stdlib metadata subset",
+  "steps": 40,
+  "timing_sources": [
+    "estimated chunk size/context model; assumed per-chunk overhead and additive multi-prefill work",
+    "estimated cycle-table interpolation; assumed width/context/acceptance transfer"
+  ],
+  "timing_supported": false,
+  "total_requests": 2,
+  "ttft_by_prompt_bucket": {
+    "0-8K": {
+      "n": 1,
+      "no_first": 0,
+      "p50": 158.29819496094893,
+      "p90": 158.29819496094893,
+      "p99": 158.29819496094893,
+      "submitted": 1
+    },
+    "32K-128K": {
+      "n": 1,
+      "no_first": 0,
+      "p50": 168.29819496094893,
+      "p90": 168.29819496094893,
+      "p99": 168.29819496094893,
+      "submitted": 1
+    }
+  },
+  "ttft_s": {
+    "p50": 163.29819496094893,
+    "p90": 167.29819496094893,
+    "p99": 168.19819496094894
+  },
+  "unsupported_timing_regimes": [
+    "multiple isolated prefills lack joint timing"
+  ],
+  "verify_width": 4,
+  "workload": {
+    "evidence": "assumed",
+    "format": "sched-workload v1",
+    "source": "synthetic"
+  }
+}

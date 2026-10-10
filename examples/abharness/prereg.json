@@ -1,0 +1,17 @@
+{
+  "configuration": {
+    "code_cycle_regression_max": 0.005,
+    "committed_ratio_min": 0.995,
+    "panels": 3,
+    "prompts_per_kind": 10,
+    "prose_saving_ms": 0.2,
+    "rule": "paired-cycle-v1"
+  },
+  "schema": 1,
+  "sources": {
+    "cli.py": "265fcb61000c6c4d443b71305651539a8e23d7f874a5bad3ff19ff0ef3b4e867",
+    "config.py": "6752948fd75efe68f74bde9489f5a6fcf54dacc969cbba0d580d6b5749a40a1a",
+    "logic.py": "c37aa159653fa1f2567c4ceed6672aad9c6627a9a8ff7808c50b07fff4d55ebf",
+    "prereg.py": "2f853296435735dc6f4555f571bed126141e5919875fad17f9e352f9fcc51c3a"
+  }
+}

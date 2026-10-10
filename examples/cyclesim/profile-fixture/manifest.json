@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "mode": "profile",
+  "c": 1,
+  "k": 3,
+  "domain": "prose",
+  "boot": "fixture",
+  "head": "bf16",
+  "policy": "kstop",
+  "capture_layout": "reuse",
+  "pad_hygiene": true,
+  "unprofiled_cycle_ms": 1.0,
+  "files": [
+    {
+      "path": "prom-before.prom",
+      "role": "prom_before",
+      "sha256": "0b476b7994f7713788e26f1d7396e7a815ec94ef8cfe05bc72d7d0de890d7017"
+    },
+    {
+      "path": "prom-after.prom",
+      "role": "prom_after",
+      "sha256": "a2e0a5866a708d955509370dd22f20076fe15dfa229a428b67a46f351dab1f48"
+    },
+    {
+      "path": "client-timings.jsonl",
+      "role": "client_timings",
+      "sha256": "af55e14257cde518855bfb84314c713eca6f1c7c2df871ead9896e38b979df96"
+    },
+    {
+      "path": "env.json",
+      "role": "env",
+      "sha256": "4d86baa2ffa3e2dd5b78023e46301d22f00ca32072f9614654dc6c07e541cdf6"
+    },
+    {
+      "path": "graph-sizes.json",
+      "role": "graph_sizes",
+      "sha256": "411e0b183cccba42df7f9e6d7f5606f928e6cc6156413506e5e2e5ca3fd199ab"
+    },
+    {
+      "path": "A1.json",
+      "role": "a1",
+      "sha256": "d2233db7f43bbb209a8ea77bbd5095421c32297bb5f119c81e9e44b0ba2fa1ca"
+    },
+    {
+      "path": "A2.json",
+      "role": "a2",
+      "sha256": "d2233db7f43bbb209a8ea77bbd5095421c32297bb5f119c81e9e44b0ba2fa1ca"
+    },
+    {
+      "path": "prompts.json",
+      "role": "prompts",
+      "sha256": "e98aee79bc433e6130e14257f73e7a741394f336e95648c4e22d418e65b723ab"
+    },
+    {
+      "path": "P.json",
+      "role": "profile_client",
+      "sha256": "d2233db7f43bbb209a8ea77bbd5095421c32297bb5f119c81e9e44b0ba2fa1ca"
+    },
+    {
+      "path": "rank0.pt.trace.json",
+      "role": "trace",
+      "rank": 0,
+      "sha256": "adb90ed455116f2c3c7f99cc23072da3353b7a9c5e0278ef47ac33d104eaabae"
+    },
+    {
+      "path": "rank1.pt.trace.json",
+      "role": "trace",
+      "rank": 1,
+      "sha256": "7dcbae1dfc4caff86cc074c76c305128c2ddc31226edcc97aecd61a5ad8b8a43"
+    },
+    {
+      "path": "rank2.pt.trace.json",
+      "role": "trace",
+      "rank": 2,
+      "sha256": "6a42a636eb6d1dc7562b6062891806cc1867f33964f1a89e4bf368b9a93c78bc"
+    },
+    {
+      "path": "rank3.pt.trace.json",
+      "role": "trace",
+      "rank": 3,
+      "sha256": "a72fe26adeffec9069ae599754bbac8b21401fe5175462f5a8462cb9cf486bd3"
+    }
+  ],
+  "routing_capture": null,
+  "status": "measured file hashes; metadata operator supplied"
+}

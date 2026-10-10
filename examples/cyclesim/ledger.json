@@ -1,0 +1,594 @@
+{
+  "schema": 1,
+  "stack": "calibrated-nvfp4-k3",
+  "tp": 4,
+  "rows": [
+    {
+      "group": "attention",
+      "projection": "q_a",
+      "n_per_rank": 2048,
+      "k_per_rank": 6144,
+      "layers": 77,
+      "format": "nvfp4_s16",
+      "weight_bytes_per_layer_per_rank": 7077892,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "attention",
+      "projection": "kv_a",
+      "n_per_rank": 576,
+      "k_per_rank": 6144,
+      "layers": 77,
+      "format": "nvfp4_s16",
+      "weight_bytes_per_layer_per_rank": 1990660,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "attention",
+      "projection": "q_b",
+      "n_per_rank": 4096,
+      "k_per_rank": 2048,
+      "layers": 77,
+      "format": "nvfp4_s16",
+      "weight_bytes_per_layer_per_rank": 4718596,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "attention",
+      "projection": "o_proj",
+      "n_per_rank": 6144,
+      "k_per_rank": 4096,
+      "layers": 77,
+      "format": "nvfp4_s16",
+      "weight_bytes_per_layer_per_rank": 14155780,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "attention",
+      "projection": "kv_b",
+      "n_per_rank": 7168,
+      "k_per_rank": 512,
+      "layers": 77,
+      "format": "nvfp4_s16",
+      "weight_bytes_per_layer_per_rank": 2064388,
+      "decode_read": false,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "shared",
+      "projection": "gate",
+      "n_per_rank": 512,
+      "k_per_rank": 6144,
+      "layers": 75,
+      "format": "nvfp4_s16",
+      "weight_bytes_per_layer_per_rank": 1769476,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "shared",
+      "projection": "up",
+      "n_per_rank": 512,
+      "k_per_rank": 6144,
+      "layers": 75,
+      "format": "nvfp4_s16",
+      "weight_bytes_per_layer_per_rank": 1769476,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "shared",
+      "projection": "down",
+      "n_per_rank": 6144,
+      "k_per_rank": 512,
+      "layers": 75,
+      "format": "nvfp4_s16",
+      "weight_bytes_per_layer_per_rank": 1769476,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "dense",
+      "projection": "gate",
+      "n_per_rank": 3072,
+      "k_per_rank": 6144,
+      "layers": 2,
+      "format": "nvfp4_s16",
+      "weight_bytes_per_layer_per_rank": 10616836,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "dense",
+      "projection": "up",
+      "n_per_rank": 3072,
+      "k_per_rank": 6144,
+      "layers": 2,
+      "format": "nvfp4_s16",
+      "weight_bytes_per_layer_per_rank": 10616836,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "dense",
+      "projection": "down",
+      "n_per_rank": 6144,
+      "k_per_rank": 3072,
+      "layers": 2,
+      "format": "nvfp4_s16",
+      "weight_bytes_per_layer_per_rank": 10616836,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "layer0_attention",
+      "projection": "q_a",
+      "n_per_rank": 2048,
+      "k_per_rank": 6144,
+      "layers": 1,
+      "format": "bf16",
+      "weight_bytes_per_layer_per_rank": 25165824,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "layer0_attention",
+      "projection": "kv_a",
+      "n_per_rank": 576,
+      "k_per_rank": 6144,
+      "layers": 1,
+      "format": "bf16",
+      "weight_bytes_per_layer_per_rank": 7077888,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "layer0_attention",
+      "projection": "q_b",
+      "n_per_rank": 4096,
+      "k_per_rank": 2048,
+      "layers": 1,
+      "format": "bf16",
+      "weight_bytes_per_layer_per_rank": 16777216,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "layer0_attention",
+      "projection": "o_proj",
+      "n_per_rank": 6144,
+      "k_per_rank": 4096,
+      "layers": 1,
+      "format": "bf16",
+      "weight_bytes_per_layer_per_rank": 50331648,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "layer0_attention",
+      "projection": "kv_b",
+      "n_per_rank": 7168,
+      "k_per_rank": 512,
+      "layers": 1,
+      "format": "bf16",
+      "weight_bytes_per_layer_per_rank": 7340032,
+      "decode_read": false,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "layer0_dense",
+      "projection": "gate",
+      "n_per_rank": 3072,
+      "k_per_rank": 6144,
+      "layers": 1,
+      "format": "bf16",
+      "weight_bytes_per_layer_per_rank": 37748736,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "layer0_dense",
+      "projection": "up",
+      "n_per_rank": 3072,
+      "k_per_rank": 6144,
+      "layers": 1,
+      "format": "bf16",
+      "weight_bytes_per_layer_per_rank": 37748736,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "layer0_dense",
+      "projection": "down",
+      "n_per_rank": 6144,
+      "k_per_rank": 3072,
+      "layers": 1,
+      "format": "bf16",
+      "weight_bytes_per_layer_per_rank": 37748736,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "experts",
+      "projection": "gate",
+      "n_per_rank": 512,
+      "k_per_rank": 6144,
+      "layers": 75,
+      "format": "int4_g128",
+      "weight_bytes_per_layer_per_rank": 1622016,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "experts",
+      "projection": "up",
+      "n_per_rank": 512,
+      "k_per_rank": 6144,
+      "layers": 75,
+      "format": "int4_g128",
+      "weight_bytes_per_layer_per_rank": 1622016,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "experts",
+      "projection": "down",
+      "n_per_rank": 6144,
+      "k_per_rank": 512,
+      "layers": 75,
+      "format": "int4_g128",
+      "weight_bytes_per_layer_per_rank": 1622016,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "mtp_attention",
+      "projection": "q_a",
+      "n_per_rank": 2048,
+      "k_per_rank": 6144,
+      "layers": 1,
+      "format": "nvfp4_s16",
+      "weight_bytes_per_layer_per_rank": 7077892,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "mtp_attention",
+      "projection": "kv_a",
+      "n_per_rank": 576,
+      "k_per_rank": 6144,
+      "layers": 1,
+      "format": "nvfp4_s16",
+      "weight_bytes_per_layer_per_rank": 1990660,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "mtp_attention",
+      "projection": "q_b",
+      "n_per_rank": 4096,
+      "k_per_rank": 2048,
+      "layers": 1,
+      "format": "nvfp4_s16",
+      "weight_bytes_per_layer_per_rank": 4718596,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "mtp_attention",
+      "projection": "o_proj",
+      "n_per_rank": 6144,
+      "k_per_rank": 4096,
+      "layers": 1,
+      "format": "nvfp4_s16",
+      "weight_bytes_per_layer_per_rank": 14155780,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "mtp_attention",
+      "projection": "kv_b",
+      "n_per_rank": 7168,
+      "k_per_rank": 512,
+      "layers": 1,
+      "format": "nvfp4_s16",
+      "weight_bytes_per_layer_per_rank": 2064388,
+      "decode_read": false,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "mtp_shared",
+      "projection": "gate",
+      "n_per_rank": 512,
+      "k_per_rank": 6144,
+      "layers": 1,
+      "format": "nvfp4_s16",
+      "weight_bytes_per_layer_per_rank": 1769476,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "mtp_shared",
+      "projection": "up",
+      "n_per_rank": 512,
+      "k_per_rank": 6144,
+      "layers": 1,
+      "format": "nvfp4_s16",
+      "weight_bytes_per_layer_per_rank": 1769476,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "mtp_shared",
+      "projection": "down",
+      "n_per_rank": 6144,
+      "k_per_rank": 512,
+      "layers": 1,
+      "format": "nvfp4_s16",
+      "weight_bytes_per_layer_per_rank": 1769476,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "mtp_experts",
+      "projection": "gate",
+      "n_per_rank": 512,
+      "k_per_rank": 6144,
+      "layers": 1,
+      "format": "nvfp4_s16",
+      "weight_bytes_per_layer_per_rank": 1769476,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "mtp_experts",
+      "projection": "up",
+      "n_per_rank": 512,
+      "k_per_rank": 6144,
+      "layers": 1,
+      "format": "nvfp4_s16",
+      "weight_bytes_per_layer_per_rank": 1769476,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "mtp_experts",
+      "projection": "down",
+      "n_per_rank": 6144,
+      "k_per_rank": 512,
+      "layers": 1,
+      "format": "nvfp4_s16",
+      "weight_bytes_per_layer_per_rank": 1769476,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "mtp_eh",
+      "projection": "eh_proj",
+      "n_per_rank": 6144,
+      "k_per_rank": 12288,
+      "layers": 1,
+      "format": "bf16",
+      "weight_bytes_per_layer_per_rank": 150994944,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "router",
+      "projection": "gate",
+      "n_per_rank": 256,
+      "k_per_rank": 6144,
+      "layers": 76,
+      "format": "fp32",
+      "weight_bytes_per_layer_per_rank": 6291456,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "indexer",
+      "projection": "wq_b",
+      "n_per_rank": 4096,
+      "k_per_rank": 2048,
+      "layers": 21,
+      "format": "bf16",
+      "weight_bytes_per_layer_per_rank": 16777216,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "indexer",
+      "projection": "wk",
+      "n_per_rank": 128,
+      "k_per_rank": 6144,
+      "layers": 21,
+      "format": "bf16",
+      "weight_bytes_per_layer_per_rank": 1572864,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "indexer",
+      "projection": "weights_proj",
+      "n_per_rank": 32,
+      "k_per_rank": 6144,
+      "layers": 21,
+      "format": "bf16",
+      "weight_bytes_per_layer_per_rank": 393216,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "absorbed_ukuv",
+      "projection": "UK",
+      "n_per_rank": 4096,
+      "k_per_rank": 512,
+      "layers": 78,
+      "format": "bf16",
+      "weight_bytes_per_layer_per_rank": 4194304,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "absorbed_ukuv",
+      "projection": "UV",
+      "n_per_rank": 512,
+      "k_per_rank": 3072,
+      "layers": 78,
+      "format": "bf16",
+      "weight_bytes_per_layer_per_rank": 3145728,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "target_head",
+      "projection": "head",
+      "n_per_rank": 38720,
+      "k_per_rank": 6144,
+      "layers": 1,
+      "format": "bf16",
+      "weight_bytes_per_layer_per_rank": 475791360,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "draft_head",
+      "projection": "head",
+      "n_per_rank": 38720,
+      "k_per_rank": 6144,
+      "layers": 1,
+      "format": "bf16",
+      "weight_bytes_per_layer_per_rank": 475791360,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    },
+    {
+      "group": "draft_head_DH",
+      "projection": "head",
+      "n_per_rank": 38720,
+      "k_per_rank": 6144,
+      "layers": 1,
+      "format": "nvfp4_s16",
+      "weight_bytes_per_layer_per_rank": 133816324,
+      "decode_read": true,
+      "status": "derived",
+      "basis": "model dimensions + release nvfp4 format/inventory; ignores reloads and activation traffic"
+    }
+  ],
+  "vocab_head_bytes": 475791360,
+  "head_bytes": {
+    "target": {
+      "bf16": 475791360
+    },
+    "draft": {
+      "bf16": 475791360,
+      "nvfp4": 133816324
+    }
+  },
+  "draft_expert_union": {
+    "1": 8,
+    "2": 16,
+    "4": 32,
+    "status": "assumed; topk_ids required"
+  },
+  "kv": {
+    "mla_bytes_per_token_layer": 368,
+    "indexer_bytes_per_token_layer": 132,
+    "mla_layers": 79,
+    "indexer_layers": 22,
+    "status": "derived",
+    "read_tokens_per_cycle": "unknown: capture context and selected MLA pages required"
+  },
+  "expert_union": {
+    "1": 17.6,
+    "2": 42.5,
+    "4": 59.0,
+    "status": "assumed",
+    "basis": "historical routing union prior; topk_ids capture needed"
+  },
+  "cycle_budgets": {
+    "1": {
+      "target": {
+        "marlin_moe": 6423183360.000001,
+        "nvfp4_gemm": 2613438572
+      },
+      "draft": {
+        "nvfp4_gemm": 33251356,
+        "marlin_moe": 42467424,
+        "bf16_gemm": 150994944
+      }
+    },
+    "2": {
+      "target": {
+        "marlin_moe": 15510528000.0,
+        "nvfp4_gemm": 2613438572
+      },
+      "draft": {
+        "nvfp4_gemm": 33251356,
+        "marlin_moe": 84934848,
+        "bf16_gemm": 150994944
+      }
+    },
+    "4": {
+      "target": {
+        "marlin_moe": 21532262400.0,
+        "nvfp4_gemm": 2613438572
+      },
+      "draft": {
+        "nvfp4_gemm": 33251356,
+        "marlin_moe": 169869696,
+        "bf16_gemm": 150994944
+      }
+    }
+  },
+  "limits": [
+    "Class traffic apportioned across kernel names by calls, not shape-resolved CUPTI.",
+    "Working-set flags are assumptions, never verified L2 residency.",
+    "No estimated GB/s for unbound attention/KV, dense/indexer or elementwise kernels."
+  ]
+}
