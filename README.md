@@ -1,4 +1,4 @@
-# spark-tools
+# Spark Tools
 
 A simulator and lab for testing runtime ideas and statically checking kernel
 changes for NVIDIA GB10 / DGX Spark. The simulator, `cyclesim`, models the cost
