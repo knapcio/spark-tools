@@ -28,10 +28,16 @@ def test_sdist_contains_public_docs_configs_examples_and_smoke(tmp_path):
         names = {name.split('/', 1)[1] for name in package.getnames() if '/' in name}
     required = {
         'CREDITS.md',
+        'CHANGELOG.md',
+        'tests/AUDIT_REGRESSIONS.md',
+        'tests/run_examples.sh',
         'configs/glm53-tp4.json',
         'docs/scope.md',
         'examples/cyclesim/calibration.json',
         'examples/moereplay/run.py',
+        'examples/exl3-tensorfold/README.md',
+        'docs/exl3-tensorfold.md',
+        'LICENSES/MIT-exllamav3.txt',
         'tests/smoke_examples.py',
     }
     assert required <= names

@@ -52,6 +52,9 @@ def main():
     invoke(['lab', 'acceptance', '--before', 'examples/lab/before.prom',
             '--after', 'examples/lab/after.prom', '--k', '2'], snapshot='examples/lab/expected-acceptance.json')
     invoke(['lab', 'sha256', 'examples/lab/before.prom'], snapshot='examples/lab/expected-hash.json')
+    invoke(['lab', 'exl3', '--help'])
+    invoke(['lab', 'exlr8', '--help'])
+    invoke(['lab', 'tensorfold', '--help'])
     if importlib.util.find_spec('torch') and importlib.util.find_spec('numpy'):
         with tempfile.TemporaryDirectory(prefix='spark-example-') as output:
             invoke(['lab','rankharness','run','examples/rankharness/toy_toggle.py','--cases','none,invalid_one',

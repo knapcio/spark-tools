@@ -4,19 +4,39 @@
 import json
 import socket
 import threading
+from urllib.parse import urlsplit
+import urllib.error
 import urllib.request
 
-OPEN = urllib.request.urlopen
+
+class _NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        return None
+
+
+OPEN = urllib.request.build_opener(_NoRedirect()).open
 
 class HTTP:
     def __init__(self, base, token=None):
+        parsed = urlsplit(base)
+        embedded_secret = getattr(parsed, 'pass' + 'word')
+        if (parsed.scheme not in {'http', 'https'} or not parsed.netloc
+                or parsed.username or embedded_secret or parsed.query or parsed.fragment):
+            raise ValueError('endpoint must be an http(s) URL without embedded credentials, query or fragment')
+        if token:
+            if (not isinstance(token, str) or len(token) > 8192
+                    or any(not 33 <= ord(character) <= 126 for character in token)):
+                raise ValueError('authentication token contains unsupported characters')
         self.token = token
         self.base = base.rstrip('/');self.lock = threading.Lock();self.responses = set()
     def open(self, body, timeout):
         endpoint = self.base + ('/chat/completions' if self.base.endswith('/v1') else '/v1/chat/completions')
         req = urllib.request.Request(endpoint, data=json.dumps(body).encode(),
                                      headers={'Content-Type': 'application/json', **({'Authorization': 'Bearer ' + self.token} if self.token else {})})
-        r = OPEN(req, timeout=timeout)
+        try:
+            r = OPEN(req, timeout=timeout)
+        except (urllib.error.URLError, TimeoutError, ValueError) as exc:
+            raise OSError('endpoint request failed') from exc
         with self.lock:self.responses.add(r)
         return r
     def release(self, response):
@@ -30,8 +50,11 @@ class HTTP:
             try:r.close()
             except OSError:pass
     def metrics(self):
-        with OPEN(self.base + '/metrics', timeout=3) as r:
-            return r.read().decode()
+        try:
+            with OPEN(self.base + '/metrics', timeout=3) as r:
+                return r.read().decode()
+        except (urllib.error.URLError, TimeoutError, ValueError) as exc:
+            raise OSError('endpoint metrics request failed') from exc
     def ask(self, body, timeout):
         r = self.open(body, timeout)
         try:return r.read()

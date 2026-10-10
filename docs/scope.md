@@ -23,8 +23,22 @@ the examples are the existing test fixtures and saved outputs.
 
 The installed tool commands are `gb10check`, `cyclesim`, `moereplay`, `lab`,
 `abharness` and `qpanel`. The `lab` command delegates `schedreplay` and
-`rankharness` to the existing replay CLIs and exposes `sha256` and `acceptance`
-for file/counter utilities. `spark-export-audit` is the release check.
+`rankharness` to the existing replay CLIs, exposes `exl3`, `exlr8` and
+`tensorfold` adapters, and provides `sha256` and `acceptance` file/counter utilities.
+`spark-export-audit` is the release check.
+
+The EXL3 adapter validates format declarations, bounded safetensors headers,
+trellis geometry, scale layouts and codebook marker values without reading
+weight payloads. It does not evaluate quantization quality or execute a kernel.
+The EXLR8 adapter pins a remote Hugging Face revision, validates LFS weight
+identities and manifests, recomputes the release set ID, checks index-slice
+coverage, checks every expert-index header and samples other headers with
+bounded byte ranges. It does not download or
+hash weight payloads and does not execute the mandatory E4M3-rounded decoder.
+The TensorFold adapter inventories a supplied source/install tree and probes a
+supplied OpenAI-compatible endpoint. It never discovers machines, changes a
+runtime or stores generated text. Draft/serial equality covers only the exact
+probe request and is not a general correctness proof.
 
 MoE replay preserves the existing 256-expert, top-8, four-rank geometry and
 packed-weight shape. Its synthetic example uses assumed routes and anonymised
@@ -36,5 +50,9 @@ processes and do not measure GPU memory or GPU collective behavior.
 
 The static compiler path requires a user-supplied compatible CUDA toolkit
 image. Parse-only examples and CPU tests work without it. CUDA compilation,
-GPU correctness, real endpoint evaluation and Linux execution have not been
-validated by the local Mac smoke check.
+GPU correctness remains outside the CPU smoke check. The TensorFold adapters
+were additionally checked against a live single-node TensorFold deployment on
+GB10: its source/EXL3 inventory and a bounded draft-off/draft-on API probe
+passed. The public EXLR8 GLM-5.3 release passed the metadata/manifest/header
+inspection without a weight download. Neither result is a throughput, quality
+or multi-node qualification.

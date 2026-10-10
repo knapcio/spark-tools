@@ -12,11 +12,20 @@ def main(argv=None):
     if args and args[0] == "rankharness":
         from lab.rankharness.cli import main as run
         return run(args[1:])
+    if args and args[0] == "exl3":
+        from lab.exl3.cli import main as run
+        return run(args[1:])
+    if args and args[0] == "exlr8":
+        from lab.exlr8.cli import main as run
+        return run(args[1:])
+    if args and args[0] == "tensorfold":
+        from lab.tensorfold.cli import main as run
+        return run(args[1:])
     if args and args[0] in {"sha256", "acceptance"}:
         from lab.cli import main as run
         return run(args)
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=["schedreplay", "rankharness", "sha256", "acceptance"],
+    parser.add_argument("command", choices=["schedreplay", "rankharness", "exl3", "exlr8", "tensorfold", "sha256", "acceptance"],
                         help="choose a utility; add --help after it for its options")
     parser.parse_args(args)
     return 0

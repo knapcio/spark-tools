@@ -11,7 +11,7 @@
   "sources": {
     "cli.py": "d90ad8a64a326e1ba1806e5f05c75e7d58da86a6b8a244218da5a2b0c0fdc227",
     "config.py": "6752948fd75efe68f74bde9489f5a6fcf54dacc969cbba0d580d6b5749a40a1a",
-    "endpoint.py": "68cc9246925557e044a627e95c8fdf7b7c8b00587542fbf588af2862e0a10059",
+    "endpoint.py": "cbaa1400c40245d33d4c4ef2b5b6e0c4c524033cc5d6a8eaeae3af4760ebea03",
     "logic.py": "9321aeae0701a741b893db1963e7b63dcb357b869b64f06267231d298890a4d7",
     "prereg.py": "2f853296435735dc6f4555f571bed126141e5919875fad17f9e352f9fcc51c3a"
   }

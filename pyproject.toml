@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "spark-tools"
-version = "0.1.0"
-description = "Offline runtime experiments and static GB10 kernel checks"
+version = "0.2.0"
+description = "Offline runtime experiments, EXL3/EXLR8/TensorFold checks and static GB10 kernel checks"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "Apache-2.0"
