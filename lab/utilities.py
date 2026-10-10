@@ -75,6 +75,13 @@ class JsonStream:
         while True:
             try:
                 value, end = self.decoder.raw_decode(self.buf, self.pos)
+                # raw_decode accepts the integer prefix of an unfinished
+                # fraction/exponent, even with '.' or 'e' already buffered.
+                if (isinstance(value, (int, float)) and not isinstance(value, bool)
+                        and end < len(self.buf) and self.buf[end] in '.eE'):
+                    if not self.eof and self.more():
+                        continue
+                    raise ValueError('malformed or truncated JSON number')
                 # A scalar at a chunk boundary may be incomplete (e.g. 12|34).
                 if end == len(self.buf) and not self.eof:
                     if self.more():

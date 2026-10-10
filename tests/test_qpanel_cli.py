@@ -83,6 +83,31 @@ def test_run_uses_frozen_endpoint_body_and_cleans_up_on_failure(tmp_path, monkey
     assert not output.exists()
 
 
+@pytest.mark.parametrize('content', [None, False, 0, []])
+def test_run_rejects_missing_or_non_string_content(content):
+    config = {'tasks': [{'key': 'probe', 'body': {}, 'expected': ''}]}
+
+    class Transport:
+        def ask(self, body, timeout):
+            message = {} if content is None else {'content': content}
+            return json.dumps({'choices': [{'message': message, 'finish_reason': 'stop'}]}).encode()
+
+    with pytest.raises(ValueError, match='content'):
+        cli.run(config, 'A', Transport())
+
+
+def test_run_preserves_explicit_empty_string_content():
+    config = {'tasks': [{'key': 'probe', 'body': {}, 'expected': ''}]}
+
+    class Transport:
+        def ask(self, body, timeout):
+            return json.dumps({'choices': [{'message': {'content': ''}, 'finish_reason': 'stop'}]}).encode()
+
+    result = cli.run(config, 'A', Transport())
+    assert result['results'][0]['pass'] is True
+    assert result['results'][0]['output']['content'] == ''
+
+
 def test_quality_failure_returns_nonzero(tmp_path, capsys):
     args = ['decide', '--prereg', str(EXAMPLE / 'prereg.json')]
     for arm in ('A', 'A2', 'B'):

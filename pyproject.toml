@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -8,13 +8,14 @@ version = "0.1.0"
 description = "Offline runtime experiments and static GB10 kernel checks"
 readme = "README.md"
 requires-python = ">=3.10"
-license = {file = "LICENSE"}
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE", "LICENSES/*.txt"]
 authors = [{name = "knapcio", email = "knapcio@gmail.com"}]
 classifiers = ["Operating System :: OS Independent", "Programming Language :: Python :: 3"]
 dependencies = []
 
 [project.optional-dependencies]
-test = ["pytest>=8"]
+test = ["pytest>=8", "setuptools>=77"]
 ranks = ["torch>=2.4", "numpy>=1.26"]
 
 [project.scripts]
@@ -25,9 +26,6 @@ abharness = "abharness.cli:main"
 qpanel = "qpanel.cli:main"
 lab = "common.lab_cli:main"
 spark-export-audit = "common.audit:main"
-
-[tool.setuptools]
-license-files = ["LICENSE", "NOTICE", "LICENSES/*.txt"]
 
 [tool.setuptools.packages.find]
 where = ["."]

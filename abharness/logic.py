@@ -43,8 +43,20 @@ def id_diff(a,b):
     return dict(count=len(indices),first_index=indices[0] if indices else None)
 
 
+def _required_text(record, key, label):
+    if key not in record or not isinstance(record[key], str) or not record[key]:
+        raise ValueError('missing/invalid T0 ' + label + ' ' + key)
+    return record[key]
+
+
 def _compare_t0_exact(a, b, *, repeats=3):
     if repeats not in (1,3):raise ValueError('T0 repeats must be 1 or 3')
+    for panel in (a, b):
+        _required_text(panel, 'panel_sha256', 'panel')
+        _required_text(panel, 'model', 'panel')
+        if ('configuration' not in panel or not isinstance(panel['configuration'], dict)
+                or not panel['configuration']):
+            raise ValueError('missing/invalid T0 panel configuration')
     for key in ('panel_sha256', 'model', 'configuration', 'apc_mode'):
         if a.get(key) != b.get(key): raise ValueError('unmatched T0 ' + key)
     if a.get('status') != 'COMPLETE' or b.get('status') != 'COMPLETE' or a.get('apc_mode') != 'cold':
@@ -53,6 +65,9 @@ def _compare_t0_exact(a, b, *, repeats=3):
     if [r.get('row') for r in a['rows']]!=list(range(1,31)):raise ValueError('unique ordered T0 rows required')
     equal, diverging,details = [], [], []
     for left, right in zip(a['rows'], b['rows']):
+        for row in (left, right):
+            for key in ('category', 'prompt', 'nonce'):
+                _required_text(row, key, 'row')
         for key in ('row', 'category', 'prompt', 'nonce'):
             if left.get(key) != right.get(key): raise ValueError('T0 input mismatch ' + key)
         sequences=[]
@@ -61,6 +76,7 @@ def _compare_t0_exact(a, b, *, repeats=3):
                 raise ValueError('T0 incomplete/ineligible row')
             ids=[]
             for r in row['repeats']:
+                _required_text(r, 'request_body', 'repeat')
                 if not r.get('attempts') or any(x.get('prefix_cache_hits', {}).get('delta') != 0 or
                     x.get('reset', {}).get('http_status') != 200 for x in r['attempts']):
                     raise ValueError('T0 reset/hits evidence missing')

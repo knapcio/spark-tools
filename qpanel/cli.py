@@ -43,11 +43,18 @@ def run(config, arm, transport):
     for task in tasks:
         raw = transport.ask(task['body'], config.get('timeout_s', 90))
         response = json.loads(raw)
-        if response.get('error') or len(response.get('choices', [])) != 1:
+        if (not isinstance(response, dict) or response.get('error')
+                or not isinstance(response.get('choices'), list)
+                or len(response['choices']) != 1):
             raise ValueError('failed response')
-        choice = response['choices'][0]; message = choice['message']; finish = choice.get('finish_reason')
+        choice = response['choices'][0]
+        if not isinstance(choice, dict) or not isinstance(choice.get('message'), dict):
+            raise ValueError('missing/invalid response message')
+        message = choice['message']; finish = choice.get('finish_reason')
         if finish not in ('stop', 'length'): raise ValueError('missing/invalid finish_reason')
-        content = message.get('content') or ''
+        if 'content' not in message or not isinstance(message['content'], str):
+            raise ValueError('missing/invalid response content')
+        content = message['content']
         rows.append(dict(key=task['key'], **{'pass': content == task['expected']},
                          truncated=finish == 'length', response_sha256=hashlib.sha256(raw).hexdigest(),
                          output=dict(content=content, reasoning=message.get('reasoning_content') or message.get('reasoning') or '',

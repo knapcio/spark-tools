@@ -37,7 +37,7 @@
   "interpretation": "Candidate loss is within the preregistered noise tolerance.",
   "items": 116,
   "noise_net_items": 2,
-  "prereg_sha256": "85cb6fdd1e338e77f12b499e265f3e8e427c70ed2f3229ad729c36a513cab1bd",
+  "prereg_sha256": "93b7f69bfd742f3f36912e4909e1c04ab393acf79901e20a3d0a05e5caa0a4e2",
   "threshold_items": 3.713906763541038,
   "truncations": {
     "A": 0,

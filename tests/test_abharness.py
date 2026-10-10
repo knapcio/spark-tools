@@ -113,3 +113,36 @@ class NearTieTests(unittest.TestCase):
         self.assertEqual(l.native_ids({'tokens':[{'token':'token_id:42'}]}),[42])
         a=t0_fixture();b=copy.deepcopy(a);b['rows'][0]['repeats'][0]['request_body']='changed'
         with self.assertRaises(ValueError):l.compare_t0(a,b)
+
+    def test_missing_provenance_cannot_match_missing(self):
+        missing = object()
+        invalid = (missing, None, '', False, [], {})
+        for field in ('panel_sha256', 'model', 'configuration'):
+            for value in invalid:
+                with self.subTest(scope='panel', field=field, value=value):
+                    a=t0_fixture();b=copy.deepcopy(a)
+                    for panel in (a,b):
+                        if value is missing:del panel[field]
+                        else:panel[field]=copy.deepcopy(value)
+                    with self.assertRaisesRegex(ValueError, field):
+                        l.compare_t0(a,b,'draft',reference(a))
+        for field in ('category', 'prompt', 'nonce'):
+            for value in invalid:
+                with self.subTest(scope='row', field=field, value=value):
+                    a=t0_fixture();b=copy.deepcopy(a)
+                    for panel in (a,b):
+                        for row in panel['rows']:
+                            if value is missing:del row[field]
+                            else:row[field]=copy.deepcopy(value)
+                    with self.assertRaisesRegex(ValueError, field):
+                        l.compare_t0(a,b,'draft',reference(a))
+        for value in invalid:
+            with self.subTest(scope='repeat', field='request_body', value=value):
+                a=t0_fixture();b=copy.deepcopy(a)
+                for panel in (a,b):
+                    for row in panel['rows']:
+                        for repeat in row['repeats']:
+                            if value is missing:del repeat['request_body']
+                            else:repeat['request_body']=copy.deepcopy(value)
+                with self.assertRaisesRegex(ValueError, 'request_body'):
+                    l.compare_t0(a,b,'draft',reference(a))

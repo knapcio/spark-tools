@@ -1,6 +1,8 @@
 # SPDX-License-Identifier: Apache-2.0
 import gzip
 import json
+import tempfile
+from pathlib import Path
 from lab import utilities
 
 
@@ -27,3 +29,16 @@ def test_existing_acceptance_counters(tmp_path):
     result=utilities.acceptance(a,b,2)
     assert result['survival']==[.8,.4]
     assert result['committed']==2.2
+
+
+def test_trace_stream_handles_numbers_split_at_chunk_boundaries():
+    header = '{"traceEvents": [], "numeric": '
+    for prefix, suffix, expected in (('1.', '25', 1.25), ('1e', '3', 1000),
+                                     ('-1.25e-', '3', -.00125)):
+        document = header + ' ' * (65536 - len(header) - len(prefix)) + prefix + suffix + '}'
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'trace.json'
+            path.write_text(document)
+            metadata = {}
+            assert list(utilities.trace_events(path, metadata)) == []
+            assert metadata['numeric'] == expected
