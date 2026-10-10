@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "spark-tools"
-version = "0.2.0"
+version = "0.3.0"
 description = "Offline runtime experiments, EXL3/EXLR8/TensorFold checks and static GB10 kernel checks"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -14,8 +14,15 @@ authors = [{name = "knapcio", email = "knapcio@gmail.com"}]
 classifiers = ["Operating System :: OS Independent", "Programming Language :: Python :: 3"]
 dependencies = []
 
+[project.urls]
+Homepage = "https://github.com/knapcio/spark-tools"
+Repository = "https://github.com/knapcio/spark-tools"
+Documentation = "https://github.com/knapcio/spark-tools/tree/main/docs"
+Issues = "https://github.com/knapcio/spark-tools/issues"
+Changelog = "https://github.com/knapcio/spark-tools/blob/main/CHANGELOG.md"
+
 [project.optional-dependencies]
-test = ["pytest>=8", "setuptools>=77"]
+test = ["pytest>=8", "setuptools>=77", "tomli>=2; python_version < '3.11'"]
 ranks = ["torch>=2.4", "numpy>=1.26"]
 
 [project.scripts]
@@ -35,6 +42,26 @@ include = ["gb10check*", "cyclesim*", "moereplay*", "abharness*", "qpanel*", "la
 gb10check = ["*.cpp"]
 cyclesim = ["NOTICE"]
 moereplay = ["*.json"]
+
+[tool.setuptools.data-files]
+"share/spark-tools" = ["CREDITS.md", "CHANGELOG.md", "NOTICE"]
+"share/spark-tools/configs" = ["configs/*.json"]
+"share/spark-tools/docs" = ["docs/*.md"]
+"share/spark-tools/examples/abharness" = ["examples/abharness/*.md", "examples/abharness/*.json", "examples/abharness/*.sha256"]
+"share/spark-tools/examples/cyclesim" = ["examples/cyclesim/*.md", "examples/cyclesim/*.py", "examples/cyclesim/*.json"]
+"share/spark-tools/examples/cyclesim/companion-fixture" = ["examples/cyclesim/companion-fixture/*.md", "examples/cyclesim/companion-fixture/*.json", "examples/cyclesim/companion-fixture/*.jsonl", "examples/cyclesim/companion-fixture/*.prom"]
+"share/spark-tools/examples/cyclesim/profile-fixture" = ["examples/cyclesim/profile-fixture/*.md", "examples/cyclesim/profile-fixture/*.json", "examples/cyclesim/profile-fixture/*.jsonl", "examples/cyclesim/profile-fixture/*.prom"]
+"share/spark-tools/examples/conformance" = ["examples/conformance/*.md", "examples/conformance/*.json"]
+"share/spark-tools/examples/exl3-tensorfold" = ["examples/exl3-tensorfold/*.md"]
+"share/spark-tools/examples/experiment" = ["examples/experiment/*.md", "examples/experiment/*.json"]
+"share/spark-tools/examples/gb10check" = ["examples/gb10check/*.md", "examples/gb10check/*.json", "examples/gb10check/*.cu", "examples/gb10check/*.ptxas", "examples/gb10check/*.resources", "examples/gb10check/*.sass"]
+"share/spark-tools/examples/lab" = ["examples/lab/*.md", "examples/lab/*.json", "examples/lab/*.prom"]
+"share/spark-tools/examples/moereplay" = ["examples/moereplay/*.md", "examples/moereplay/*.json", "examples/moereplay/*.jsonl", "examples/moereplay/*.py"]
+"share/spark-tools/examples/observations" = ["examples/observations/*.md", "examples/observations/*.json", "examples/observations/*.prom"]
+"share/spark-tools/examples/observations/qwen38-gb10" = ["examples/observations/qwen38-gb10/*.md", "examples/observations/qwen38-gb10/*.json"]
+"share/spark-tools/examples/qpanel" = ["examples/qpanel/*.md", "examples/qpanel/*.json", "examples/qpanel/*.sha256"]
+"share/spark-tools/examples/rankharness" = ["examples/rankharness/*.md", "examples/rankharness/*.py"]
+"share/spark-tools/examples/schedreplay" = ["examples/schedreplay/*.md", "examples/schedreplay/*.json", "examples/schedreplay/*.jsonl"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

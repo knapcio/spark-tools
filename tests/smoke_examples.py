@@ -55,6 +55,13 @@ def main():
     invoke(['lab', 'exl3', '--help'])
     invoke(['lab', 'exlr8', '--help'])
     invoke(['lab', 'tensorfold', '--help'])
+    invoke(['lab', 'conformance', 'cpu'], snapshot='examples/conformance/expected-cpu.json')
+    invoke(['lab', 'conformance', 'manifest', '--runner', 'gr8-dense'],
+           snapshot='examples/conformance/gr8-dense.json')
+    invoke(['lab', 'observations', 'import', '--adapter', 'tensorfold-native-v1',
+            '--input', 'examples/observations/tensorfold-streaming.json',
+            '--metadata', 'examples/observations/tensorfold-native-import.json'])
+    invoke(['lab', 'experiment', 'check', 'examples/experiment/manifest.json'])
     if importlib.util.find_spec('torch') and importlib.util.find_spec('numpy'):
         with tempfile.TemporaryDirectory(prefix='spark-example-') as output:
             invoke(['lab','rankharness','run','examples/rankharness/toy_toggle.py','--cases','none,invalid_one',

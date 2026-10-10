@@ -1,0 +1,7 @@
+{
+  "schema": "spark-observation-split",
+  "version": 1,
+  "train_request_ids": ["vllm-r1", "vllm-r2"],
+  "holdout_request_ids": ["vllm-r3", "vllm-r4"],
+  "metrics": ["decode_rate", "ttft"]
+}

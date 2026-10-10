@@ -1,0 +1,436 @@
+{
+  "capture": {
+    "adapter": "tensorfold-native-v1 and tensorfold-prometheus-v1",
+    "manifest_sha256": "b06b46f705c5ee2481443d2e48ad2ddec7ffc19ac4d7dc0b6914a7e0b44c1c76",
+    "raw_prometheus_snapshots_published": false,
+    "splits": "five train and five holdout repetitions per prompt and concurrency slot",
+    "text_retained": false
+  },
+  "cells": [
+    {
+      "artifacts": {
+        "calibration": "qwen38-prose-short-c1.calibration.json",
+        "interval": "qwen38-prose-short-c1.interval.json",
+        "observations": "qwen38-prose-short-c1.observations.json"
+      },
+      "concurrency": 1,
+      "context": "short",
+      "id": "qwen38-prose-short-c1",
+      "input_tokens": [
+        43
+      ],
+      "kind": "prose",
+      "max_output_tokens": 128,
+      "measurements": {
+        "draft_acceptance": {
+          "unit": "ratio",
+          "value": 0.6363636363636364
+        },
+        "interval_aggregate_output_rate": {
+          "basis": "matched-isolated-interval",
+          "unit": "token/wall-second",
+          "value": 50.55390067503893
+        },
+        "median_client_decode_rate": {
+          "unit": "token/second",
+          "value": 52.53982104522454
+        },
+        "median_client_ttft": {
+          "unit": "second",
+          "value": 0.10284291249990929
+        },
+        "median_native_decode_rate": {
+          "unit": "token/second",
+          "value": 52.52239163481792
+        }
+      },
+      "output_tokens": [
+        128
+      ],
+      "prompt_cache": "explicitly warmed once per prompt before scoring",
+      "prompt_sha256": {
+        "holdout": "c12845db24c8e03ada0dfdb48bff8982b613c4426c8cbe0d0329bb14f6ae9706",
+        "train": "a44ae649a7b4376f38018fc8adeb1da8e8b56b53b75ef88589e1e48199a61676"
+      },
+      "repetitions_per_split": 5,
+      "requests": 10
+    },
+    {
+      "artifacts": {
+        "calibration": "qwen38-prose-short-c2.calibration.json",
+        "interval": "qwen38-prose-short-c2.interval.json",
+        "observations": "qwen38-prose-short-c2.observations.json"
+      },
+      "concurrency": 2,
+      "context": "short",
+      "id": "qwen38-prose-short-c2",
+      "input_tokens": [
+        43
+      ],
+      "kind": "prose",
+      "max_output_tokens": 128,
+      "measurements": {
+        "draft_acceptance": {
+          "unit": "ratio",
+          "value": 0.6363636363636364
+        },
+        "interval_aggregate_output_rate": {
+          "basis": "matched-isolated-interval",
+          "unit": "token/wall-second",
+          "value": 83.08818549623669
+        },
+        "median_client_decode_rate": {
+          "unit": "token/second",
+          "value": 43.01522213979368
+        },
+        "median_client_ttft": {
+          "unit": "second",
+          "value": 0.12999774049967527
+        },
+        "median_native_decode_rate": {
+          "unit": "token/second",
+          "value": 43.00761519129036
+        }
+      },
+      "output_tokens": [
+        128
+      ],
+      "prompt_cache": "explicitly warmed once per prompt before scoring",
+      "prompt_sha256": {
+        "holdout": "c12845db24c8e03ada0dfdb48bff8982b613c4426c8cbe0d0329bb14f6ae9706",
+        "train": "a44ae649a7b4376f38018fc8adeb1da8e8b56b53b75ef88589e1e48199a61676"
+      },
+      "repetitions_per_split": 5,
+      "requests": 20
+    },
+    {
+      "artifacts": {
+        "calibration": "qwen38-prose-long-c1.calibration.json",
+        "interval": "qwen38-prose-long-c1.interval.json",
+        "observations": "qwen38-prose-long-c1.observations.json"
+      },
+      "concurrency": 1,
+      "context": "long",
+      "id": "qwen38-prose-long-c1",
+      "input_tokens": [
+        1099
+      ],
+      "kind": "prose",
+      "max_output_tokens": 128,
+      "measurements": {
+        "draft_acceptance": {
+          "unit": "ratio",
+          "value": 0.6373056994818653
+        },
+        "interval_aggregate_output_rate": {
+          "basis": "matched-isolated-interval",
+          "unit": "token/wall-second",
+          "value": 43.20280168731767
+        },
+        "median_client_decode_rate": {
+          "unit": "token/second",
+          "value": 50.680773685169775
+        },
+        "median_client_ttft": {
+          "unit": "second",
+          "value": 0.45530944500205806
+        },
+        "median_native_decode_rate": {
+          "unit": "token/second",
+          "value": 50.67061769329216
+        }
+      },
+      "output_tokens": [
+        128
+      ],
+      "prompt_cache": "explicitly warmed once per prompt before scoring",
+      "prompt_sha256": {
+        "holdout": "95e95f3f7762f1877ac17e8c65ae8366d97ba7a5c63e4563baabc7ef02cf349b",
+        "train": "ef34bcdb8b587b21879df85f9ece47a1d2a2e02a3483437870a5acff5097975d"
+      },
+      "repetitions_per_split": 5,
+      "requests": 10
+    },
+    {
+      "artifacts": {
+        "calibration": "qwen38-prose-long-c2.calibration.json",
+        "interval": "qwen38-prose-long-c2.interval.json",
+        "observations": "qwen38-prose-long-c2.observations.json"
+      },
+      "concurrency": 2,
+      "context": "long",
+      "id": "qwen38-prose-long-c2",
+      "input_tokens": [
+        1099
+      ],
+      "kind": "prose",
+      "max_output_tokens": 128,
+      "measurements": {
+        "draft_acceptance": {
+          "unit": "ratio",
+          "value": 0.6373056994818653
+        },
+        "interval_aggregate_output_rate": {
+          "basis": "matched-isolated-interval",
+          "unit": "token/wall-second",
+          "value": 64.06489385996434
+        },
+        "median_client_decode_rate": {
+          "unit": "token/second",
+          "value": 38.960948610981525
+        },
+        "median_client_ttft": {
+          "unit": "second",
+          "value": 0.7053542585053947
+        },
+        "median_native_decode_rate": {
+          "unit": "token/second",
+          "value": 38.955054761580655
+        }
+      },
+      "output_tokens": [
+        128
+      ],
+      "prompt_cache": "explicitly warmed once per prompt before scoring",
+      "prompt_sha256": {
+        "holdout": "95e95f3f7762f1877ac17e8c65ae8366d97ba7a5c63e4563baabc7ef02cf349b",
+        "train": "ef34bcdb8b587b21879df85f9ece47a1d2a2e02a3483437870a5acff5097975d"
+      },
+      "repetitions_per_split": 5,
+      "requests": 20
+    },
+    {
+      "artifacts": {
+        "calibration": "qwen38-code-short-c1.calibration.json",
+        "interval": "qwen38-code-short-c1.interval.json",
+        "observations": "qwen38-code-short-c1.observations.json"
+      },
+      "concurrency": 1,
+      "context": "short",
+      "id": "qwen38-code-short-c1",
+      "input_tokens": [
+        47
+      ],
+      "kind": "code",
+      "max_output_tokens": 128,
+      "measurements": {
+        "draft_acceptance": {
+          "unit": "ratio",
+          "value": 0.8493150684931506
+        },
+        "interval_aggregate_output_rate": {
+          "basis": "matched-isolated-interval",
+          "unit": "token/wall-second",
+          "value": 78.00912663167182
+        },
+        "median_client_decode_rate": {
+          "unit": "token/second",
+          "value": 82.77233594978446
+        },
+        "median_client_ttft": {
+          "unit": "second",
+          "value": 0.10596159649867332
+        },
+        "median_native_decode_rate": {
+          "unit": "token/second",
+          "value": 82.73229342419805
+        }
+      },
+      "output_tokens": [
+        128
+      ],
+      "prompt_cache": "explicitly warmed once per prompt before scoring",
+      "prompt_sha256": {
+        "holdout": "473fd89e7a55870a0f8eb2dfb7385acbd4a7496ddb2db0b13016fec7da9abc7b",
+        "train": "850a4786c41285fb5191bfdbd6ac833c0d0afea18f1123e028c45257b12a232a"
+      },
+      "repetitions_per_split": 5,
+      "requests": 10
+    },
+    {
+      "artifacts": {
+        "calibration": "qwen38-code-short-c2.calibration.json",
+        "interval": "qwen38-code-short-c2.interval.json",
+        "observations": "qwen38-code-short-c2.observations.json"
+      },
+      "concurrency": 2,
+      "context": "short",
+      "id": "qwen38-code-short-c2",
+      "input_tokens": [
+        47
+      ],
+      "kind": "code",
+      "max_output_tokens": 128,
+      "measurements": {
+        "draft_acceptance": {
+          "unit": "ratio",
+          "value": 0.8355916892502259
+        },
+        "interval_aggregate_output_rate": {
+          "basis": "matched-isolated-interval",
+          "unit": "token/wall-second",
+          "value": 124.49315940102042
+        },
+        "median_client_decode_rate": {
+          "unit": "token/second",
+          "value": 67.22798514217821
+        },
+        "median_client_ttft": {
+          "unit": "second",
+          "value": 0.13234125899907667
+        },
+        "median_native_decode_rate": {
+          "unit": "token/second",
+          "value": 67.199893452243
+        }
+      },
+      "output_tokens": [
+        128
+      ],
+      "prompt_cache": "explicitly warmed once per prompt before scoring",
+      "prompt_sha256": {
+        "holdout": "473fd89e7a55870a0f8eb2dfb7385acbd4a7496ddb2db0b13016fec7da9abc7b",
+        "train": "850a4786c41285fb5191bfdbd6ac833c0d0afea18f1123e028c45257b12a232a"
+      },
+      "repetitions_per_split": 5,
+      "requests": 20
+    },
+    {
+      "artifacts": {
+        "calibration": "qwen38-code-long-c1.calibration.json",
+        "interval": "qwen38-code-long-c1.interval.json",
+        "observations": "qwen38-code-long-c1.observations.json"
+      },
+      "concurrency": 1,
+      "context": "long",
+      "id": "qwen38-code-long-c1",
+      "input_tokens": [
+        1103
+      ],
+      "kind": "code",
+      "max_output_tokens": 128,
+      "measurements": {
+        "draft_acceptance": {
+          "unit": "ratio",
+          "value": 0.7866108786610879
+        },
+        "interval_aggregate_output_rate": {
+          "basis": "matched-isolated-interval",
+          "unit": "token/wall-second",
+          "value": 63.5918845122745
+        },
+        "median_client_decode_rate": {
+          "unit": "token/second",
+          "value": 81.90222914224742
+        },
+        "median_client_ttft": {
+          "unit": "second",
+          "value": 0.46120321699709166
+        },
+        "median_native_decode_rate": {
+          "unit": "token/second",
+          "value": 81.90130870911196
+        }
+      },
+      "output_tokens": [
+        128
+      ],
+      "prompt_cache": "explicitly warmed once per prompt before scoring",
+      "prompt_sha256": {
+        "holdout": "a7cb6d8021114b2c7bdea4fa482f41c1b04372514946b884313d2e03a215f2d2",
+        "train": "def559de863139654be6c0d2a7558ebd952eb91b9fc2ec9b36046c853045829a"
+      },
+      "repetitions_per_split": 5,
+      "requests": 10
+    },
+    {
+      "artifacts": {
+        "calibration": "qwen38-code-long-c2.calibration.json",
+        "interval": "qwen38-code-long-c2.interval.json",
+        "observations": "qwen38-code-long-c2.observations.json"
+      },
+      "concurrency": 2,
+      "context": "long",
+      "id": "qwen38-code-long-c2",
+      "input_tokens": [
+        1103
+      ],
+      "kind": "code",
+      "max_output_tokens": 128,
+      "measurements": {
+        "draft_acceptance": {
+          "unit": "ratio",
+          "value": 0.7827542904981164
+        },
+        "interval_aggregate_output_rate": {
+          "basis": "matched-isolated-interval",
+          "unit": "token/wall-second",
+          "value": 90.22938277615043
+        },
+        "median_client_decode_rate": {
+          "unit": "token/second",
+          "value": 64.83744658988113
+        },
+        "median_client_ttft": {
+          "unit": "second",
+          "value": 0.9199787695106352
+        },
+        "median_native_decode_rate": {
+          "unit": "token/second",
+          "value": 64.8316151331718
+        }
+      },
+      "output_tokens": [
+        128
+      ],
+      "prompt_cache": "explicitly warmed once per prompt before scoring",
+      "prompt_sha256": {
+        "holdout": "a7cb6d8021114b2c7bdea4fa482f41c1b04372514946b884313d2e03a215f2d2",
+        "train": "def559de863139654be6c0d2a7558ebd952eb91b9fc2ec9b36046c853045829a"
+      },
+      "repetitions_per_split": 5,
+      "requests": 20
+    }
+  ],
+  "date": "2026-10-10",
+  "hardware": {
+    "accelerators": 1,
+    "compute_capability": "12.1",
+    "gpu": "NVIDIA GB10"
+  },
+  "model": {
+    "config_sha256": "6324d04f76d95d23891fc5dd0742cb7cc82ce52864f10ad3196b29c4a2e1f53e",
+    "repository": "azampatti/Qwen3.8-Flash-Next-125B-A5B-INT4-AutoRound",
+    "revision": "1464274120d36a4d8fcaa934552334a7d83ce0fd"
+  },
+  "name": "Qwen3.8 Flash Next TensorFold on one GB10",
+  "runtime": {
+    "binary_sha256": "13244dabb5cba3a6e0d5240fd3afd7426aab77fabed27fdd34225410e0179800",
+    "configuration_sha256": "1ec44e5b5e2f149c84e0dabd88f2c6d18c048f378b5e4b2eb52191af329fbfef",
+    "id": "tensorfold-native-zig",
+    "image_sha256": "cb98098439d95d2bff27bc771ba180e5857613ecc41f6b6e81e494782df9433a",
+    "recipe_repository": "https://github.com/MiaAI-Lab/Qwen3.8-Flash-Next-Single-DGX-Spark-TensorFold",
+    "recipe_revision": "364f21a1a46a366fa39c4da0d53b7b1f38624610",
+    "tensorfold_revision": "db281878ddb836fd0df510d8771ecb7e0fe47d26"
+  },
+  "schema": "spark-tools-exact-runtime-preset",
+  "scope": {
+    "generalization": "unavailable",
+    "kernel_attribution": "unavailable",
+    "other_hardware": "unavailable",
+    "other_models": "unavailable",
+    "other_runtime_revisions": "unavailable"
+  },
+  "settings": {
+    "context_length": 262144,
+    "draft": true,
+    "kv_cache": "fp8",
+    "max_output_tokens": 128,
+    "parallel_requests": 8,
+    "prompt_cache": "warm",
+    "temperature": 0,
+    "thinking": false
+  },
+  "status": "recorded-exact-cells",
+  "version": 1
+}

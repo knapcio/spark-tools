@@ -1,0 +1,33 @@
+{
+  "schema": "gb10check-verification-record",
+  "version": 1,
+  "date": "2026-10-10",
+  "platform": "Linux arm64, one NVIDIA GB10, compute capability 12.1",
+  "image_sha256": "cb98098439d95d2bff27bc771ba180e5857613ecc41f6b6e81e494782df9433a",
+  "device_validation": {
+    "status": "PASS",
+    "mode": "DEVICE_RESIDENCY_API",
+    "cases": 92,
+    "passed": 92,
+    "compiled_variants": 33,
+    "runtime_version": 13030,
+    "driver_api_version": 13030,
+    "explicit_launch_guards": 4,
+    "report_sha256": "e436f204af3e3e8d0f342ca8fc201e4aa64d6a507079b27635f7c1c7a11af101"
+  },
+  "repeat_build": {
+    "status": "PASS",
+    "mode": "STATIC_NO_GPU",
+    "complete_builds": 2,
+    "return_codes": [0, 0],
+    "artifact_mismatches": 0,
+    "artifacts_per_build": 4,
+    "snapshot_inputs": 14,
+    "report_sha256": "9c49d16dcb09155794f7ce5436b0fcd059df00d6f8135f29d8cb6528b392a327"
+  },
+  "limitations": [
+    "CUDA occupancy APIs estimate residency; they do not measure achieved occupancy or speed",
+    "the helper launches no kernels and allocates no device buffers",
+    "two matching builds are bounded repeatability evidence, not general reproducible-build proof"
+  ]
+}

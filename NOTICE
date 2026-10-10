@@ -7,9 +7,11 @@ retained in LICENSES/MIT-portable-tools.txt, alongside Apache-2.0 tool headers.
 The static compiler helpers retain their MIT terms;
 see LICENSES/MIT-static-checker.txt and file headers.
 EXL3 format compatibility follows ExLlamaV3 (MIT, Copyright 2025 Turboderp);
-see LICENSES/MIT-exllamav3.txt. TensorFold compatibility is an independent
-adapter; no TensorFold runtime source is bundled. EXLR8/gr8 compatibility is
-an independent metadata/header adapter; no gr8 runtime or EXLR8 weights are bundled.
+see LICENSES/MIT-exllamav3.txt. TensorFold compatibility, observations and
+decoder conformance are independent adapters and fixtures; no TensorFold
+runtime source is bundled. EXLR8/gr8 compatibility and conformance are
+independent adapters and synthetic fixtures; no gr8 runtime source or EXLR8
+weights are bundled.
 No serving runtime, GPU kernel library, model weights, toolkit header or
 third-party benchmark prompt set is bundled. External tools keep their own
 licences. See CREDITS.md for the ideas and source lineage.

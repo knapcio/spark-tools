@@ -1,0 +1,461 @@
+{
+  "cells": [
+    {
+      "cell": {
+        "basis_sha256": "29be3be42e031bbaf2b8d79e68734add447747b3c409e0e4070c719a6491ef69",
+        "identity": {
+          "adapter": "tensorfold-native-v1",
+          "config_sha256": "1ec44e5b5e2f149c84e0dabd88f2c6d18c048f378b5e4b2eb52191af329fbfef",
+          "model_sha256": "6324d04f76d95d23891fc5dd0742cb7cc82ce52864f10ad3196b29c4a2e1f53e",
+          "runtime": {
+            "binary_sha256": "13244dabb5cba3a6e0d5240fd3afd7426aab77fabed27fdd34225410e0179800",
+            "id": "tensorfold-native-zig",
+            "image_sha256": "cb98098439d95d2bff27bc771ba180e5857613ecc41f6b6e81e494782df9433a",
+            "observed_settings_sha256": "1dec45ac1875dd5f44caa23d6f6206fedae026301d805cededd3bb98acab737b",
+            "source_revision": "db281878ddb836fd0df510d8771ecb7e0fe47d26+mia-364f21a1a46a366fa39c4da0d53b7b1f38624610"
+          },
+          "workload": {
+            "concurrency": 1,
+            "id": "qwen38-code-short-c1"
+          }
+        },
+        "input_tokens": 47,
+        "metric": "client_decode_rate",
+        "output_tokens": 128,
+        "unit": "token/second"
+      },
+      "cell_id": "0eeae5a9c9b1f8356163a655d89fbf2f0c346a793bb9b55021aab5d27f18e89c",
+      "estimate": 80.3298453278081,
+      "holdout_errors": [
+        {
+          "absolute_error": 4.824079191315903,
+          "absolute_error_percent": 5.665128434840961,
+          "observed": 85.153924519124,
+          "predicted": 80.3298453278081,
+          "request_id": "qwen38-code-short-c1-holdout-r0-s0",
+          "signed_error": -4.824079191315903
+        },
+        {
+          "absolute_error": 4.752403883825238,
+          "absolute_error_percent": 5.585658498524319,
+          "observed": 85.08224921163334,
+          "predicted": 80.3298453278081,
+          "request_id": "qwen38-code-short-c1-holdout-r1-s0",
+          "signed_error": -4.752403883825238
+        },
+        {
+          "absolute_error": 4.8587917686255935,
+          "absolute_error_percent": 5.70356791026652,
+          "observed": 85.1886370964337,
+          "predicted": 80.3298453278081,
+          "request_id": "qwen38-code-short-c1-holdout-r2-s0",
+          "signed_error": -4.8587917686255935
+        },
+        {
+          "absolute_error": 4.985167775067282,
+          "absolute_error_percent": 5.843247974487231,
+          "observed": 85.31501310287538,
+          "predicted": 80.3298453278081,
+          "request_id": "qwen38-code-short-c1-holdout-r3-s0",
+          "signed_error": -4.985167775067282
+        },
+        {
+          "absolute_error": 5.417675238100571,
+          "absolute_error_percent": 6.318171303782886,
+          "observed": 85.74752056590867,
+          "predicted": 80.3298453278081,
+          "request_id": "qwen38-code-short-c1-holdout-r4-s0",
+          "signed_error": -5.417675238100571
+        }
+      ],
+      "holdout_request_ids": [
+        "qwen38-code-short-c1-holdout-r0-s0",
+        "qwen38-code-short-c1-holdout-r1-s0",
+        "qwen38-code-short-c1-holdout-r2-s0",
+        "qwen38-code-short-c1-holdout-r3-s0",
+        "qwen38-code-short-c1-holdout-r4-s0"
+      ],
+      "status": "supported",
+      "train_request_ids": [
+        "qwen38-code-short-c1-train-r0-s0",
+        "qwen38-code-short-c1-train-r1-s0",
+        "qwen38-code-short-c1-train-r2-s0",
+        "qwen38-code-short-c1-train-r3-s0",
+        "qwen38-code-short-c1-train-r4-s0"
+      ],
+      "unavailable_reason": null
+    },
+    {
+      "cell": {
+        "basis_sha256": "29be3be42e031bbaf2b8d79e68734add447747b3c409e0e4070c719a6491ef69",
+        "identity": {
+          "adapter": "tensorfold-native-v1",
+          "config_sha256": "1ec44e5b5e2f149c84e0dabd88f2c6d18c048f378b5e4b2eb52191af329fbfef",
+          "model_sha256": "6324d04f76d95d23891fc5dd0742cb7cc82ce52864f10ad3196b29c4a2e1f53e",
+          "runtime": {
+            "binary_sha256": "13244dabb5cba3a6e0d5240fd3afd7426aab77fabed27fdd34225410e0179800",
+            "id": "tensorfold-native-zig",
+            "image_sha256": "cb98098439d95d2bff27bc771ba180e5857613ecc41f6b6e81e494782df9433a",
+            "observed_settings_sha256": "1dec45ac1875dd5f44caa23d6f6206fedae026301d805cededd3bb98acab737b",
+            "source_revision": "db281878ddb836fd0df510d8771ecb7e0fe47d26+mia-364f21a1a46a366fa39c4da0d53b7b1f38624610"
+          },
+          "workload": {
+            "concurrency": 1,
+            "id": "qwen38-code-short-c1"
+          }
+        },
+        "input_tokens": 47,
+        "metric": "client_ttft",
+        "output_tokens": 128,
+        "unit": "second"
+      },
+      "cell_id": "38eae2174350340d49f51e1503d2136dc18b14aa0c3493cc6a385d2884301110",
+      "estimate": 0.10572471600025893,
+      "holdout_errors": [
+        {
+          "absolute_error": 2.1875012316735498e-05,
+          "absolute_error_percent": 0.020686257691403087,
+          "observed": 0.10574659101257566,
+          "predicted": 0.10572471600025893,
+          "request_id": "qwen38-code-short-c1-holdout-r0-s0",
+          "signed_error": -2.1875012316735498e-05
+        },
+        {
+          "absolute_error": 0.000313921997440042,
+          "absolute_error_percent": 0.29604491661506827,
+          "observed": 0.10603863799769897,
+          "predicted": 0.10572471600025893,
+          "request_id": "qwen38-code-short-c1-holdout-r1-s0",
+          "signed_error": -0.000313921997440042
+        },
+        {
+          "absolute_error": 0.0005461930035380591,
+          "absolute_error_percent": 0.5139628602579696,
+          "observed": 0.10627090900379699,
+          "predicted": 0.10572471600025893,
+          "request_id": "qwen38-code-short-c1-holdout-r2-s0",
+          "signed_error": -0.0005461930035380591
+        },
+        {
+          "absolute_error": 0.00017198800051118623,
+          "absolute_error_percent": 0.1624110987533054,
+          "observed": 0.10589670400077011,
+          "predicted": 0.10572471600025893,
+          "request_id": "qwen38-code-short-c1-holdout-r3-s0",
+          "signed_error": -0.00017198800051118623
+        },
+        {
+          "absolute_error": 0.0002702659927308615,
+          "absolute_error_percent": 0.2562869492103634,
+          "observed": 0.10545445000752807,
+          "predicted": 0.10572471600025893,
+          "request_id": "qwen38-code-short-c1-holdout-r4-s0",
+          "signed_error": 0.0002702659927308615
+        }
+      ],
+      "holdout_request_ids": [
+        "qwen38-code-short-c1-holdout-r0-s0",
+        "qwen38-code-short-c1-holdout-r1-s0",
+        "qwen38-code-short-c1-holdout-r2-s0",
+        "qwen38-code-short-c1-holdout-r3-s0",
+        "qwen38-code-short-c1-holdout-r4-s0"
+      ],
+      "status": "supported",
+      "train_request_ids": [
+        "qwen38-code-short-c1-train-r0-s0",
+        "qwen38-code-short-c1-train-r1-s0",
+        "qwen38-code-short-c1-train-r2-s0",
+        "qwen38-code-short-c1-train-r3-s0",
+        "qwen38-code-short-c1-train-r4-s0"
+      ],
+      "unavailable_reason": null
+    },
+    {
+      "cell": {
+        "basis_sha256": "780c0356db157cbfc20b19696696494a07213fe5a76122d97dde37f7ca7a1a72",
+        "identity": {
+          "adapter": "tensorfold-native-v1",
+          "config_sha256": "1ec44e5b5e2f149c84e0dabd88f2c6d18c048f378b5e4b2eb52191af329fbfef",
+          "model_sha256": "6324d04f76d95d23891fc5dd0742cb7cc82ce52864f10ad3196b29c4a2e1f53e",
+          "runtime": {
+            "binary_sha256": "13244dabb5cba3a6e0d5240fd3afd7426aab77fabed27fdd34225410e0179800",
+            "id": "tensorfold-native-zig",
+            "image_sha256": "cb98098439d95d2bff27bc771ba180e5857613ecc41f6b6e81e494782df9433a",
+            "observed_settings_sha256": "1dec45ac1875dd5f44caa23d6f6206fedae026301d805cededd3bb98acab737b",
+            "source_revision": "db281878ddb836fd0df510d8771ecb7e0fe47d26+mia-364f21a1a46a366fa39c4da0d53b7b1f38624610"
+          },
+          "workload": {
+            "concurrency": 1,
+            "id": "qwen38-code-short-c1"
+          }
+        },
+        "input_tokens": 47,
+        "metric": "acceptance",
+        "output_tokens": 128,
+        "unit": "ratio"
+      },
+      "cell_id": "66f9ae937581f5e55798781414b9864c0202a259c0422cf86045409c07f5792d",
+      "estimate": 0.8070175438596491,
+      "holdout_errors": [
+        {
+          "absolute_error": 0.0882205513784462,
+          "absolute_error_percent": 9.854423292273246,
+          "observed": 0.8952380952380953,
+          "predicted": 0.8070175438596491,
+          "request_id": "qwen38-code-short-c1-holdout-r0-s0",
+          "signed_error": -0.0882205513784462
+        },
+        {
+          "absolute_error": 0.0882205513784462,
+          "absolute_error_percent": 9.854423292273246,
+          "observed": 0.8952380952380953,
+          "predicted": 0.8070175438596491,
+          "request_id": "qwen38-code-short-c1-holdout-r1-s0",
+          "signed_error": -0.0882205513784462
+        },
+        {
+          "absolute_error": 0.0882205513784462,
+          "absolute_error_percent": 9.854423292273246,
+          "observed": 0.8952380952380953,
+          "predicted": 0.8070175438596491,
+          "request_id": "qwen38-code-short-c1-holdout-r2-s0",
+          "signed_error": -0.0882205513784462
+        },
+        {
+          "absolute_error": 0.0882205513784462,
+          "absolute_error_percent": 9.854423292273246,
+          "observed": 0.8952380952380953,
+          "predicted": 0.8070175438596491,
+          "request_id": "qwen38-code-short-c1-holdout-r3-s0",
+          "signed_error": -0.0882205513784462
+        },
+        {
+          "absolute_error": 0.0882205513784462,
+          "absolute_error_percent": 9.854423292273246,
+          "observed": 0.8952380952380953,
+          "predicted": 0.8070175438596491,
+          "request_id": "qwen38-code-short-c1-holdout-r4-s0",
+          "signed_error": -0.0882205513784462
+        }
+      ],
+      "holdout_request_ids": [
+        "qwen38-code-short-c1-holdout-r0-s0",
+        "qwen38-code-short-c1-holdout-r1-s0",
+        "qwen38-code-short-c1-holdout-r2-s0",
+        "qwen38-code-short-c1-holdout-r3-s0",
+        "qwen38-code-short-c1-holdout-r4-s0"
+      ],
+      "status": "supported",
+      "train_request_ids": [
+        "qwen38-code-short-c1-train-r0-s0",
+        "qwen38-code-short-c1-train-r1-s0",
+        "qwen38-code-short-c1-train-r2-s0",
+        "qwen38-code-short-c1-train-r3-s0",
+        "qwen38-code-short-c1-train-r4-s0"
+      ],
+      "unavailable_reason": null
+    },
+    {
+      "cell": {
+        "basis_sha256": "25056cf99c0c7e2bde92ae5b5939413f6d874b49d4d94f631346dc977bb52368",
+        "identity": {
+          "adapter": "tensorfold-native-v1",
+          "config_sha256": "1ec44e5b5e2f149c84e0dabd88f2c6d18c048f378b5e4b2eb52191af329fbfef",
+          "model_sha256": "6324d04f76d95d23891fc5dd0742cb7cc82ce52864f10ad3196b29c4a2e1f53e",
+          "runtime": {
+            "binary_sha256": "13244dabb5cba3a6e0d5240fd3afd7426aab77fabed27fdd34225410e0179800",
+            "id": "tensorfold-native-zig",
+            "image_sha256": "cb98098439d95d2bff27bc771ba180e5857613ecc41f6b6e81e494782df9433a",
+            "observed_settings_sha256": "1dec45ac1875dd5f44caa23d6f6206fedae026301d805cededd3bb98acab737b",
+            "source_revision": "db281878ddb836fd0df510d8771ecb7e0fe47d26+mia-364f21a1a46a366fa39c4da0d53b7b1f38624610"
+          },
+          "workload": {
+            "concurrency": 1,
+            "id": "qwen38-code-short-c1"
+          }
+        },
+        "input_tokens": 47,
+        "metric": "decode_rate",
+        "output_tokens": 128,
+        "unit": "token/second"
+      },
+      "cell_id": "9eea4f9d0f3b31115d97616b9b2ccc960e4dc848a009c2537600975d7db2a409",
+      "estimate": 80.31119127057694,
+      "holdout_errors": [
+        {
+          "absolute_error": 4.822266800656678,
+          "absolute_error_percent": 5.664361474218219,
+          "observed": 85.13345807123362,
+          "predicted": 80.31119127057694,
+          "request_id": "qwen38-code-short-c1-holdout-r0-s0",
+          "signed_error": -4.822266800656678
+        },
+        {
+          "absolute_error": 4.72415350308583,
+          "absolute_error_percent": 5.555517550566808,
+          "observed": 85.03534477366277,
+          "predicted": 80.31119127057694,
+          "request_id": "qwen38-code-short-c1-holdout-r1-s0",
+          "signed_error": -4.72415350308583
+        },
+        {
+          "absolute_error": 4.859349767787322,
+          "absolute_error_percent": 5.705434893971701,
+          "observed": 85.17054103836426,
+          "predicted": 80.31119127057694,
+          "request_id": "qwen38-code-short-c1-holdout-r2-s0",
+          "signed_error": -4.859349767787322
+        },
+        {
+          "absolute_error": 4.963830413837101,
+          "absolute_error_percent": 5.820966463318243,
+          "observed": 85.27502168441404,
+          "predicted": 80.31119127057694,
+          "request_id": "qwen38-code-short-c1-holdout-r3-s0",
+          "signed_error": -4.963830413837101
+        },
+        {
+          "absolute_error": 5.418373747317176,
+          "absolute_error_percent": 6.320309389399342,
+          "observed": 85.72956501789412,
+          "predicted": 80.31119127057694,
+          "request_id": "qwen38-code-short-c1-holdout-r4-s0",
+          "signed_error": -5.418373747317176
+        }
+      ],
+      "holdout_request_ids": [
+        "qwen38-code-short-c1-holdout-r0-s0",
+        "qwen38-code-short-c1-holdout-r1-s0",
+        "qwen38-code-short-c1-holdout-r2-s0",
+        "qwen38-code-short-c1-holdout-r3-s0",
+        "qwen38-code-short-c1-holdout-r4-s0"
+      ],
+      "status": "supported",
+      "train_request_ids": [
+        "qwen38-code-short-c1-train-r0-s0",
+        "qwen38-code-short-c1-train-r1-s0",
+        "qwen38-code-short-c1-train-r2-s0",
+        "qwen38-code-short-c1-train-r3-s0",
+        "qwen38-code-short-c1-train-r4-s0"
+      ],
+      "unavailable_reason": null
+    },
+    {
+      "cell": {
+        "basis_sha256": "6c6739e040e0cae12ca909314e5f196c1ca778e2df4eacdfb62948719f5607b8",
+        "identity": {
+          "adapter": "tensorfold-native-v1",
+          "config_sha256": "1ec44e5b5e2f149c84e0dabd88f2c6d18c048f378b5e4b2eb52191af329fbfef",
+          "model_sha256": "6324d04f76d95d23891fc5dd0742cb7cc82ce52864f10ad3196b29c4a2e1f53e",
+          "runtime": {
+            "binary_sha256": "13244dabb5cba3a6e0d5240fd3afd7426aab77fabed27fdd34225410e0179800",
+            "id": "tensorfold-native-zig",
+            "image_sha256": "cb98098439d95d2bff27bc771ba180e5857613ecc41f6b6e81e494782df9433a",
+            "observed_settings_sha256": "1dec45ac1875dd5f44caa23d6f6206fedae026301d805cededd3bb98acab737b",
+            "source_revision": "db281878ddb836fd0df510d8771ecb7e0fe47d26+mia-364f21a1a46a366fa39c4da0d53b7b1f38624610"
+          },
+          "workload": {
+            "concurrency": 1,
+            "id": "qwen38-code-short-c1"
+          }
+        },
+        "input_tokens": 47,
+        "metric": "tokens_per_round",
+        "output_tokens": 128,
+        "unit": "token/round"
+      },
+      "cell_id": "cfae22bb4f8181cd8384625e433d042fd83336dd643cd87a80333ee0b22f294c",
+      "estimate": 3.657142857142857,
+      "holdout_errors": [
+        {
+          "absolute_error": 0.22164502164502187,
+          "absolute_error_percent": 5.71428571428572,
+          "observed": 3.878787878787879,
+          "predicted": 3.657142857142857,
+          "request_id": "qwen38-code-short-c1-holdout-r0-s0",
+          "signed_error": -0.22164502164502187
+        },
+        {
+          "absolute_error": 0.22164502164502187,
+          "absolute_error_percent": 5.71428571428572,
+          "observed": 3.878787878787879,
+          "predicted": 3.657142857142857,
+          "request_id": "qwen38-code-short-c1-holdout-r1-s0",
+          "signed_error": -0.22164502164502187
+        },
+        {
+          "absolute_error": 0.22164502164502187,
+          "absolute_error_percent": 5.71428571428572,
+          "observed": 3.878787878787879,
+          "predicted": 3.657142857142857,
+          "request_id": "qwen38-code-short-c1-holdout-r2-s0",
+          "signed_error": -0.22164502164502187
+        },
+        {
+          "absolute_error": 0.22164502164502187,
+          "absolute_error_percent": 5.71428571428572,
+          "observed": 3.878787878787879,
+          "predicted": 3.657142857142857,
+          "request_id": "qwen38-code-short-c1-holdout-r3-s0",
+          "signed_error": -0.22164502164502187
+        },
+        {
+          "absolute_error": 0.22164502164502187,
+          "absolute_error_percent": 5.71428571428572,
+          "observed": 3.878787878787879,
+          "predicted": 3.657142857142857,
+          "request_id": "qwen38-code-short-c1-holdout-r4-s0",
+          "signed_error": -0.22164502164502187
+        }
+      ],
+      "holdout_request_ids": [
+        "qwen38-code-short-c1-holdout-r0-s0",
+        "qwen38-code-short-c1-holdout-r1-s0",
+        "qwen38-code-short-c1-holdout-r2-s0",
+        "qwen38-code-short-c1-holdout-r3-s0",
+        "qwen38-code-short-c1-holdout-r4-s0"
+      ],
+      "status": "supported",
+      "train_request_ids": [
+        "qwen38-code-short-c1-train-r0-s0",
+        "qwen38-code-short-c1-train-r1-s0",
+        "qwen38-code-short-c1-train-r2-s0",
+        "qwen38-code-short-c1-train-r3-s0",
+        "qwen38-code-short-c1-train-r4-s0"
+      ],
+      "unavailable_reason": null
+    }
+  ],
+  "holdout_request_ids": [
+    "qwen38-code-short-c1-holdout-r0-s0",
+    "qwen38-code-short-c1-holdout-r1-s0",
+    "qwen38-code-short-c1-holdout-r2-s0",
+    "qwen38-code-short-c1-holdout-r3-s0",
+    "qwen38-code-short-c1-holdout-r4-s0"
+  ],
+  "method": "exact-cell-mean-v1",
+  "schema": "spark-observation-calibration",
+  "scope": {
+    "extrapolation": "unavailable",
+    "glm_cyclesim_inference": "unavailable",
+    "kernel_costs": "unavailable",
+    "position_survival": "unavailable"
+  },
+  "sources": [
+    {
+      "observation_sha256": "cf90da77897a210bcccec417f1db8af40014818fe665e3d89d53bd025af06214",
+      "sha256": "8ea8c73748e5db56bce0ba5448cccab40bd26fe8ee17cdf85b6b0d20b09ba606",
+      "source_id": "qwen38-code-short-c1"
+    }
+  ],
+  "split_sha256": "da7e6c82daa968665fbf73efec4b0d4511c7a5da9f3d8284c0f1a1e28ffcd130",
+  "train_request_ids": [
+    "qwen38-code-short-c1-train-r0-s0",
+    "qwen38-code-short-c1-train-r1-s0",
+    "qwen38-code-short-c1-train-r2-s0",
+    "qwen38-code-short-c1-train-r3-s0",
+    "qwen38-code-short-c1-train-r4-s0"
+  ],
+  "unavailable": [],
+  "version": 1
+}

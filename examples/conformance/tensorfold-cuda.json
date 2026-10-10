@@ -1,0 +1,96 @@
+{
+  "schema": 1,
+  "scope": "dense decoder conformance only",
+  "status": "PLAN_ONLY",
+  "runner": "tensorfold-cuda",
+  "executes": false,
+  "source_validation": "check-sources before execution",
+  "claims_excluded": [
+    "model",
+    "quality",
+    "collective",
+    "whole-engine",
+    "performance"
+  ],
+  "record": [
+    "host",
+    "UTC and Europe/Warsaw time",
+    "image digest or environment identity",
+    "source revisions and file hashes",
+    "commands and return codes",
+    "stdout/stderr",
+    "fixture SHA256 before/after",
+    "test counts and all skips"
+  ],
+  "upstreams": {
+    "tensorfold": {
+      "repository": "https://github.com/ashhart/TensorFold",
+      "revision": "db281878ddb836fd0df510d8771ecb7e0fe47d26",
+      "license": "Apache-2.0; EXL3 format credit Turboderp MIT",
+      "files": {
+        "tests/cuda/test_exl3_linear.py": "70871553d8fcf3f10e40cf1e015f50b3070f8b668dcc37c8108ffeff93df2dc5",
+        "src/tensorfold/cuda/exl3/format.py": "25b617d65976ce9bec016f88086ed0565bd2ed56f223f9f490ecab73048145f7",
+        "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+      }
+    }
+  },
+  "requires": [
+    "isolated pinned checkout",
+    "Python >=3.11",
+    "NumPy",
+    "pytest",
+    "CUDA PyTorch",
+    "working GPU",
+    "TensorFold CUDA toolchain/dependencies"
+  ],
+  "max_seconds": 600,
+  "commands": [
+    {
+      "cwd": "{tensorfold}",
+      "argv": [
+        "{python}",
+        "-c",
+        "import torch; assert torch.cuda.is_available(), 'CUDA unavailable'"
+      ],
+      "max_seconds": 30
+    },
+    {
+      "cwd": "{tensorfold}",
+      "argv": [
+        "{python}",
+        "-m",
+        "pytest",
+        "tests/cuda/test_exl3_linear.py",
+        "-ra",
+        "--junitxml={results}/tensorfold.xml"
+      ],
+      "max_seconds": 570
+    }
+  ],
+  "exact_decoder": {
+    "tests": [
+      "test_decode_is_bit_exact"
+    ],
+    "comparison": "fp16 bit patterns; zero tolerance",
+    "codebooks": [
+      "3inst",
+      "mcg",
+      "mul1"
+    ]
+  },
+  "toleranced_matmul": {
+    "tests": [
+      "test_matches_the_float64_reference"
+    ],
+    "metric": "relative L2 error",
+    "threshold": 0.002
+  },
+  "other_checks": [
+    "row invariance",
+    "stored/strips layout",
+    "dtype",
+    "bias",
+    "split-K"
+  ],
+  "acceptance": "Require CUDA preflight success, nonzero executed tests and zero skips/failures/errors; report exact decoder and toleranced matmul separately"
+}

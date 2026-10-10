@@ -11,6 +11,7 @@ import subprocess
 import sys
 from common.config import dump, integer, load
 from gb10check.resources import check_resources, parse_cuobjdump, parse_ptxas
+from gb10check.provenance import build_provenance, dependency_hashes, file_hash
 
 
 def source_path(root, value):
@@ -20,15 +21,19 @@ def source_path(root, value):
     return path
 
 
-def run(command, logfile):
-    proc = subprocess.run(command, capture_output=True, text=True, timeout=600, check=False)
+def run(command, logfile, provenance=None, timeout=600):
+    record = {"argv": list(map(str, command)), "log": logfile.name, "returncode": "unknown"}
+    if provenance is not None:
+        provenance["commands"].append(record)
+    proc = subprocess.run(command, capture_output=True, text=True, timeout=timeout, check=False)
+    record["returncode"] = proc.returncode
     logfile.write_text(proc.stdout + proc.stderr)
     if proc.returncode:
         raise ValueError("static compilation failed; inspect " + logfile.name)
     return proc.stdout + proc.stderr
 
 
-def compile_entry(entry, target, inputs, output):
+def compile_entry(entry, target, inputs, output, provenance=None, capture_include_closure=False):
     name = entry["name"]
     if not re.fullmatch(r"[A-Za-z][A-Za-z0-9_-]*", name):
         raise ValueError("entry name must be a safe filename")
@@ -43,11 +48,14 @@ def compile_entry(entry, target, inputs, output):
         if not isinstance(flags, list) or any(not isinstance(flag, str) for flag in flags):
             raise ValueError("compiler flags must be strings")
         base = ["nvcc", "-O3", "-std=c++17", "-arch=" + target, *flags]
-        run([*base, "--cubin", "-Xptxas=-v,--warn-on-spills", str(source), "-o", str(binary)], log)
-        run([*base, "--ptx", str(source), "-o", str(dest / "kernel.ptx")], dest / "ptx.log")
+        if capture_include_closure:
+            dependencies = run([*base, "-M", "-MT", name, str(source)], dest / "dependencies.txt", provenance)
+            provenance.setdefault("include_closure_sha256", {})[name] = dependency_hashes(dependencies)
+        run([*base, "--cubin", "-Xptxas=-v,--warn-on-spills", str(source), "-o", str(binary)], log, provenance)
+        run([*base, "--ptx", str(source), "-o", str(dest / "kernel.ptx")], dest / "ptx.log", provenance)
     elif kind == "ptx":
         (dest / "kernel.ptx").write_bytes(source.read_bytes())
-        run(["ptxas", "-arch=" + target, "-v", "--warn-on-spills", str(source), "-o", str(binary)], log)
+        run(["ptxas", "-arch=" + target, "-v", "--warn-on-spills", str(source), "-o", str(binary)], log, provenance)
     elif kind == "triton":
         import triton
         from triton.compiler import ASTSource
@@ -61,6 +69,12 @@ def compile_entry(entry, target, inputs, output):
         def freeze(value):
             return tuple(freeze(item) for item in value) if isinstance(value, list) else value
         options = {key: freeze(value) for key, value in entry.get("options", {}).items()}
+        if provenance is not None:
+            provenance["toolkit_versions"]["triton"] = triton.__version__
+            provenance.setdefault("compiler_api", []).append({"entry": name, "api": "triton.compile",
+                "target": {"backend": "cuda", "arch": 121, "warp_size": 32},
+                "signature": entry["signature"], "constants": entry.get("constants", {}),
+                "attrs": entry.get("attrs", {}), "options": entry.get("options", {})})
         kernel = triton.compile(ast, target=GPUTarget("cuda", 121, 32), options=options)
         # Reading asm and metadata is static. n_regs/n_spills properties can
         # initialize a driver handle, so they are deliberately never accessed.
@@ -70,12 +84,15 @@ def compile_entry(entry, target, inputs, output):
         dump(metadata, dest / "metadata.json")
         from triton.backends.nvidia.compiler import get_ptxas
         ptxas = get_ptxas(121).path
+        if provenance is not None:
+            provenance["toolkit_versions"]["triton_ptxas"] = run(
+                [str(ptxas), "--version"], dest / "triton-ptxas-version.txt", provenance)
         run([str(ptxas), "-arch=" + target, "-v", "--warn-on-spills",
-             str(dest / "kernel.ptx"), "-o", str(dest / "reassembled.cubin")], log)
+             str(dest / "kernel.ptx"), "-o", str(dest / "reassembled.cubin")], log, provenance)
     else:
         raise ValueError("entry kind must be cuda, ptx or triton")
-    run(["cuobjdump", "--dump-sass", str(binary)], dest / "kernel.sass")
-    binary_text = run(["cuobjdump", "--dump-resource-usage", str(binary)], dest / "resources.txt")
+    run(["cuobjdump", "--dump-sass", str(binary)], dest / "kernel.sass", provenance)
+    binary_text = run(["cuobjdump", "--dump-resource-usage", str(binary)], dest / "resources.txt", provenance)
     resources = parse_ptxas(log.read_text())
     launch = entry["kernels"]
     if kind == "triton":
@@ -93,7 +110,7 @@ def compile_entry(entry, target, inputs, output):
             row["toolkit_occupancy"] = json.loads(run([str(output / "occupancy"), str(resource.registers),
                 str(geometry["threads"]), str(resource.static_shared_bytes),
                 str(geometry["dynamic_shared_bytes"]), str(max(1, resource.barriers))],
-                dest / (resource.name + "-occupancy.log")))
+                dest / (resource.name + "-occupancy.log"), provenance))
             row["checks"]["launch_geometry"] = row["toolkit_occupancy"]["active_blocks_per_sm"] > 0
             row["checks"]["occupancy"] = row["toolkit_occupancy"]["warp_occupancy_pct"] >= entry.get("thresholds", {}).get("min_occupancy_pct", 0)
         except ValueError:
@@ -121,6 +138,9 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--image-identity", type=json.loads)
+    parser.add_argument("--requested-platform")
+    parser.add_argument("--capture-include-closure", action="store_true")
     args = parser.parse_args(argv)
     if sys.platform != "linux" or list(Path("/dev").glob("nvidia*")):
         parser.error("compiler adapter requires GPU-free Linux")
@@ -130,14 +150,33 @@ def main(argv=None):
     args.out.mkdir(parents=True, exist_ok=True)
     report = {"schema": 1, "mode": "STATIC_NO_GPU", "status": "FAIL", "entries": []}
     try:
+        provenance = build_provenance(config, args.config.parent, source_path,
+                                      args.image_identity, args.requested_platform)
+        report["build_provenance"] = provenance
+        provenance["config_file_sha256"] = file_hash(args.config)
+        if args.capture_include_closure:
+            if any(entry.get("kind") != "cuda" for entry in config["entries"]):
+                raise ValueError("include closure capture supports CUDA entries only")
+            provenance["tool_sources_sha256"] = {path.name: file_hash(path) for path in sorted(
+                Path(__file__).parent.iterdir()) if path.is_file() and path.suffix in {".py", ".cpp"}}
+            provenance["tool_sources_sha256"].update({"common/" + path.name: file_hash(path) for path in
+                sorted(Path(__file__).parents[1].joinpath("common").glob("*.py"))})
         versions = {}
-        for name in ("nvcc", "ptxas", "cuobjdump"):
-            versions[name] = run([name, "--version"], args.out / (name + "-version.txt"))
         report["toolchain"] = versions
+        for name in ("nvcc", "ptxas", "cuobjdump"):
+            versions[name] = run([name, "--version"], args.out / (name + "-version.txt"), provenance)
+            provenance["toolkit_versions"][name] = versions[name]
+        provenance["toolkit_versions"]["c++"] = run(["c++", "--version"], args.out / "c++-version.txt", provenance)
+        provenance["occupancy_header"]["sha256"] = file_hash(provenance["occupancy_header"]["path"])
+        if args.capture_include_closure:
+            dependencies = run(["c++", "-std=c++17", "-I/usr/local/cuda/include", "-M", "-MT", "occupancy",
+                str(Path(__file__).with_name("occupancy.cpp"))], args.out / "occupancy-dependencies.txt", provenance)
+            provenance.setdefault("include_closure_sha256", {})["occupancy"] = dependency_hashes(dependencies)
         run(["c++", "-O2", "-std=c++17", "-I/usr/local/cuda/include",
-             str(Path(__file__).with_name("occupancy.cpp")), "-o", str(args.out / "occupancy")], args.out / "occupancy-build.log")
+             str(Path(__file__).with_name("occupancy.cpp")), "-o", str(args.out / "occupancy")], args.out / "occupancy-build.log", provenance)
         for entry in config["entries"]:
-            report["entries"].append(compile_entry(entry, config["target"], args.config.parent, args.out))
+            report["entries"].append(compile_entry(entry, config["target"], args.config.parent, args.out,
+                                                   provenance, args.capture_include_closure))
         report["status"] = "PASS" if all(row["status"] == "PASS" for row in report["entries"]) else "FAIL"
     except (ValueError, OSError, subprocess.TimeoutExpired) as exc:
         report["error"] = str(exc)

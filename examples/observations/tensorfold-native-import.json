@@ -1,0 +1,11 @@
+{
+  "schema": "spark-observation-import",
+  "version": 1,
+  "adapter": "tensorfold-native-v1",
+  "source_id": "tensorfold-native-fixture",
+  "runtime": {"id": "tensorfold-native-zig", "source_revision": "db281878ddb836fd0df510d8771ecb7e0fe47d26"},
+  "config_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "model_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "workload": {"id": "fixture-greedy", "concurrency": 1},
+  "request_ids": ["native-r1"]
+}

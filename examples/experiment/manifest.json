@@ -1,0 +1,41 @@
+{
+  "schema": "spark-experiment",
+  "version": 1,
+  "identity": {"id": "offline-toy"},
+  "model": {"id": "toy-model", "revision": "unknown"},
+  "runtime": {"id": "toy-runtime", "revision": "unknown"},
+  "arms": [
+    {"id": "baseline", "config_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"},
+    {"id": "candidate", "config_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"}
+  ],
+  "artifacts": [
+    {
+      "id": "kernel-check",
+      "kind": "gb10check.report",
+      "path": "static-kernel.json",
+      "sha256": "9618487ce983035f42332fb7d77c394174b6d2e109c4b7e0c9103d0d5b888bfa",
+      "schema": "gb10check-report-v1",
+      "origin": "fixture",
+      "arm": "candidate"
+    },
+    {
+      "id": "cycle-estimate",
+      "kind": "cyclesim.report",
+      "path": "prediction.json",
+      "sha256": "2392904721230daf56cdcbbffe90af4d234461b8dbabeaf82761665f06ed3ef8",
+      "schema": "cyclesim-report-v1",
+      "origin": "simulation",
+      "arm": "candidate"
+    }
+  ],
+  "analyses": [
+    {"id": "static-check", "tool": "gb10check", "inputs": {"report": "kernel-check"}},
+    {"id": "cycle-model", "tool": "cyclesim", "inputs": {"report": "cycle-estimate"}}
+  ],
+  "evidence": [
+    {"id": "cycle-time", "status": "estimated", "artifact": "cycle-estimate", "metric": "cycle_ms", "value": 80, "unit": "ms"},
+    {"id": "prior-routing", "status": "assumed"},
+    {"id": "gpu-execution", "status": "missing"},
+    {"id": "runtime-identity", "status": "operator-declared"}
+  ]
+}

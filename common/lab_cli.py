@@ -6,6 +6,15 @@ import sys
 
 def main(argv=None):
     args = list(sys.argv[1:] if argv is None else argv)
+    if args and args[0] == "conformance":
+        from lab.conformance.cli import main as run
+        return run(args[1:])
+    if args and args[0] == "observations":
+        from lab.observations.cli import main as run
+        return run(args[1:])
+    if args and args[0] == "experiment":
+        from lab.experiment.cli import main as run
+        return run(args[1:])
     if args and args[0] == "schedreplay":
         from lab.schedreplay.cli import main as run
         return run(args[1:])
@@ -25,7 +34,7 @@ def main(argv=None):
         from lab.cli import main as run
         return run(args)
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=["schedreplay", "rankharness", "exl3", "exlr8", "tensorfold", "sha256", "acceptance"],
+    parser.add_argument("command", choices=["conformance", "observations", "experiment", "schedreplay", "rankharness", "exl3", "exlr8", "tensorfold", "sha256", "acceptance"],
                         help="choose a utility; add --help after it for its options")
     parser.parse_args(args)
     return 0

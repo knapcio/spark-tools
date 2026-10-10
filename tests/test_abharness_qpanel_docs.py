@@ -3,8 +3,12 @@
 from pathlib import Path
 from copy import deepcopy
 import re
-import tomllib
 import unittest
+
+try:
+    import tomllib
+except ModuleNotFoundError:  # Python 3.10
+    import tomli as tomllib
 
 from abharness.screening import PROFILES, bracket, det_pair_stats
 

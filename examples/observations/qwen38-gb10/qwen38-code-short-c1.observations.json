@@ -1,0 +1,1265 @@
+{
+  "adapter": {
+    "id": "tensorfold-native-v1",
+    "upstream_revision": "db281878ddb836fd0df510d8771ecb7e0fe47d26",
+    "version": 1
+  },
+  "aggregates": {},
+  "counts": {
+    "accepted": 10,
+    "rejected": 0
+  },
+  "identity": {
+    "config_sha256": "1ec44e5b5e2f149c84e0dabd88f2c6d18c048f378b5e4b2eb52191af329fbfef",
+    "model_sha256": "6324d04f76d95d23891fc5dd0742cb7cc82ce52864f10ad3196b29c4a2e1f53e",
+    "runtime": {
+      "binary_sha256": "13244dabb5cba3a6e0d5240fd3afd7426aab77fabed27fdd34225410e0179800",
+      "id": "tensorfold-native-zig",
+      "image_sha256": "cb98098439d95d2bff27bc771ba180e5857613ecc41f6b6e81e494782df9433a",
+      "observed_settings_sha256": "1dec45ac1875dd5f44caa23d6f6206fedae026301d805cededd3bb98acab737b",
+      "source_revision": "db281878ddb836fd0df510d8771ecb7e0fe47d26+mia-364f21a1a46a366fa39c4da0d53b7b1f38624610"
+    },
+    "source_id": "qwen38-code-short-c1",
+    "workload": {
+      "concurrency": 1,
+      "id": "qwen38-code-short-c1"
+    }
+  },
+  "missing_fields": [
+    "decode_seconds",
+    "wall_duration"
+  ],
+  "recognized_fields": [
+    "client.client_e2e_seconds",
+    "client.client_ttft_seconds",
+    "client.itls_seconds",
+    "client.stream_token_events",
+    "speculative.acceptance_rate",
+    "speculative.accepted",
+    "speculative.drafted",
+    "speculative.rounds",
+    "speculative.tokens_per_round",
+    "tensorfold.drafts",
+    "tensorfold.enable_thinking",
+    "tensorfold.engine",
+    "tensorfold.prefill_seconds",
+    "tensorfold.reasoning_effort",
+    "tensorfold.sampling",
+    "tensorfold.seconds",
+    "tensorfold.time_to_first_token",
+    "tensorfold.tokens_per_second",
+    "usage.completion_tokens",
+    "usage.prompt_tokens",
+    "usage.total_tokens"
+  ],
+  "requests": [
+    {
+      "metrics": {
+        "acceptance": {
+          "basis": "accepted/drafted",
+          "unit": "ratio",
+          "value": 0.8070175438596491
+        },
+        "accepted_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 92
+        },
+        "client_decode_rate": {
+          "basis": "client-sse-monotonic",
+          "unit": "token/second",
+          "value": 80.41369367994054
+        },
+        "client_latency": {
+          "basis": "client-sse-monotonic",
+          "unit": "second",
+          "value": 1.685359487993992
+        },
+        "client_time_per_output_token": {
+          "basis": "client-sse-monotonic",
+          "unit": "second/token",
+          "value": 0.01243569290549146
+        },
+        "client_ttft": {
+          "basis": "client-sse-monotonic",
+          "unit": "second",
+          "value": 0.10602648899657652
+        },
+        "decode_rate": {
+          "basis": "server-prefill-finished-to-finish; numerator=output-minus-one",
+          "unit": "token/second",
+          "value": 80.4043881341858
+        },
+        "decode_rounds": {
+          "basis": "server-response",
+          "unit": "round",
+          "value": 35
+        },
+        "drafted_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 114
+        },
+        "input_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 47
+        },
+        "inter_token_latency": {
+          "basis": "client-sse-monotonic-content-event",
+          "unit": "second",
+          "values": [
+            0.043996111999149434,
+            0.042482902004849166,
+            0.04322755598695949,
+            0.04248853400349617,
+            0.03905189500073902,
+            0.040769918996375054,
+            0.04122038101195358,
+            0.03503237800032366,
+            0.03565173500101082,
+            0.03558629499457311,
+            0.03898360699531622,
+            0.043329938998795114,
+            0.036685602011857554,
+            0.03983769899059553,
+            0.042880341003183275,
+            0.04870445700362325,
+            0.04095878198859282,
+            0.041183773006196134,
+            0.03890423200209625,
+            0.03769151700544171,
+            0.03931139799533412,
+            0.039191349991597235,
+            0.03916567101259716,
+            0.04214064798725303,
+            0.05719942500581965,
+            0.05917799200688023,
+            0.058025580990943126,
+            0.05665117200987879,
+            0.05230376899999101,
+            0.045432007987983525,
+            0.05819023700314574,
+            0.058564859005855396,
+            0.0630814449978061,
+            0.04930325500026811,
+            0.05266706200200133
+          ]
+        },
+        "latency": {
+          "basis": "server-submit-to-finish",
+          "unit": "second",
+          "value": 1.683617225
+        },
+        "output_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 128
+        },
+        "prefill": {
+          "basis": "server-prompt-pass",
+          "unit": "second",
+          "value": 0.103953043
+        },
+        "tokens_per_round": {
+          "basis": "server-response",
+          "unit": "token/round",
+          "value": 3.657142857142857
+        },
+        "ttft": {
+          "basis": "server-arrival-to-first-token",
+          "unit": "second",
+          "value": 0.105089182
+        }
+      },
+      "request_id": "qwen38-code-short-c1-train-r0-s0"
+    },
+    {
+      "metrics": {
+        "acceptance": {
+          "basis": "accepted/drafted",
+          "unit": "ratio",
+          "value": 0.8070175438596491
+        },
+        "accepted_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 92
+        },
+        "client_decode_rate": {
+          "basis": "client-sse-monotonic",
+          "unit": "token/second",
+          "value": 80.03981798121093
+        },
+        "client_latency": {
+          "basis": "client-sse-monotonic",
+          "unit": "second",
+          "value": 1.691959340008907
+        },
+        "client_time_per_output_token": {
+          "basis": "client-sse-monotonic",
+          "unit": "second/token",
+          "value": 0.012493781535519565
+        },
+        "client_ttft": {
+          "basis": "client-sse-monotonic",
+          "unit": "second",
+          "value": 0.10524908499792218
+        },
+        "decode_rate": {
+          "basis": "server-prefill-finished-to-finish; numerator=output-minus-one",
+          "unit": "token/second",
+          "value": 80.03484739942814
+        },
+        "decode_rounds": {
+          "basis": "server-response",
+          "unit": "round",
+          "value": 35
+        },
+        "drafted_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 114
+        },
+        "input_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 47
+        },
+        "inter_token_latency": {
+          "basis": "client-sse-monotonic-content-event",
+          "unit": "second",
+          "values": [
+            0.043651778003550135,
+            0.04243909500655718,
+            0.0443867499998305,
+            0.044272717990679666,
+            0.041909802006557584,
+            0.0404433119983878,
+            0.04227517600520514,
+            0.03544013599457685,
+            0.03653128400037531,
+            0.035301401003380306,
+            0.038876216000062414,
+            0.04310225999506656,
+            0.03739079899969511,
+            0.03888002400344703,
+            0.04345099499914795,
+            0.04847005799820181,
+            0.04116505400452297,
+            0.04051628799061291,
+            0.038942600003792904,
+            0.03833908200613223,
+            0.039494693992310204,
+            0.039944691001437604,
+            0.03915320600208361,
+            0.04204178600048181,
+            0.057461375996354036,
+            0.05805142100143712,
+            0.05845679600315634,
+            0.05680869099160191,
+            0.052129817006061785,
+            0.04549624900391791,
+            0.05772697499196511,
+            0.05914607300655916,
+            0.06317024500458501,
+            0.04955429398978595,
+            0.05214881000574678
+          ]
+        },
+        "latency": {
+          "basis": "server-submit-to-finish",
+          "unit": "second",
+          "value": 1.690624579
+        },
+        "output_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 128
+        },
+        "prefill": {
+          "basis": "server-prompt-pass",
+          "unit": "second",
+          "value": 0.103686021
+        },
+        "tokens_per_round": {
+          "basis": "server-response",
+          "unit": "token/round",
+          "value": 3.657142857142857
+        },
+        "ttft": {
+          "basis": "server-arrival-to-first-token",
+          "unit": "second",
+          "value": 0.10432549
+        }
+      },
+      "request_id": "qwen38-code-short-c1-train-r1-s0"
+    },
+    {
+      "metrics": {
+        "acceptance": {
+          "basis": "accepted/drafted",
+          "unit": "ratio",
+          "value": 0.8070175438596491
+        },
+        "accepted_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 92
+        },
+        "client_decode_rate": {
+          "basis": "client-sse-monotonic",
+          "unit": "token/second",
+          "value": 80.36769488614405
+        },
+        "client_latency": {
+          "basis": "client-sse-monotonic",
+          "unit": "second",
+          "value": 1.6848146179981995
+        },
+        "client_time_per_output_token": {
+          "basis": "client-sse-monotonic",
+          "unit": "second/token",
+          "value": 0.01244281052749725
+        },
+        "client_ttft": {
+          "basis": "client-sse-monotonic",
+          "unit": "second",
+          "value": 0.1045776810060488
+        },
+        "decode_rate": {
+          "basis": "server-prefill-finished-to-finish; numerator=output-minus-one",
+          "unit": "token/second",
+          "value": 80.34015490201813
+        },
+        "decode_rounds": {
+          "basis": "server-response",
+          "unit": "round",
+          "value": 35
+        },
+        "drafted_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 114
+        },
+        "input_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 47
+        },
+        "inter_token_latency": {
+          "basis": "client-sse-monotonic-content-event",
+          "unit": "second",
+          "values": [
+            0.043230003997450694,
+            0.04207874499843456,
+            0.043803360997117124,
+            0.04251271100656595,
+            0.039499957987573,
+            0.039887699007522315,
+            0.04219594500318635,
+            0.03502439399017021,
+            0.03616678901016712,
+            0.035616567998658866,
+            0.03879084099025931,
+            0.04259685400757007,
+            0.03652867600612808,
+            0.03985960299905855,
+            0.04297829300048761,
+            0.048445515989442356,
+            0.04168735499843024,
+            0.041040654003154486,
+            0.03872125700581819,
+            0.03801934099465143,
+            0.03926304599735886,
+            0.03910338399873581,
+            0.03901738300919533,
+            0.042227864993037656,
+            0.05792457499774173,
+            0.05799015800585039,
+            0.05953471100656316,
+            0.05642437298956793,
+            0.05206009100947995,
+            0.045333992995438166,
+            0.058482923996052705,
+            0.059231241000816226,
+            0.06288448700797744,
+            0.04943283800093923,
+            0.05253962399729062
+          ]
+        },
+        "latency": {
+          "basis": "server-submit-to-finish",
+          "unit": "second",
+          "value": 1.683276401
+        },
+        "output_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 128
+        },
+        "prefill": {
+          "basis": "server-prompt-pass",
+          "unit": "second",
+          "value": 0.102313501
+        },
+        "tokens_per_round": {
+          "basis": "server-response",
+          "unit": "token/round",
+          "value": 3.657142857142857
+        },
+        "ttft": {
+          "basis": "server-arrival-to-first-token",
+          "unit": "second",
+          "value": 0.103294456
+        }
+      },
+      "request_id": "qwen38-code-short-c1-train-r2-s0"
+    },
+    {
+      "metrics": {
+        "acceptance": {
+          "basis": "accepted/drafted",
+          "unit": "ratio",
+          "value": 0.8070175438596491
+        },
+        "accepted_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 92
+        },
+        "client_decode_rate": {
+          "basis": "client-sse-monotonic",
+          "unit": "token/second",
+          "value": 80.36559740380937
+        },
+        "client_latency": {
+          "basis": "client-sse-monotonic",
+          "unit": "second",
+          "value": 1.686664941997151
+        },
+        "client_time_per_output_token": {
+          "basis": "client-sse-monotonic",
+          "unit": "second/token",
+          "value": 0.012443135275599898
+        },
+        "client_ttft": {
+          "basis": "client-sse-monotonic",
+          "unit": "second",
+          "value": 0.10638676199596375
+        },
+        "decode_rate": {
+          "basis": "server-prefill-finished-to-finish; numerator=output-minus-one",
+          "unit": "token/second",
+          "value": 80.34732384251933
+        },
+        "decode_rounds": {
+          "basis": "server-response",
+          "unit": "round",
+          "value": 35
+        },
+        "drafted_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 114
+        },
+        "input_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 47
+        },
+        "inter_token_latency": {
+          "basis": "client-sse-monotonic-content-event",
+          "unit": "second",
+          "values": [
+            0.04353497900592629,
+            0.04139830099302344,
+            0.044154222996439785,
+            0.0424926800042158,
+            0.03896007199364249,
+            0.040542449001804926,
+            0.04170255501230713,
+            0.0348424119874835,
+            0.035902151008485816,
+            0.03586149399052374,
+            0.03886383300414309,
+            0.042628231007256545,
+            0.03794620498956647,
+            0.04010193901194725,
+            0.04281162199913524,
+            0.04826706799212843,
+            0.0413414369977545,
+            0.040933295007562265,
+            0.03852204199938569,
+            0.037679469998693094,
+            0.03973552500247024,
+            0.03887660100008361,
+            0.03944237399264239,
+            0.041928730002837256,
+            0.05831903699436225,
+            0.058099854009924456,
+            0.060075076995417476,
+            0.05552898600581102,
+            0.05194396399019752,
+            0.046199702002923004,
+            0.057968303008237854,
+            0.058866298000793904,
+            0.0631146789964987,
+            0.049254183992161416,
+            0.05202306600403972
+          ]
+        },
+        "latency": {
+          "basis": "server-submit-to-finish",
+          "unit": "second",
+          "value": 1.684902646
+        },
+        "output_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 128
+        },
+        "prefill": {
+          "basis": "server-prompt-pass",
+          "unit": "second",
+          "value": 0.104114805
+        },
+        "tokens_per_round": {
+          "basis": "server-response",
+          "unit": "token/round",
+          "value": 3.657142857142857
+        },
+        "ttft": {
+          "basis": "server-arrival-to-first-token",
+          "unit": "second",
+          "value": 0.10524112
+        }
+      },
+      "request_id": "qwen38-code-short-c1-train-r3-s0"
+    },
+    {
+      "metrics": {
+        "acceptance": {
+          "basis": "accepted/drafted",
+          "unit": "ratio",
+          "value": 0.8070175438596491
+        },
+        "accepted_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 92
+        },
+        "client_decode_rate": {
+          "basis": "client-sse-monotonic",
+          "unit": "token/second",
+          "value": 80.46242268793559
+        },
+        "client_latency": {
+          "basis": "client-sse-monotonic",
+          "unit": "second",
+          "value": 1.684760099000414
+        },
+        "client_time_per_output_token": {
+          "basis": "client-sse-monotonic",
+          "unit": "second/token",
+          "value": 0.012428161700752996
+        },
+        "client_ttft": {
+          "basis": "client-sse-monotonic",
+          "unit": "second",
+          "value": 0.10638356300478335
+        },
+        "decode_rate": {
+          "basis": "server-prefill-finished-to-finish; numerator=output-minus-one",
+          "unit": "token/second",
+          "value": 80.42924207473332
+        },
+        "decode_rounds": {
+          "basis": "server-response",
+          "unit": "round",
+          "value": 35
+        },
+        "drafted_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 114
+        },
+        "input_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 47
+        },
+        "inter_token_latency": {
+          "basis": "client-sse-monotonic-content-event",
+          "unit": "second",
+          "values": [
+            0.043504211003892124,
+            0.0412959969980875,
+            0.043989233003230765,
+            0.042087465000804514,
+            0.03964034099772107,
+            0.0394584070018027,
+            0.040826430995366536,
+            0.03606914199190214,
+            0.035932967002736405,
+            0.0355894009990152,
+            0.038817897002445534,
+            0.042182504999800585,
+            0.03735251200851053,
+            0.039539397999760695,
+            0.04214986599981785,
+            0.047208160991431214,
+            0.042141705998801626,
+            0.040997087009600364,
+            0.03855676199600566,
+            0.038679881996358745,
+            0.039035880006849766,
+            0.039216967998072505,
+            0.03949189400009345,
+            0.04219944900250994,
+            0.05746011299197562,
+            0.05834291000792291,
+            0.059106040993356146,
+            0.05592109699500725,
+            0.052111691009486094,
+            0.04571004099852871,
+            0.058534859999781474,
+            0.058657963993027806,
+            0.06291458400664851,
+            0.04966610300471075,
+            0.05382198598817922
+          ]
+        },
+        "latency": {
+          "basis": "server-submit-to-finish",
+          "unit": "second",
+          "value": 1.683477225
+        },
+        "output_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 128
+        },
+        "prefill": {
+          "basis": "server-prompt-pass",
+          "unit": "second",
+          "value": 0.103975302
+        },
+        "tokens_per_round": {
+          "basis": "server-response",
+          "unit": "token/round",
+          "value": 3.657142857142857
+        },
+        "ttft": {
+          "basis": "server-arrival-to-first-token",
+          "unit": "second",
+          "value": 0.105331295
+        }
+      },
+      "request_id": "qwen38-code-short-c1-train-r4-s0"
+    },
+    {
+      "metrics": {
+        "acceptance": {
+          "basis": "accepted/drafted",
+          "unit": "ratio",
+          "value": 0.8952380952380953
+        },
+        "accepted_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 94
+        },
+        "client_decode_rate": {
+          "basis": "client-sse-monotonic",
+          "unit": "token/second",
+          "value": 85.153924519124
+        },
+        "client_latency": {
+          "basis": "client-sse-monotonic",
+          "unit": "second",
+          "value": 1.5971634660090785
+        },
+        "client_time_per_output_token": {
+          "basis": "client-sse-monotonic",
+          "unit": "second/token",
+          "value": 0.011743439960602385
+        },
+        "client_ttft": {
+          "basis": "client-sse-monotonic",
+          "unit": "second",
+          "value": 0.10574659101257566
+        },
+        "decode_rate": {
+          "basis": "server-prefill-finished-to-finish; numerator=output-minus-one",
+          "unit": "token/second",
+          "value": 85.13345807123362
+        },
+        "decode_rounds": {
+          "basis": "server-response",
+          "unit": "round",
+          "value": 33
+        },
+        "drafted_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 105
+        },
+        "input_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 47
+        },
+        "inter_token_latency": {
+          "basis": "client-sse-monotonic-content-event",
+          "unit": "second",
+          "values": [
+            0.04453924599511083,
+            0.042335528996773064,
+            0.04446684700087644,
+            0.04338654800085351,
+            0.038838505002786405,
+            0.040142226993339136,
+            0.04234181701031048,
+            0.0351345379895065,
+            0.03749553600209765,
+            0.040311393997399136,
+            0.04094751999946311,
+            0.04520023500663228,
+            0.03658806800376624,
+            0.03912743199907709,
+            0.04136722999101039,
+            0.043483075001859106,
+            0.0431721170025412,
+            0.039242327999090776,
+            0.03752297500614077,
+            0.040105987995048054,
+            0.042148313994403,
+            0.03771500600851141,
+            0.04238501699001063,
+            0.06037861200456973,
+            0.060763571003917605,
+            0.052314218002720736,
+            0.05498590099159628,
+            0.05657399000483565,
+            0.05465763100073673,
+            0.047578001001966186,
+            0.04630213399650529,
+            0.05323022999800742,
+            0.06655522300570738
+          ]
+        },
+        "latency": {
+          "basis": "server-submit-to-finish",
+          "unit": "second",
+          "value": 1.595506962
+        },
+        "output_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 128
+        },
+        "prefill": {
+          "basis": "server-prompt-pass",
+          "unit": "second",
+          "value": 0.103592056
+        },
+        "tokens_per_round": {
+          "basis": "server-response",
+          "unit": "token/round",
+          "value": 3.878787878787879
+        },
+        "ttft": {
+          "basis": "server-arrival-to-first-token",
+          "unit": "second",
+          "value": 0.10455938
+        }
+      },
+      "request_id": "qwen38-code-short-c1-holdout-r0-s0"
+    },
+    {
+      "metrics": {
+        "acceptance": {
+          "basis": "accepted/drafted",
+          "unit": "ratio",
+          "value": 0.8952380952380953
+        },
+        "accepted_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 94
+        },
+        "client_decode_rate": {
+          "basis": "client-sse-monotonic",
+          "unit": "token/second",
+          "value": 85.08224921163334
+        },
+        "client_latency": {
+          "basis": "client-sse-monotonic",
+          "unit": "second",
+          "value": 1.59871191799175
+        },
+        "client_time_per_output_token": {
+          "basis": "client-sse-monotonic",
+          "unit": "second/token",
+          "value": 0.011753332913338984
+        },
+        "client_ttft": {
+          "basis": "client-sse-monotonic",
+          "unit": "second",
+          "value": 0.10603863799769897
+        },
+        "decode_rate": {
+          "basis": "server-prefill-finished-to-finish; numerator=output-minus-one",
+          "unit": "token/second",
+          "value": 85.03534477366277
+        },
+        "decode_rounds": {
+          "basis": "server-response",
+          "unit": "round",
+          "value": 33
+        },
+        "drafted_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 105
+        },
+        "input_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 47
+        },
+        "inter_token_latency": {
+          "basis": "client-sse-monotonic-content-event",
+          "unit": "second",
+          "values": [
+            0.044182768993778154,
+            0.042112474009627476,
+            0.04322638899611775,
+            0.042573063998133875,
+            0.03906858499976806,
+            0.04072163200180512,
+            0.041523437001160346,
+            0.03479993299697526,
+            0.03751414400176145,
+            0.04038200200011488,
+            0.04159697299473919,
+            0.04415976000018418,
+            0.03780113501125015,
+            0.03917349599942099,
+            0.04070963300182484,
+            0.04333426000084728,
+            0.04344061198935378,
+            0.039095127998734824,
+            0.03797131001192611,
+            0.0400396519980859,
+            0.04196644299372565,
+            0.0374365120078437,
+            0.042780246993061155,
+            0.0595273850049125,
+            0.06211349999648519,
+            0.05316901499463711,
+            0.0546414230047958,
+            0.05727142799878493,
+            0.05500050999398809,
+            0.04794132700772025,
+            0.04728363400499802,
+            0.05390448299294803,
+            0.06607328999962192
+          ]
+        },
+        "latency": {
+          "basis": "server-submit-to-finish",
+          "unit": "second",
+          "value": 1.597379828
+        },
+        "output_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 128
+        },
+        "prefill": {
+          "basis": "server-prompt-pass",
+          "unit": "second",
+          "value": 0.103711881
+        },
+        "tokens_per_round": {
+          "basis": "server-response",
+          "unit": "token/round",
+          "value": 3.878787878787879
+        },
+        "ttft": {
+          "basis": "server-arrival-to-first-token",
+          "unit": "second",
+          "value": 0.104866403
+        }
+      },
+      "request_id": "qwen38-code-short-c1-holdout-r1-s0"
+    },
+    {
+      "metrics": {
+        "acceptance": {
+          "basis": "accepted/drafted",
+          "unit": "ratio",
+          "value": 0.8952380952380953
+        },
+        "accepted_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 94
+        },
+        "client_decode_rate": {
+          "basis": "client-sse-monotonic",
+          "unit": "token/second",
+          "value": 85.1886370964337
+        },
+        "client_latency": {
+          "basis": "client-sse-monotonic",
+          "unit": "second",
+          "value": 1.5970800630020676
+        },
+        "client_time_per_output_token": {
+          "basis": "client-sse-monotonic",
+          "unit": "second/token",
+          "value": 0.011738654755891895
+        },
+        "client_ttft": {
+          "basis": "client-sse-monotonic",
+          "unit": "second",
+          "value": 0.10627090900379699
+        },
+        "decode_rate": {
+          "basis": "server-prefill-finished-to-finish; numerator=output-minus-one",
+          "unit": "token/second",
+          "value": 85.17054103836426
+        },
+        "decode_rounds": {
+          "basis": "server-response",
+          "unit": "round",
+          "value": 33
+        },
+        "drafted_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 105
+        },
+        "input_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 47
+        },
+        "inter_token_latency": {
+          "basis": "client-sse-monotonic-content-event",
+          "unit": "second",
+          "values": [
+            0.0439022259961348,
+            0.04206639500625897,
+            0.043239013000857085,
+            0.042613847996108234,
+            0.0389341370027978,
+            0.040769168990664184,
+            0.041444445014349185,
+            0.03505137198953889,
+            0.037482608007849194,
+            0.04028537900012452,
+            0.042111578994081356,
+            0.04456508699513506,
+            0.03660520400444511,
+            0.039096809006878175,
+            0.04149474899168126,
+            0.04315119000966661,
+            0.042882902998826467,
+            0.03934551199199632,
+            0.03796233399771154,
+            0.04005890000553336,
+            0.04186140399542637,
+            0.037753007010906,
+            0.04299157399509568,
+            0.06036509299883619,
+            0.06061176399816759,
+            0.052592520994949155,
+            0.05444636900210753,
+            0.05639306400553323,
+            0.05521351700008381,
+            0.04760790499858558,
+            0.04716925100365188,
+            0.054410608994658105,
+            0.06625236100808252
+          ]
+        },
+        "latency": {
+          "basis": "server-submit-to-finish",
+          "unit": "second",
+          "value": 1.595719093
+        },
+        "output_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 128
+        },
+        "prefill": {
+          "basis": "server-prompt-pass",
+          "unit": "second",
+          "value": 0.104451878
+        },
+        "tokens_per_round": {
+          "basis": "server-response",
+          "unit": "token/round",
+          "value": 3.878787878787879
+        },
+        "ttft": {
+          "basis": "server-arrival-to-first-token",
+          "unit": "second",
+          "value": 0.105013987
+        }
+      },
+      "request_id": "qwen38-code-short-c1-holdout-r2-s0"
+    },
+    {
+      "metrics": {
+        "acceptance": {
+          "basis": "accepted/drafted",
+          "unit": "ratio",
+          "value": 0.8952380952380953
+        },
+        "accepted_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 94
+        },
+        "client_decode_rate": {
+          "basis": "client-sse-monotonic",
+          "unit": "token/second",
+          "value": 85.31501310287538
+        },
+        "client_latency": {
+          "basis": "client-sse-monotonic",
+          "unit": "second",
+          "value": 1.5944975420134142
+        },
+        "client_time_per_output_token": {
+          "basis": "client-sse-monotonic",
+          "unit": "second/token",
+          "value": 0.011721266441044442
+        },
+        "client_ttft": {
+          "basis": "client-sse-monotonic",
+          "unit": "second",
+          "value": 0.10589670400077011
+        },
+        "decode_rate": {
+          "basis": "server-prefill-finished-to-finish; numerator=output-minus-one",
+          "unit": "token/second",
+          "value": 85.27502168441404
+        },
+        "decode_rounds": {
+          "basis": "server-response",
+          "unit": "round",
+          "value": 33
+        },
+        "drafted_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 105
+        },
+        "input_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 47
+        },
+        "inter_token_latency": {
+          "basis": "client-sse-monotonic-content-event",
+          "unit": "second",
+          "values": [
+            0.04329010100627784,
+            0.042212522006593645,
+            0.04298776699579321,
+            0.04283661500085145,
+            0.03906036099942867,
+            0.04071726599067915,
+            0.04136951800319366,
+            0.03572164000070188,
+            0.03759649599669501,
+            0.040131140005541965,
+            0.04184201199677773,
+            0.04417673700663727,
+            0.037254337992635556,
+            0.039573671005200595,
+            0.04152263699506875,
+            0.043011927002226,
+            0.042874022998148575,
+            0.039248023997060955,
+            0.03801763000956271,
+            0.04005909299303312,
+            0.04232106600829866,
+            0.03779919899534434,
+            0.0419977870042203,
+            0.05958309699781239,
+            0.061170913992100395,
+            0.05276780101121403,
+            0.054461088991956785,
+            0.05658307900012005,
+            0.0550828779960284,
+            0.04697499700705521,
+            0.04718373100331519,
+            0.05285336798988283,
+            0.06601655601116363
+          ]
+        },
+        "latency": {
+          "basis": "server-submit-to-finish",
+          "unit": "second",
+          "value": 1.592921006
+        },
+        "output_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 128
+        },
+        "prefill": {
+          "basis": "server-prompt-pass",
+          "unit": "second",
+          "value": 0.103457291
+        },
+        "tokens_per_round": {
+          "basis": "server-response",
+          "unit": "token/round",
+          "value": 3.878787878787879
+        },
+        "ttft": {
+          "basis": "server-arrival-to-first-token",
+          "unit": "second",
+          "value": 0.104741766
+        }
+      },
+      "request_id": "qwen38-code-short-c1-holdout-r3-s0"
+    },
+    {
+      "metrics": {
+        "acceptance": {
+          "basis": "accepted/drafted",
+          "unit": "ratio",
+          "value": 0.8952380952380953
+        },
+        "accepted_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 94
+        },
+        "client_decode_rate": {
+          "basis": "client-sse-monotonic",
+          "unit": "token/second",
+          "value": 85.74752056590867
+        },
+        "client_latency": {
+          "basis": "client-sse-monotonic",
+          "unit": "second",
+          "value": 1.5865468380070524
+        },
+        "client_time_per_output_token": {
+          "basis": "client-sse-monotonic",
+          "unit": "second/token",
+          "value": 0.01166214478739783
+        },
+        "client_ttft": {
+          "basis": "client-sse-monotonic",
+          "unit": "second",
+          "value": 0.10545445000752807
+        },
+        "decode_rate": {
+          "basis": "server-prefill-finished-to-finish; numerator=output-minus-one",
+          "unit": "token/second",
+          "value": 85.72956501789412
+        },
+        "decode_rounds": {
+          "basis": "server-response",
+          "unit": "round",
+          "value": 33
+        },
+        "drafted_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 105
+        },
+        "input_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 47
+        },
+        "inter_token_latency": {
+          "basis": "client-sse-monotonic-content-event",
+          "unit": "second",
+          "values": [
+            0.04389201900630724,
+            0.042233689993736334,
+            0.042944646993419155,
+            0.04356696399918292,
+            0.039086122007574886,
+            0.04069926499505527,
+            0.04054539500793908,
+            0.0352326029969845,
+            0.03751160099636763,
+            0.040272179001476616,
+            0.04082475299946964,
+            0.04476371100463439,
+            0.03648637299193069,
+            0.03909648999979254,
+            0.04158494100556709,
+            0.0423619939974742,
+            0.04229042600491084,
+            0.03912325699639041,
+            0.037486225002794527,
+            0.03920424899843056,
+            0.04096555200521834,
+            0.037576880989945494,
+            0.041410974008613266,
+            0.0599184239981696,
+            0.06030554199242033,
+            0.05261052200512495,
+            0.054438816994661465,
+            0.056326409001485445,
+            0.055705068007227965,
+            0.04732768300164025,
+            0.046036984989768825,
+            0.05295676000241656,
+            0.06621877900033724
+          ]
+        },
+        "latency": {
+          "basis": "server-submit-to-finish",
+          "unit": "second",
+          "value": 1.584942302
+        },
+        "output_tokens": {
+          "basis": "server-response",
+          "unit": "token",
+          "value": 128
+        },
+        "prefill": {
+          "basis": "server-prompt-pass",
+          "unit": "second",
+          "value": 0.103392236
+        },
+        "tokens_per_round": {
+          "basis": "server-response",
+          "unit": "token/round",
+          "value": 3.878787878787879
+        },
+        "ttft": {
+          "basis": "server-arrival-to-first-token",
+          "unit": "second",
+          "value": 0.104029433
+        }
+      },
+      "request_id": "qwen38-code-short-c1-holdout-r4-s0"
+    }
+  ],
+  "schema": "spark-observations",
+  "scope": {
+    "glm_cyclesim_inference": "unavailable",
+    "kernel_costs": "unavailable",
+    "position_survival": "unavailable"
+  },
+  "source_sha256": "8ea8c73748e5db56bce0ba5448cccab40bd26fe8ee17cdf85b6b0d20b09ba606",
+  "version": 1
+}

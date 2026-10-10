@@ -1,0 +1,289 @@
+{
+  "adapter": {
+    "id": "tensorfold-prometheus-v1",
+    "upstream_revision": "db281878ddb836fd0df510d8771ecb7e0fe47d26",
+    "version": 1
+  },
+  "aggregates": {
+    "acceptance": {
+      "basis": "accepted/drafted",
+      "unit": "ratio",
+      "value": 0.6363636363636364
+    },
+    "accepted_tokens": {
+      "basis": "matched-finished-request-counters",
+      "unit": "token",
+      "value": 630
+    },
+    "aggregate_output_rate": {
+      "basis": "matched-isolated-interval",
+      "unit": "token/wall-second",
+      "value": 50.55390067503893
+    },
+    "decode_mean": {
+      "basis": "matched-finished-request-histogram",
+      "unit": "second/request",
+      "value": 2.4289238999999996
+    },
+    "decode_rounds": {
+      "basis": "matched-finished-request-counters",
+      "unit": "round",
+      "value": 640
+    },
+    "decode_seconds_per_round": {
+      "basis": "matched-finished-request-counters; includes overlap",
+      "unit": "request-second/round",
+      "value": 0.03795193593749999
+    },
+    "drafted_tokens": {
+      "basis": "matched-finished-request-counters",
+      "unit": "token",
+      "value": 990
+    },
+    "input_tokens": {
+      "basis": "matched-finished-request-counters",
+      "unit": "token",
+      "value": 430
+    },
+    "latency_mean": {
+      "basis": "matched-finished-request-histogram",
+      "unit": "second/request",
+      "value": 2.530834300000001
+    },
+    "output_tokens": {
+      "basis": "matched-finished-request-counters",
+      "unit": "token",
+      "value": 1280
+    },
+    "pooled_decode_rate": {
+      "basis": "finished-token-count/summed-request-decode-time",
+      "unit": "token/request-second",
+      "value": 52.698233979253125
+    },
+    "prefill_mean": {
+      "basis": "matched-finished-request-histogram",
+      "unit": "second/request",
+      "value": 0.10089100000000002
+    },
+    "tokens_per_round": {
+      "basis": "matched-finished-request-counters",
+      "unit": "token/round",
+      "value": 2.0
+    },
+    "tpot_mean": {
+      "basis": "matched-finished-request-histogram",
+      "unit": "second/token",
+      "value": 0.019123799999999996
+    },
+    "ttft_mean": {
+      "basis": "matched-finished-request-histogram",
+      "unit": "second/request",
+      "value": 0.10191039999999987
+    },
+    "wall_duration": {
+      "basis": "matched-isolated-interval",
+      "unit": "second",
+      "value": 25.319510125002125
+    }
+  },
+  "alias_policy": "tensorfold-pinned-mirrors-v1",
+  "aliases": {
+    "accepted": {
+      "selected": "tensorfold:mtp_accepted_total",
+      "verified_mirrors": [
+        "tensorfold:spec_decode_num_accepted_tokens_total"
+      ]
+    },
+    "decode": {
+      "selected": "tensorfold:request_decode_seconds",
+      "verified_mirrors": [
+        "tensorfold:request_decode_time_seconds"
+      ]
+    },
+    "disconnects": {
+      "selected": "tensorfold:client_disconnections_total",
+      "verified_mirrors": []
+    },
+    "drafted": {
+      "selected": "tensorfold:mtp_drafted_total",
+      "verified_mirrors": [
+        "tensorfold:spec_decode_num_draft_tokens_total"
+      ]
+    },
+    "generation": {
+      "selected": "tensorfold:generation_tokens_total",
+      "verified_mirrors": []
+    },
+    "generation_running": {
+      "selected": "tensorfold:generation_tokens_running",
+      "verified_mirrors": []
+    },
+    "latency": {
+      "selected": "tensorfold:request_latency_seconds",
+      "verified_mirrors": [
+        "tensorfold:e2e_request_latency_seconds"
+      ]
+    },
+    "preemptions": {
+      "selected": "tensorfold:preemptions_total",
+      "verified_mirrors": []
+    },
+    "prefill": {
+      "selected": "tensorfold:request_prefill_seconds",
+      "verified_mirrors": [
+        "tensorfold:request_prefill_time_seconds"
+      ]
+    },
+    "prompt": {
+      "selected": "tensorfold:prompt_tokens_total",
+      "verified_mirrors": []
+    },
+    "rounds": {
+      "selected": "tensorfold:decode_rounds_total",
+      "verified_mirrors": []
+    },
+    "running": {
+      "selected": "tensorfold:requests_running",
+      "verified_mirrors": [
+        "tensorfold:num_requests_running"
+      ]
+    },
+    "tpot": {
+      "selected": "tensorfold:request_time_per_output_token_seconds",
+      "verified_mirrors": []
+    },
+    "ttft": {
+      "selected": "tensorfold:time_to_first_token_seconds",
+      "verified_mirrors": []
+    },
+    "waiting": {
+      "selected": "tensorfold:requests_waiting",
+      "verified_mirrors": [
+        "tensorfold:num_requests_waiting"
+      ]
+    }
+  },
+  "before_source_sha256": "21d2f72f080ef25c6e82bbadab020fa051ef90d146f1a22bb7176a97d1eb8465",
+  "client_capture_sha256": "32cf7e17c61acceac99b73932fe15a06e132cf8fa7e37a3530b5a126544bbfb5",
+  "counts": {
+    "accepted": 10,
+    "rejected": 0
+  },
+  "identity": {
+    "config_sha256": "1ec44e5b5e2f149c84e0dabd88f2c6d18c048f378b5e4b2eb52191af329fbfef",
+    "model_sha256": "6324d04f76d95d23891fc5dd0742cb7cc82ce52864f10ad3196b29c4a2e1f53e",
+    "runtime": {
+      "binary_sha256": "13244dabb5cba3a6e0d5240fd3afd7426aab77fabed27fdd34225410e0179800",
+      "id": "tensorfold-native-zig",
+      "image_sha256": "cb98098439d95d2bff27bc771ba180e5857613ecc41f6b6e81e494782df9433a",
+      "source_revision": "db281878ddb836fd0df510d8771ecb7e0fe47d26+mia-364f21a1a46a366fa39c4da0d53b7b1f38624610"
+    },
+    "source_id": "qwen38-prose-short-c1",
+    "workload": {
+      "concurrency": 1,
+      "id": "qwen38-prose-short-c1"
+    }
+  },
+  "interval": {
+    "drained": true,
+    "duration_seconds": 25.319510125002125,
+    "identity_basis": "operator-declared",
+    "isolated": true
+  },
+  "labels_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "missing_fields": [
+    "inter_token_latencies",
+    "per_request_decode_rate"
+  ],
+  "recognized_fields": [
+    "tensorfold:client_disconnections_total",
+    "tensorfold:decode_rounds_total",
+    "tensorfold:e2e_request_latency_seconds_bucket",
+    "tensorfold:e2e_request_latency_seconds_count",
+    "tensorfold:e2e_request_latency_seconds_sum",
+    "tensorfold:generation_tokens_running",
+    "tensorfold:generation_tokens_total",
+    "tensorfold:mtp_accepted_total",
+    "tensorfold:mtp_drafted_total",
+    "tensorfold:num_requests_running",
+    "tensorfold:num_requests_waiting",
+    "tensorfold:preemptions_total",
+    "tensorfold:prompt_tokens_total",
+    "tensorfold:request_decode_seconds_bucket",
+    "tensorfold:request_decode_seconds_count",
+    "tensorfold:request_decode_seconds_sum",
+    "tensorfold:request_decode_time_seconds_bucket",
+    "tensorfold:request_decode_time_seconds_count",
+    "tensorfold:request_decode_time_seconds_sum",
+    "tensorfold:request_latency_seconds_bucket",
+    "tensorfold:request_latency_seconds_count",
+    "tensorfold:request_latency_seconds_sum",
+    "tensorfold:request_prefill_seconds_bucket",
+    "tensorfold:request_prefill_seconds_count",
+    "tensorfold:request_prefill_seconds_sum",
+    "tensorfold:request_prefill_time_seconds_bucket",
+    "tensorfold:request_prefill_time_seconds_count",
+    "tensorfold:request_prefill_time_seconds_sum",
+    "tensorfold:request_time_per_output_token_seconds_bucket",
+    "tensorfold:request_time_per_output_token_seconds_count",
+    "tensorfold:request_time_per_output_token_seconds_sum",
+    "tensorfold:requests_running",
+    "tensorfold:requests_waiting",
+    "tensorfold:spec_decode_num_accepted_tokens_total",
+    "tensorfold:spec_decode_num_draft_tokens_total",
+    "tensorfold:time_to_first_token_seconds_bucket",
+    "tensorfold:time_to_first_token_seconds_count",
+    "tensorfold:time_to_first_token_seconds_sum"
+  ],
+  "requests": [
+    {
+      "metrics": {},
+      "request_id": "qwen38-prose-short-c1-train-r0-s0"
+    },
+    {
+      "metrics": {},
+      "request_id": "qwen38-prose-short-c1-train-r1-s0"
+    },
+    {
+      "metrics": {},
+      "request_id": "qwen38-prose-short-c1-train-r2-s0"
+    },
+    {
+      "metrics": {},
+      "request_id": "qwen38-prose-short-c1-train-r3-s0"
+    },
+    {
+      "metrics": {},
+      "request_id": "qwen38-prose-short-c1-train-r4-s0"
+    },
+    {
+      "metrics": {},
+      "request_id": "qwen38-prose-short-c1-holdout-r0-s0"
+    },
+    {
+      "metrics": {},
+      "request_id": "qwen38-prose-short-c1-holdout-r1-s0"
+    },
+    {
+      "metrics": {},
+      "request_id": "qwen38-prose-short-c1-holdout-r2-s0"
+    },
+    {
+      "metrics": {},
+      "request_id": "qwen38-prose-short-c1-holdout-r3-s0"
+    },
+    {
+      "metrics": {},
+      "request_id": "qwen38-prose-short-c1-holdout-r4-s0"
+    }
+  ],
+  "schema": "spark-observations",
+  "scope": {
+    "failure_visibility": "client-response-proof",
+    "glm_cyclesim_inference": "unavailable",
+    "kernel_costs": "unavailable",
+    "position_survival": "unavailable"
+  },
+  "source_sha256": "a5cd53f5312103c3311de46e43ca45024708afd7ef8a694dbfbfec4f03ef906b",
+  "version": 1
+}

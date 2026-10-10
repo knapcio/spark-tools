@@ -1,0 +1,10 @@
+{
+  "id": "chatcmpl-fixture",
+  "object": "chat.completion",
+  "model": "fixture-model",
+  "choices": [{"index": 0, "message": {"role": "assistant", "content": "fixture only"}, "finish_reason": "stop"}],
+  "usage": {"prompt_tokens": 64, "completion_tokens": 4, "total_tokens": 68, "prompt_tokens_details": {"cached_tokens": 0}, "completion_tokens_details": {"reasoning_tokens": 0}},
+  "exact_mode": "exact",
+  "tensorfold": {"engine": "cuda", "enable_thinking": false, "reasoning_effort": "none", "tokens_per_second": 10.0, "seconds": 0.4, "prefill_seconds": 0.05, "time_to_first_token": 0.1, "prefill_widths": [64], "prefill_raised": [false], "sampling": "greedy", "drafts": true, "token_sha": "abcdef123456", "min_rows": 1},
+  "speculative": {"rounds": 2, "drafted": 4, "accepted": 2, "acceptance_rate": 0.5, "tokens_per_round": 2.0}
+}

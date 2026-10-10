@@ -5,24 +5,27 @@ import gzip
 import json
 from pathlib import Path
 from moereplay.routes import Writer, sha256, integer
+from moereplay.geometry import LEGACY_GEOMETRY, load_geometry
 
 
-def convert_pt(path, out, layer=3, prompt_rows=2048, model='GLM-5.3'):
+def convert_pt(path, out, layer=3, prompt_rows=2048, model=None, geometry=None):
     # Deliberately bounded to the existing small fixture; not a general tensor loader.
     if Path(path).stat().st_size > 512 * (1 << 20):
         raise ValueError('PT conversion capped at 512 MiB; extract route-only fixture first')
     import torch
     d = torch.load(path, map_location='cpu', weights_only=True)
     ids = d['ids']
-    if ids.ndim != 2 or ids.shape[1] != 8 or ids.shape[0] > 65536:
-        raise ValueError('expected bounded ids [rows,8]')
+    geo = load_geometry(geometry) if geometry is not None else LEGACY_GEOMETRY
+    if ids.ndim != 2 or ids.shape[1] != geo.top_k or ids.shape[0] > 65536:
+        raise ValueError('expected bounded ids [rows,top_k]')
     if ids.dtype.is_floating_point or ids.dtype == torch.bool or ids.dtype.is_complex:
         raise ValueError('ids must have integer dtype')
     integer(prompt_rows, 'prompt_rows', 1)
     if ids.shape[0] % prompt_rows:
         raise ValueError('rows must divide prompt_rows')
+    model = model or ('GLM-5.3' if geometry is None else 'unspecified-model')
     w = Writer(out, [layer], model, dict(status='measured', kind='prefill-fixture',
-               file=Path(path).name, sha256=sha256(path), note='not decode; consecutive prompt rows'), 'prefill-proxy')
+               file=Path(path).name, sha256=sha256(path), note='not decode; consecutive prompt rows'), 'prefill-proxy', geometry)
     try:
         for p in range(ids.shape[0] // prompt_rows):
             rows = [dict(request='prompt-%d' % p, position=i, padding=False, phase='prefill', k=0, concurrency=1)
@@ -34,7 +37,8 @@ def convert_pt(path, out, layer=3, prompt_rows=2048, model='GLM-5.3'):
         raise
 
 
-def convert_schema1(path, out, model='GLM-5.3', status='measured'):
+def convert_schema1(path, out, model=None, status='measured', geometry=None):
+    model = model or ('GLM-5.3' if geometry is None else 'unspecified-model')
     opener = gzip.open if str(path).endswith('.gz') else open
     w = None
     try:
@@ -54,7 +58,9 @@ def convert_schema1(path, out, model='GLM-5.3', status='measured'):
                 if w is None:
                     w = Writer(out, record['layers'], model, dict(status=status, kind='capture-hook-schema-1',
                                file=Path(path).name, sha256=sha256(path),
-                               route_stage=record.get('route_stage','unknown')), 'decode-verify')
+                               route_stage=record.get('route_stage','unknown')), 'decode-verify', geometry)
+                if 'geometry' in record and load_geometry(record['geometry']) != w.geometry:
+                    raise ValueError('capture geometry differs from declared conversion geometry')
                 if record.get('route_stage','unknown') != w.source['route_stage']:
                     raise ValueError('route capture stage changed within trace')
                 if record['layers'] != w.layers or record['physical_rows'] != len(record['rows']):

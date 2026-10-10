@@ -5,7 +5,7 @@
 | Decode-cycle accounting, prefix-survival arithmetic, interval union, file/counter utilities and CPU replay labs | knapcio | Apache-2.0 where marked in the source; original MIT recipe notice also retained |
 | Static compiler adapter, resource parser, instruction checks and CPU occupancy wrapper | knapcio | MIT; headers and licence retained |
 | A/B/A' comparisons, bracket screens, native trajectory pair statistics, preregistration, first-divergence near-tie gate and null-calibrated quality rule | knapcio | Existing decision/HTTP logic with packaging adapters, Apache-2.0 |
-| Runtime and scheduler contracts that motivated the labs | [vLLM contributors](https://github.com/vllm-project/vllm) | Apache-2.0; ideas only, no runtime source bundled |
+| Runtime, scheduler and benchmark-output contracts used by the labs and versioned observation adapter | [vLLM contributors](https://github.com/vllm-project/vllm) | Apache-2.0; pinned format adapter, no runtime source bundled |
 | Packed expert weights and FP8 projection layout used by the calibrated example | [Elias Frantar / IST-DASLab](https://github.com/IST-DASLab/marlin), Neural Magic and vLLM contributors | Apache-2.0; no kernel source bundled |
 | Sparse attention metadata and static compilation context | [FlashInfer contributors](https://github.com/flashinfer-ai/flashinfer) | Apache-2.0; no source bundled |
 | Ahead-of-time compilation API | [Triton contributors](https://github.com/triton-lang/triton) | MIT; optional external compiler |
@@ -13,8 +13,9 @@
 | Optional CPU Gloo rank transport | [PyTorch contributors](https://github.com/pytorch/pytorch) | BSD-3-Clause; optional dependency |
 | Optional rank retention arrays | [NumPy contributors](https://github.com/numpy/numpy) | BSD-3-Clause; optional dependency |
 | EXL3 trellis format, tensor naming and codebook markers | [Turboderp and ExLlamaV3 contributors](https://github.com/turboderp-org/exllamav3) | MIT; format-compatible header inspection, no runtime or kernels bundled; notice retained |
-| EXLR8 v2 manifests, E4M3-rounded trellis contract and `gr8` runtime context | [Kindling AI `gr8` contributors](https://github.com/kindlingai/gr8) | MIT; compatibility inspection only, no runtime source or weights bundled |
-| TensorFold source layout, OpenAI endpoint and draft request contract | [Ash Hart and TensorFold contributors](https://github.com/ashhart/TensorFold) | Apache-2.0; adapter and live compatibility context only, no TensorFold source bundled |
+| EXLR8 v2 manifests, E4M3-rounded trellis contract and `gr8` loader fixture layout | [Kindling AI `gr8` contributors](https://github.com/kindlingai/gr8) | MIT; independent inspection/conformance fixtures, no runtime source or weights bundled |
+| TensorFold source layout, EXL3 decoder tests, OpenAI endpoint, telemetry and draft request contract | [Ash Hart and TensorFold contributors](https://github.com/ashhart/TensorFold) | Apache-2.0; independent adapters and conformance fixtures, no TensorFold source bundled |
+| Single-Spark Qwen Flash Next TensorFold recipe used for the exact-cell example | [MiaAI-Lab contributors](https://github.com/MiaAI-Lab/Qwen3.8-Flash-Next-Single-DGX-Spark-TensorFold) | Recipe terms apply separately; public configuration identities and sanitized measurements only, no recipe source or weights bundled |
 | Public EXLR8 release used for metadata and bounded-header validation | [kindlingai/glm-5.3-exlr8-k2-k3-k4](https://huggingface.co/kindlingai/glm-5.3-exlr8-k2-k3-k4) | GLM-5.3/model-card terms apply separately; no weight payload bundled |
 | Public checkpoint used for header-only EXL3 compatibility validation | [Honkware/Qwen3.5-0.8B-exl3-3.0bpw](https://huggingface.co/Honkware/Qwen3.5-0.8B-exl3-3.0bpw), Qwen and ExLlamaV3 contributors | Model and checkpoint terms apply separately; validation only, no weights or headers bundled |
 | GLM-5.3 shapes and native draft architecture | [Z.ai](https://huggingface.co/zai-org/GLM-5.3) | Model terms apply separately; dimensions and anonymised timing numbers only |

@@ -1,0 +1,140 @@
+name: CPU tests and distributions
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
+
+jobs:
+  core:
+    name: Core / ${{ matrix.os }} / Python ${{ matrix.python }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python: "3.10"
+          - os: ubuntu-latest
+            python: "3.13"
+          - os: macos-latest
+            python: "3.13"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Audit clean source export
+        run: |
+          mkdir "${{ runner.temp }}/audit"
+          git archive HEAD | tar -x -C "${{ runner.temp }}/audit"
+          git -c init.defaultBranch=main -C "${{ runner.temp }}/audit" init -q --template=
+          git -C "${{ runner.temp }}/audit" add --all
+          python -m common.audit "${{ runner.temp }}/audit"
+      - run: python -m pip install '.[test]'
+      - name: Dependency-light suite (optional rank tests excluded explicitly)
+        run: python -m pytest --ignore=tests/test_rankharness.py --ignore=tests/test_rankharness_fix1.py
+      - name: Documented CPU examples (optional ranks reported separately)
+        run: sh tests/run_examples.sh
+
+  ranks:
+    name: Full CPU ranks / Linux / Python 3.13
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: python -m pip install '.[test,ranks]'
+      - run: python -m pytest
+      - run: sh tests/run_examples.sh
+
+  distributions:
+    name: Wheel and extracted source distribution
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Audit source export
+        run: |
+          mkdir "${{ runner.temp }}/audit"
+          git archive HEAD | tar -x -C "${{ runner.temp }}/audit"
+          git -c init.defaultBranch=main -C "${{ runner.temp }}/audit" init -q --template=
+          git -C "${{ runner.temp }}/audit" add --all
+          python -m common.audit "${{ runner.temp }}/audit"
+      - run: python -m pip install build
+      - name: Build wheel and source archive outside the checkout
+        run: python -m build --outdir "${{ runner.temp }}/distributions"
+      - name: Verify archive contents
+        shell: python
+        run: |
+          import pathlib, tarfile, zipfile
+          dist = pathlib.Path('${{ runner.temp }}/distributions')
+          with tarfile.open(next(dist.glob('*.tar.gz'))) as archive:
+              names = {name.split('/', 1)[1] for name in archive.getnames() if '/' in name}
+              assert {'gb10check/occupancy.cpp', 'moereplay/prior.json', 'NOTICE',
+                      'configs/glm53-tp4.json', 'examples/gb10check/pass.json',
+                      'tests/smoke_examples.py', 'docs/ci.md',
+                      'gb10check/device_probe.cpp', 'lab/conformance/reference.py',
+                      'lab/observations/importers.py',
+                      'examples/observations/qwen38-gb10/preset.json'} <= names
+          with zipfile.ZipFile(next(dist.glob('*.whl'))) as archive:
+              names = archive.namelist()
+              for suffix in ('gb10check/occupancy.cpp', 'moereplay/prior.json',
+                             'share/spark-tools/configs/glm53-tp4.json',
+                             'share/spark-tools/examples/gb10check/pass.json',
+                             'share/spark-tools/examples/experiment/manifest.json',
+                             'share/spark-tools/examples/conformance/expected-cpu.json',
+                             'share/spark-tools/examples/observations/tensorfold-streaming.json',
+                             'share/spark-tools/examples/observations/qwen38-gb10/preset.json',
+                             'share/spark-tools/NOTICE'):
+                  assert any(name.endswith(suffix) for name in names), suffix
+              assert any(name.endswith('/licenses/LICENSE') for name in names)
+              assert any(name.endswith('/licenses/NOTICE') for name in names)
+      - name: Test extracted source archive
+        run: |
+          mkdir "${{ runner.temp }}/source"
+          tar -xzf "${{ runner.temp }}"/distributions/*.tar.gz -C "${{ runner.temp }}/source" --strip-components=1
+          python -m venv "${{ runner.temp }}/source-env"
+          "${{ runner.temp }}/source-env/bin/python" -m pip install --no-compile "${{ runner.temp }}/source[test]"
+          cd "${{ runner.temp }}/source"
+          git -c init.defaultBranch=main init -q --template=
+          git add --all
+          "${{ runner.temp }}/source-env/bin/spark-export-audit" .
+          "${{ runner.temp }}/source-env/bin/python" -m pytest -p no:cacheprovider --ignore=tests/test_rankharness.py --ignore=tests/test_rankharness_fix1.py
+      - name: Install wheel fresh and run installed CPU examples outside checkout
+        run: |
+          python -m venv "${{ runner.temp }}/wheel-env"
+          "${{ runner.temp }}/wheel-env/bin/python" -m pip install --no-compile "${{ runner.temp }}"/distributions/*.whl
+          export PATH="${{ runner.temp }}/wheel-env/bin:$PATH"
+          cd "${{ runner.temp }}/wheel-env/share/spark-tools"
+          python -c 'import gb10check; from pathlib import Path; assert "site-packages" in str(Path(gb10check.__file__))'
+          gb10check parse --config examples/gb10check/pass.json
+          cyclesim predict --config examples/cyclesim/calibration.json
+          cyclesim whatif --config examples/cyclesim/calibration.json --kernel-ms draft_graph=-1.50970368
+          python -m examples.cyclesim.smoke
+          python examples/moereplay/run.py
+          lab acceptance --before examples/lab/before.prom --after examples/lab/after.prom --k 2
+          lab experiment check examples/experiment/manifest.json
+          lab experiment report examples/experiment/manifest.json --out "${{ runner.temp }}/experiment-report.json" --markdown "${{ runner.temp }}/experiment-report.md"
+          lab conformance cpu
+          lab observations import --adapter tensorfold-native-v1 --input examples/observations/tensorfold-streaming.json --metadata examples/observations/tensorfold-native-import.json
+          git -c init.defaultBranch=main init -q --template=
+          git add --all
+          spark-export-audit .
+      - uses: actions/upload-artifact@v4
+        with:
+          name: distributions
+          path: ${{ runner.temp }}/distributions/*

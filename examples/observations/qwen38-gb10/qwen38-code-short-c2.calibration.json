@@ -1,0 +1,721 @@
+{
+  "cells": [
+    {
+      "cell": {
+        "basis_sha256": "6c6739e040e0cae12ca909314e5f196c1ca778e2df4eacdfb62948719f5607b8",
+        "identity": {
+          "adapter": "tensorfold-native-v1",
+          "config_sha256": "1ec44e5b5e2f149c84e0dabd88f2c6d18c048f378b5e4b2eb52191af329fbfef",
+          "model_sha256": "6324d04f76d95d23891fc5dd0742cb7cc82ce52864f10ad3196b29c4a2e1f53e",
+          "runtime": {
+            "binary_sha256": "13244dabb5cba3a6e0d5240fd3afd7426aab77fabed27fdd34225410e0179800",
+            "id": "tensorfold-native-zig",
+            "image_sha256": "cb98098439d95d2bff27bc771ba180e5857613ecc41f6b6e81e494782df9433a",
+            "observed_settings_sha256": "1dec45ac1875dd5f44caa23d6f6206fedae026301d805cededd3bb98acab737b",
+            "source_revision": "db281878ddb836fd0df510d8771ecb7e0fe47d26+mia-364f21a1a46a366fa39c4da0d53b7b1f38624610"
+          },
+          "workload": {
+            "concurrency": 2,
+            "id": "qwen38-code-short-c2"
+          }
+        },
+        "input_tokens": 47,
+        "metric": "tokens_per_round",
+        "output_tokens": 128,
+        "unit": "token/round"
+      },
+      "cell_id": "2f58088ffdccf6425d46022d1c9de8a47af163a12eef8318d78378145ac88dbb",
+      "estimate": 3.657142857142857,
+      "holdout_errors": [
+        {
+          "absolute_error": 0.1075630252100841,
+          "absolute_error_percent": 2.857142857142859,
+          "observed": 3.764705882352941,
+          "predicted": 3.657142857142857,
+          "request_id": "qwen38-code-short-c2-holdout-r0-s0",
+          "signed_error": -0.1075630252100841
+        },
+        {
+          "absolute_error": 0.1075630252100841,
+          "absolute_error_percent": 2.857142857142859,
+          "observed": 3.764705882352941,
+          "predicted": 3.657142857142857,
+          "request_id": "qwen38-code-short-c2-holdout-r0-s1",
+          "signed_error": -0.1075630252100841
+        },
+        {
+          "absolute_error": 0.1075630252100841,
+          "absolute_error_percent": 2.857142857142859,
+          "observed": 3.764705882352941,
+          "predicted": 3.657142857142857,
+          "request_id": "qwen38-code-short-c2-holdout-r1-s0",
+          "signed_error": -0.1075630252100841
+        },
+        {
+          "absolute_error": 0.1075630252100841,
+          "absolute_error_percent": 2.857142857142859,
+          "observed": 3.764705882352941,
+          "predicted": 3.657142857142857,
+          "request_id": "qwen38-code-short-c2-holdout-r1-s1",
+          "signed_error": -0.1075630252100841
+        },
+        {
+          "absolute_error": 0.1075630252100841,
+          "absolute_error_percent": 2.857142857142859,
+          "observed": 3.764705882352941,
+          "predicted": 3.657142857142857,
+          "request_id": "qwen38-code-short-c2-holdout-r2-s0",
+          "signed_error": -0.1075630252100841
+        },
+        {
+          "absolute_error": 0.1075630252100841,
+          "absolute_error_percent": 2.857142857142859,
+          "observed": 3.764705882352941,
+          "predicted": 3.657142857142857,
+          "request_id": "qwen38-code-short-c2-holdout-r2-s1",
+          "signed_error": -0.1075630252100841
+        },
+        {
+          "absolute_error": 0.1075630252100841,
+          "absolute_error_percent": 2.857142857142859,
+          "observed": 3.764705882352941,
+          "predicted": 3.657142857142857,
+          "request_id": "qwen38-code-short-c2-holdout-r3-s0",
+          "signed_error": -0.1075630252100841
+        },
+        {
+          "absolute_error": 0.1075630252100841,
+          "absolute_error_percent": 2.857142857142859,
+          "observed": 3.764705882352941,
+          "predicted": 3.657142857142857,
+          "request_id": "qwen38-code-short-c2-holdout-r3-s1",
+          "signed_error": -0.1075630252100841
+        },
+        {
+          "absolute_error": 0.1075630252100841,
+          "absolute_error_percent": 2.857142857142859,
+          "observed": 3.764705882352941,
+          "predicted": 3.657142857142857,
+          "request_id": "qwen38-code-short-c2-holdout-r4-s0",
+          "signed_error": -0.1075630252100841
+        },
+        {
+          "absolute_error": 0.1075630252100841,
+          "absolute_error_percent": 2.857142857142859,
+          "observed": 3.764705882352941,
+          "predicted": 3.657142857142857,
+          "request_id": "qwen38-code-short-c2-holdout-r4-s1",
+          "signed_error": -0.1075630252100841
+        }
+      ],
+      "holdout_request_ids": [
+        "qwen38-code-short-c2-holdout-r0-s0",
+        "qwen38-code-short-c2-holdout-r0-s1",
+        "qwen38-code-short-c2-holdout-r1-s0",
+        "qwen38-code-short-c2-holdout-r1-s1",
+        "qwen38-code-short-c2-holdout-r2-s0",
+        "qwen38-code-short-c2-holdout-r2-s1",
+        "qwen38-code-short-c2-holdout-r3-s0",
+        "qwen38-code-short-c2-holdout-r3-s1",
+        "qwen38-code-short-c2-holdout-r4-s0",
+        "qwen38-code-short-c2-holdout-r4-s1"
+      ],
+      "status": "supported",
+      "train_request_ids": [
+        "qwen38-code-short-c2-train-r0-s0",
+        "qwen38-code-short-c2-train-r0-s1",
+        "qwen38-code-short-c2-train-r1-s0",
+        "qwen38-code-short-c2-train-r1-s1",
+        "qwen38-code-short-c2-train-r2-s0",
+        "qwen38-code-short-c2-train-r2-s1",
+        "qwen38-code-short-c2-train-r3-s0",
+        "qwen38-code-short-c2-train-r3-s1",
+        "qwen38-code-short-c2-train-r4-s0",
+        "qwen38-code-short-c2-train-r4-s1"
+      ],
+      "unavailable_reason": null
+    },
+    {
+      "cell": {
+        "basis_sha256": "29be3be42e031bbaf2b8d79e68734add447747b3c409e0e4070c719a6491ef69",
+        "identity": {
+          "adapter": "tensorfold-native-v1",
+          "config_sha256": "1ec44e5b5e2f149c84e0dabd88f2c6d18c048f378b5e4b2eb52191af329fbfef",
+          "model_sha256": "6324d04f76d95d23891fc5dd0742cb7cc82ce52864f10ad3196b29c4a2e1f53e",
+          "runtime": {
+            "binary_sha256": "13244dabb5cba3a6e0d5240fd3afd7426aab77fabed27fdd34225410e0179800",
+            "id": "tensorfold-native-zig",
+            "image_sha256": "cb98098439d95d2bff27bc771ba180e5857613ecc41f6b6e81e494782df9433a",
+            "observed_settings_sha256": "1dec45ac1875dd5f44caa23d6f6206fedae026301d805cededd3bb98acab737b",
+            "source_revision": "db281878ddb836fd0df510d8771ecb7e0fe47d26+mia-364f21a1a46a366fa39c4da0d53b7b1f38624610"
+          },
+          "workload": {
+            "concurrency": 2,
+            "id": "qwen38-code-short-c2"
+          }
+        },
+        "input_tokens": 47,
+        "metric": "client_ttft",
+        "output_tokens": 128,
+        "unit": "second"
+      },
+      "cell_id": "8de0e5822cac702e0e34a253c5323eb32017f1b387af79e4228b831bff5e6dc5",
+      "estimate": 0.16973882479796884,
+      "holdout_errors": [
+        {
+          "absolute_error": 0.06334389179974095,
+          "absolute_error_percent": 59.53656815667717,
+          "observed": 0.10639493299822789,
+          "predicted": 0.16973882479796884,
+          "request_id": "qwen38-code-short-c2-holdout-r0-s0",
+          "signed_error": 0.06334389179974095
+        },
+        {
+          "absolute_error": 0.08351503020239762,
+          "absolute_error_percent": 32.97680511211834,
+          "observed": 0.25325385500036646,
+          "predicted": 0.16973882479796884,
+          "request_id": "qwen38-code-short-c2-holdout-r0-s1",
+          "signed_error": -0.08351503020239762
+        },
+        {
+          "absolute_error": 0.06269242279668105,
+          "absolute_error_percent": 58.56565155354484,
+          "observed": 0.10704640200128779,
+          "predicted": 0.16973882479796884,
+          "request_id": "qwen38-code-short-c2-holdout-r1-s0",
+          "signed_error": 0.06269242279668105
+        },
+        {
+          "absolute_error": 0.08524900919437642,
+          "absolute_error_percent": 33.432579060589845,
+          "observed": 0.25498783399234526,
+          "predicted": 0.16973882479796884,
+          "request_id": "qwen38-code-short-c2-holdout-r1-s1",
+          "signed_error": -0.08524900919437642
+        },
+        {
+          "absolute_error": 0.036551213807251764,
+          "absolute_error_percent": 27.44340373354945,
+          "observed": 0.13318761099071708,
+          "predicted": 0.16973882479796884,
+          "request_id": "qwen38-code-short-c2-holdout-r2-s0",
+          "signed_error": 0.036551213807251764
+        },
+        {
+          "absolute_error": 0.036421757801144844,
+          "absolute_error_percent": 27.319651280666502,
+          "observed": 0.133317066996824,
+          "predicted": 0.16973882479796884,
+          "request_id": "qwen38-code-short-c2-holdout-r2-s1",
+          "signed_error": 0.036421757801144844
+        },
+        {
+          "absolute_error": 0.09017503720097012,
+          "absolute_error_percent": 34.69420080462589,
+          "observed": 0.25991386199893896,
+          "predicted": 0.16973882479796884,
+          "request_id": "qwen38-code-short-c2-holdout-r3-s0",
+          "signed_error": -0.09017503720097012
+        },
+        {
+          "absolute_error": 0.06348571280104806,
+          "absolute_error_percent": 59.749509080626154,
+          "observed": 0.10625311199692078,
+          "predicted": 0.16973882479796884,
+          "request_id": "qwen38-code-short-c2-holdout-r3-s1",
+          "signed_error": 0.06348571280104806
+        },
+        {
+          "absolute_error": 0.06367089479899732,
+          "absolute_error_percent": 60.02841273475846,
+          "observed": 0.10606792999897152,
+          "predicted": 0.16973882479796884,
+          "request_id": "qwen38-code-short-c2-holdout-r4-s0",
+          "signed_error": 0.06367089479899732
+        },
+        {
+          "absolute_error": 0.08290080120932544,
+          "absolute_error_percent": 32.81385526074675,
+          "observed": 0.2526396260072943,
+          "predicted": 0.16973882479796884,
+          "request_id": "qwen38-code-short-c2-holdout-r4-s1",
+          "signed_error": -0.08290080120932544
+        }
+      ],
+      "holdout_request_ids": [
+        "qwen38-code-short-c2-holdout-r0-s0",
+        "qwen38-code-short-c2-holdout-r0-s1",
+        "qwen38-code-short-c2-holdout-r1-s0",
+        "qwen38-code-short-c2-holdout-r1-s1",
+        "qwen38-code-short-c2-holdout-r2-s0",
+        "qwen38-code-short-c2-holdout-r2-s1",
+        "qwen38-code-short-c2-holdout-r3-s0",
+        "qwen38-code-short-c2-holdout-r3-s1",
+        "qwen38-code-short-c2-holdout-r4-s0",
+        "qwen38-code-short-c2-holdout-r4-s1"
+      ],
+      "status": "supported",
+      "train_request_ids": [
+        "qwen38-code-short-c2-train-r0-s0",
+        "qwen38-code-short-c2-train-r0-s1",
+        "qwen38-code-short-c2-train-r1-s0",
+        "qwen38-code-short-c2-train-r1-s1",
+        "qwen38-code-short-c2-train-r2-s0",
+        "qwen38-code-short-c2-train-r2-s1",
+        "qwen38-code-short-c2-train-r3-s0",
+        "qwen38-code-short-c2-train-r3-s1",
+        "qwen38-code-short-c2-train-r4-s0",
+        "qwen38-code-short-c2-train-r4-s1"
+      ],
+      "unavailable_reason": null
+    },
+    {
+      "cell": {
+        "basis_sha256": "780c0356db157cbfc20b19696696494a07213fe5a76122d97dde37f7ca7a1a72",
+        "identity": {
+          "adapter": "tensorfold-native-v1",
+          "config_sha256": "1ec44e5b5e2f149c84e0dabd88f2c6d18c048f378b5e4b2eb52191af329fbfef",
+          "model_sha256": "6324d04f76d95d23891fc5dd0742cb7cc82ce52864f10ad3196b29c4a2e1f53e",
+          "runtime": {
+            "binary_sha256": "13244dabb5cba3a6e0d5240fd3afd7426aab77fabed27fdd34225410e0179800",
+            "id": "tensorfold-native-zig",
+            "image_sha256": "cb98098439d95d2bff27bc771ba180e5857613ecc41f6b6e81e494782df9433a",
+            "observed_settings_sha256": "1dec45ac1875dd5f44caa23d6f6206fedae026301d805cededd3bb98acab737b",
+            "source_revision": "db281878ddb836fd0df510d8771ecb7e0fe47d26+mia-364f21a1a46a366fa39c4da0d53b7b1f38624610"
+          },
+          "workload": {
+            "concurrency": 2,
+            "id": "qwen38-code-short-c2"
+          }
+        },
+        "input_tokens": 47,
+        "metric": "acceptance",
+        "output_tokens": 128,
+        "unit": "ratio"
+      },
+      "cell_id": "a7ee8f73f60173c3c81159a779e49aba8e0ff382a0e364fb835daf3010b5079b",
+      "estimate": 0.8214285714285714,
+      "holdout_errors": [
+        {
+          "absolute_error": 0.03178243774574052,
+          "absolute_error_percent": 3.72503840245776,
+          "observed": 0.8532110091743119,
+          "predicted": 0.8214285714285714,
+          "request_id": "qwen38-code-short-c2-holdout-r0-s0",
+          "signed_error": -0.03178243774574052
+        },
+        {
+          "absolute_error": 0.02402597402597406,
+          "absolute_error_percent": 2.8417818740399428,
+          "observed": 0.8454545454545455,
+          "predicted": 0.8214285714285714,
+          "request_id": "qwen38-code-short-c2-holdout-r0-s1",
+          "signed_error": -0.02402597402597406
+        },
+        {
+          "absolute_error": 0.03178243774574052,
+          "absolute_error_percent": 3.72503840245776,
+          "observed": 0.8532110091743119,
+          "predicted": 0.8214285714285714,
+          "request_id": "qwen38-code-short-c2-holdout-r1-s0",
+          "signed_error": -0.03178243774574052
+        },
+        {
+          "absolute_error": 0.02402597402597406,
+          "absolute_error_percent": 2.8417818740399428,
+          "observed": 0.8454545454545455,
+          "predicted": 0.8214285714285714,
+          "request_id": "qwen38-code-short-c2-holdout-r1-s1",
+          "signed_error": -0.02402597402597406
+        },
+        {
+          "absolute_error": 0.03178243774574052,
+          "absolute_error_percent": 3.72503840245776,
+          "observed": 0.8532110091743119,
+          "predicted": 0.8214285714285714,
+          "request_id": "qwen38-code-short-c2-holdout-r2-s0",
+          "signed_error": -0.03178243774574052
+        },
+        {
+          "absolute_error": 0.03178243774574052,
+          "absolute_error_percent": 3.72503840245776,
+          "observed": 0.8532110091743119,
+          "predicted": 0.8214285714285714,
+          "request_id": "qwen38-code-short-c2-holdout-r2-s1",
+          "signed_error": -0.03178243774574052
+        },
+        {
+          "absolute_error": 0.02402597402597406,
+          "absolute_error_percent": 2.8417818740399428,
+          "observed": 0.8454545454545455,
+          "predicted": 0.8214285714285714,
+          "request_id": "qwen38-code-short-c2-holdout-r3-s0",
+          "signed_error": -0.02402597402597406
+        },
+        {
+          "absolute_error": 0.03178243774574052,
+          "absolute_error_percent": 3.72503840245776,
+          "observed": 0.8532110091743119,
+          "predicted": 0.8214285714285714,
+          "request_id": "qwen38-code-short-c2-holdout-r3-s1",
+          "signed_error": -0.03178243774574052
+        },
+        {
+          "absolute_error": 0.03178243774574052,
+          "absolute_error_percent": 3.72503840245776,
+          "observed": 0.8532110091743119,
+          "predicted": 0.8214285714285714,
+          "request_id": "qwen38-code-short-c2-holdout-r4-s0",
+          "signed_error": -0.03178243774574052
+        },
+        {
+          "absolute_error": 0.02402597402597406,
+          "absolute_error_percent": 2.8417818740399428,
+          "observed": 0.8454545454545455,
+          "predicted": 0.8214285714285714,
+          "request_id": "qwen38-code-short-c2-holdout-r4-s1",
+          "signed_error": -0.02402597402597406
+        }
+      ],
+      "holdout_request_ids": [
+        "qwen38-code-short-c2-holdout-r0-s0",
+        "qwen38-code-short-c2-holdout-r0-s1",
+        "qwen38-code-short-c2-holdout-r1-s0",
+        "qwen38-code-short-c2-holdout-r1-s1",
+        "qwen38-code-short-c2-holdout-r2-s0",
+        "qwen38-code-short-c2-holdout-r2-s1",
+        "qwen38-code-short-c2-holdout-r3-s0",
+        "qwen38-code-short-c2-holdout-r3-s1",
+        "qwen38-code-short-c2-holdout-r4-s0",
+        "qwen38-code-short-c2-holdout-r4-s1"
+      ],
+      "status": "supported",
+      "train_request_ids": [
+        "qwen38-code-short-c2-train-r0-s0",
+        "qwen38-code-short-c2-train-r0-s1",
+        "qwen38-code-short-c2-train-r1-s0",
+        "qwen38-code-short-c2-train-r1-s1",
+        "qwen38-code-short-c2-train-r2-s0",
+        "qwen38-code-short-c2-train-r2-s1",
+        "qwen38-code-short-c2-train-r3-s0",
+        "qwen38-code-short-c2-train-r3-s1",
+        "qwen38-code-short-c2-train-r4-s0",
+        "qwen38-code-short-c2-train-r4-s1"
+      ],
+      "unavailable_reason": null
+    },
+    {
+      "cell": {
+        "basis_sha256": "25056cf99c0c7e2bde92ae5b5939413f6d874b49d4d94f631346dc977bb52368",
+        "identity": {
+          "adapter": "tensorfold-native-v1",
+          "config_sha256": "1ec44e5b5e2f149c84e0dabd88f2c6d18c048f378b5e4b2eb52191af329fbfef",
+          "model_sha256": "6324d04f76d95d23891fc5dd0742cb7cc82ce52864f10ad3196b29c4a2e1f53e",
+          "runtime": {
+            "binary_sha256": "13244dabb5cba3a6e0d5240fd3afd7426aab77fabed27fdd34225410e0179800",
+            "id": "tensorfold-native-zig",
+            "image_sha256": "cb98098439d95d2bff27bc771ba180e5857613ecc41f6b6e81e494782df9433a",
+            "observed_settings_sha256": "1dec45ac1875dd5f44caa23d6f6206fedae026301d805cededd3bb98acab737b",
+            "source_revision": "db281878ddb836fd0df510d8771ecb7e0fe47d26+mia-364f21a1a46a366fa39c4da0d53b7b1f38624610"
+          },
+          "workload": {
+            "concurrency": 2,
+            "id": "qwen38-code-short-c2"
+          }
+        },
+        "input_tokens": 47,
+        "metric": "decode_rate",
+        "output_tokens": 128,
+        "unit": "token/second"
+      },
+      "cell_id": "b0423d60ad6b26bd0c450c672822ed3debdba2cb38d8f05f18d58b7e49977c84",
+      "estimate": 67.34032901895584,
+      "holdout_errors": [
+        {
+          "absolute_error": 1.827381434362536,
+          "absolute_error_percent": 2.7893439415207775,
+          "observed": 65.5129475845933,
+          "predicted": 67.34032901895584,
+          "request_id": "qwen38-code-short-c2-holdout-r0-s0",
+          "signed_error": 1.827381434362536
+        },
+        {
+          "absolute_error": 1.34454845217941,
+          "absolute_error_percent": 1.957561113426249,
+          "observed": 68.68487747113525,
+          "predicted": 67.34032901895584,
+          "request_id": "qwen38-code-short-c2-holdout-r0-s1",
+          "signed_error": -1.34454845217941
+        },
+        {
+          "absolute_error": 1.3494314178178257,
+          "absolute_error_percent": 2.0448750765204844,
+          "observed": 65.99089760113802,
+          "predicted": 67.34032901895584,
+          "request_id": "qwen38-code-short-c2-holdout-r1-s0",
+          "signed_error": 1.3494314178178257
+        },
+        {
+          "absolute_error": 1.9445966585642935,
+          "absolute_error_percent": 2.8066662979696724,
+          "observed": 69.28492567752014,
+          "predicted": 67.34032901895584,
+          "request_id": "qwen38-code-short-c2-holdout-r1-s1",
+          "signed_error": -1.9445966585642935
+        },
+        {
+          "absolute_error": 9.68357611478308,
+          "absolute_error_percent": 12.572169767254978,
+          "observed": 77.02390513373892,
+          "predicted": 67.34032901895584,
+          "request_id": "qwen38-code-short-c2-holdout-r2-s0",
+          "signed_error": -9.68357611478308
+        },
+        {
+          "absolute_error": 9.683871348591879,
+          "absolute_error_percent": 12.57250487818364,
+          "observed": 77.02420036754772,
+          "predicted": 67.34032901895584,
+          "request_id": "qwen38-code-short-c2-holdout-r2-s1",
+          "signed_error": -9.683871348591879
+        },
+        {
+          "absolute_error": 1.6556901204442482,
+          "absolute_error_percent": 2.399689345988323,
+          "observed": 68.99601913940009,
+          "predicted": 67.34032901895584,
+          "request_id": "qwen38-code-short-c2-holdout-r3-s0",
+          "signed_error": -1.6556901204442482
+        },
+        {
+          "absolute_error": 1.781589190518858,
+          "absolute_error_percent": 2.7175464250550916,
+          "observed": 65.55873982843698,
+          "predicted": 67.34032901895584,
+          "request_id": "qwen38-code-short-c2-holdout-r3-s1",
+          "signed_error": 1.781589190518858
+        },
+        {
+          "absolute_error": 1.0760960310867773,
+          "absolute_error_percent": 1.6239470111783794,
+          "observed": 66.26423298786906,
+          "predicted": 67.34032901895584,
+          "request_id": "qwen38-code-short-c2-holdout-r4-s0",
+          "signed_error": 1.0760960310867773
+        },
+        {
+          "absolute_error": 2.2462909582448845,
+          "absolute_error_percent": 3.228050103569992,
+          "observed": 69.58661997720073,
+          "predicted": 67.34032901895584,
+          "request_id": "qwen38-code-short-c2-holdout-r4-s1",
+          "signed_error": -2.2462909582448845
+        }
+      ],
+      "holdout_request_ids": [
+        "qwen38-code-short-c2-holdout-r0-s0",
+        "qwen38-code-short-c2-holdout-r0-s1",
+        "qwen38-code-short-c2-holdout-r1-s0",
+        "qwen38-code-short-c2-holdout-r1-s1",
+        "qwen38-code-short-c2-holdout-r2-s0",
+        "qwen38-code-short-c2-holdout-r2-s1",
+        "qwen38-code-short-c2-holdout-r3-s0",
+        "qwen38-code-short-c2-holdout-r3-s1",
+        "qwen38-code-short-c2-holdout-r4-s0",
+        "qwen38-code-short-c2-holdout-r4-s1"
+      ],
+      "status": "supported",
+      "train_request_ids": [
+        "qwen38-code-short-c2-train-r0-s0",
+        "qwen38-code-short-c2-train-r0-s1",
+        "qwen38-code-short-c2-train-r1-s0",
+        "qwen38-code-short-c2-train-r1-s1",
+        "qwen38-code-short-c2-train-r2-s0",
+        "qwen38-code-short-c2-train-r2-s1",
+        "qwen38-code-short-c2-train-r3-s0",
+        "qwen38-code-short-c2-train-r3-s1",
+        "qwen38-code-short-c2-train-r4-s0",
+        "qwen38-code-short-c2-train-r4-s1"
+      ],
+      "unavailable_reason": null
+    },
+    {
+      "cell": {
+        "basis_sha256": "29be3be42e031bbaf2b8d79e68734add447747b3c409e0e4070c719a6491ef69",
+        "identity": {
+          "adapter": "tensorfold-native-v1",
+          "config_sha256": "1ec44e5b5e2f149c84e0dabd88f2c6d18c048f378b5e4b2eb52191af329fbfef",
+          "model_sha256": "6324d04f76d95d23891fc5dd0742cb7cc82ce52864f10ad3196b29c4a2e1f53e",
+          "runtime": {
+            "binary_sha256": "13244dabb5cba3a6e0d5240fd3afd7426aab77fabed27fdd34225410e0179800",
+            "id": "tensorfold-native-zig",
+            "image_sha256": "cb98098439d95d2bff27bc771ba180e5857613ecc41f6b6e81e494782df9433a",
+            "observed_settings_sha256": "1dec45ac1875dd5f44caa23d6f6206fedae026301d805cededd3bb98acab737b",
+            "source_revision": "db281878ddb836fd0df510d8771ecb7e0fe47d26+mia-364f21a1a46a366fa39c4da0d53b7b1f38624610"
+          },
+          "workload": {
+            "concurrency": 2,
+            "id": "qwen38-code-short-c2"
+          }
+        },
+        "input_tokens": 47,
+        "metric": "client_decode_rate",
+        "output_tokens": 128,
+        "unit": "token/second"
+      },
+      "cell_id": "f5e25c7875bde96923a1fb6ff655511f57c17eb313e7a4672c3de0d11d7830e6",
+      "estimate": 67.35431119361405,
+      "holdout_errors": [
+        {
+          "absolute_error": 1.8382997595852686,
+          "absolute_error_percent": 2.8058786231764747,
+          "observed": 65.51601143402878,
+          "predicted": 67.35431119361405,
+          "request_id": "qwen38-code-short-c2-holdout-r0-s0",
+          "signed_error": 1.8382997595852686
+        },
+        {
+          "absolute_error": 1.3518615679829082,
+          "absolute_error_percent": 1.967598417501325,
+          "observed": 68.70617276159696,
+          "predicted": 67.35431119361405,
+          "request_id": "qwen38-code-short-c2-holdout-r0-s1",
+          "signed_error": -1.3518615679829082
+        },
+        {
+          "absolute_error": 1.3552302883449983,
+          "absolute_error_percent": 2.0534078198607206,
+          "observed": 65.99908090526905,
+          "predicted": 67.35431119361405,
+          "request_id": "qwen38-code-short-c2-holdout-r1-s0",
+          "signed_error": 1.3552302883449983
+        },
+        {
+          "absolute_error": 1.958278177306937,
+          "absolute_error_percent": 2.8252849808097085,
+          "observed": 69.31258937092099,
+          "predicted": 67.35431119361405,
+          "request_id": "qwen38-code-short-c2-holdout-r1-s1",
+          "signed_error": -1.958278177306937
+        },
+        {
+          "absolute_error": 9.712326030786997,
+          "absolute_error_percent": 12.602503989510852,
+          "observed": 77.06663722440105,
+          "predicted": 67.35431119361405,
+          "request_id": "qwen38-code-short-c2-holdout-r2-s0",
+          "signed_error": -9.712326030786997
+        },
+        {
+          "absolute_error": 9.726236993735583,
+          "absolute_error_percent": 12.618276883676655,
+          "observed": 77.08054818734963,
+          "predicted": 67.35431119361405,
+          "request_id": "qwen38-code-short-c2-holdout-r2-s1",
+          "signed_error": -9.726236993735583
+        },
+        {
+          "absolute_error": 1.654764321403917,
+          "absolute_error_percent": 2.397893768398335,
+          "observed": 69.00907551501797,
+          "predicted": 67.35431119361405,
+          "request_id": "qwen38-code-short-c2-holdout-r3-s0",
+          "signed_error": -1.654764321403917
+        },
+        {
+          "absolute_error": 1.8109103343210222,
+          "absolute_error_percent": 2.762917869044727,
+          "observed": 65.54340085929303,
+          "predicted": 67.35431119361405,
+          "request_id": "qwen38-code-short-c2-holdout-r3-s1",
+          "signed_error": 1.8109103343210222
+        },
+        {
+          "absolute_error": 1.0625738895427332,
+          "absolute_error_percent": 1.6028753095862447,
+          "observed": 66.29173730407132,
+          "predicted": 67.35431119361405,
+          "request_id": "qwen38-code-short-c2-holdout-r4-s0",
+          "signed_error": 1.0625738895427332
+        },
+        {
+          "absolute_error": 2.238060802879005,
+          "absolute_error_percent": 3.215957063500849,
+          "observed": 69.59237199649306,
+          "predicted": 67.35431119361405,
+          "request_id": "qwen38-code-short-c2-holdout-r4-s1",
+          "signed_error": -2.238060802879005
+        }
+      ],
+      "holdout_request_ids": [
+        "qwen38-code-short-c2-holdout-r0-s0",
+        "qwen38-code-short-c2-holdout-r0-s1",
+        "qwen38-code-short-c2-holdout-r1-s0",
+        "qwen38-code-short-c2-holdout-r1-s1",
+        "qwen38-code-short-c2-holdout-r2-s0",
+        "qwen38-code-short-c2-holdout-r2-s1",
+        "qwen38-code-short-c2-holdout-r3-s0",
+        "qwen38-code-short-c2-holdout-r3-s1",
+        "qwen38-code-short-c2-holdout-r4-s0",
+        "qwen38-code-short-c2-holdout-r4-s1"
+      ],
+      "status": "supported",
+      "train_request_ids": [
+        "qwen38-code-short-c2-train-r0-s0",
+        "qwen38-code-short-c2-train-r0-s1",
+        "qwen38-code-short-c2-train-r1-s0",
+        "qwen38-code-short-c2-train-r1-s1",
+        "qwen38-code-short-c2-train-r2-s0",
+        "qwen38-code-short-c2-train-r2-s1",
+        "qwen38-code-short-c2-train-r3-s0",
+        "qwen38-code-short-c2-train-r3-s1",
+        "qwen38-code-short-c2-train-r4-s0",
+        "qwen38-code-short-c2-train-r4-s1"
+      ],
+      "unavailable_reason": null
+    }
+  ],
+  "holdout_request_ids": [
+    "qwen38-code-short-c2-holdout-r0-s0",
+    "qwen38-code-short-c2-holdout-r0-s1",
+    "qwen38-code-short-c2-holdout-r1-s0",
+    "qwen38-code-short-c2-holdout-r1-s1",
+    "qwen38-code-short-c2-holdout-r2-s0",
+    "qwen38-code-short-c2-holdout-r2-s1",
+    "qwen38-code-short-c2-holdout-r3-s0",
+    "qwen38-code-short-c2-holdout-r3-s1",
+    "qwen38-code-short-c2-holdout-r4-s0",
+    "qwen38-code-short-c2-holdout-r4-s1"
+  ],
+  "method": "exact-cell-mean-v1",
+  "schema": "spark-observation-calibration",
+  "scope": {
+    "extrapolation": "unavailable",
+    "glm_cyclesim_inference": "unavailable",
+    "kernel_costs": "unavailable",
+    "position_survival": "unavailable"
+  },
+  "sources": [
+    {
+      "observation_sha256": "6fa83c3561e00e086bc5a0ee25e5947b45fb35cb90a71a340aa5a80a6f40411a",
+      "sha256": "216a5a34642007581b666aab66bc7d9dcf865d37a6efadfb87e99d3f66bdba0d",
+      "source_id": "qwen38-code-short-c2"
+    }
+  ],
+  "split_sha256": "2803049f8f3001020cbbc2629a805330d6d6c6dc65762fcc9b76444881f40221",
+  "train_request_ids": [
+    "qwen38-code-short-c2-train-r0-s0",
+    "qwen38-code-short-c2-train-r0-s1",
+    "qwen38-code-short-c2-train-r1-s0",
+    "qwen38-code-short-c2-train-r1-s1",
+    "qwen38-code-short-c2-train-r2-s0",
+    "qwen38-code-short-c2-train-r2-s1",
+    "qwen38-code-short-c2-train-r3-s0",
+    "qwen38-code-short-c2-train-r3-s1",
+    "qwen38-code-short-c2-train-r4-s0",
+    "qwen38-code-short-c2-train-r4-s1"
+  ],
+  "unavailable": [],
+  "version": 1
+}

@@ -1,0 +1,13 @@
+{
+  "schema": "spark-observation-import",
+  "version": 1,
+  "adapter": "tensorfold-prometheus-v1",
+  "source_id": "tensorfold-prometheus-fixture",
+  "runtime": {"id": "tensorfold-native-zig", "source_revision": "db281878ddb836fd0df510d8771ecb7e0fe47d26"},
+  "config_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "model_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "workload": {"id": "fixture-greedy", "concurrency": 1},
+  "request_ids": ["prom-r1", "prom-r2"],
+  "alias_policy": "tensorfold-pinned-mirrors-v1",
+  "interval": {"isolated": true, "drained": true, "workload_id": "fixture-greedy", "duration_seconds": 1.0}
+}

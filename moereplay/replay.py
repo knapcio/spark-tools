@@ -143,7 +143,11 @@ def union_growth(trace, layer, sizes=(1,2,3,4,5,6,8,12,16), limit=None):
 
 
 def replay(trace, cost_fit=None, samples=1000, bootstrap_samples=200, seed=1234,
-           replicate_h=0, details=None, extrapolate_layers=None, train_trace=None, rows_per_request=None):
+           replicate_h=0, details=None, extrapolate_layers=None, train_trace=None, rows_per_request=None, layouts=None):
+    if trace.manifest['schema'] == 'moe-routes v2' or layouts is not None:
+        from moereplay.geometry_replay import replay_geometry
+        return replay_geometry(trace, cost_fit, samples, bootstrap_samples, seed, replicate_h,
+                               details, extrapolate_layers, train_trace, rows_per_request, layouts)
     widths = proxy_widths(rows_per_request)
     if type(samples) is not int or samples < 1 or type(bootstrap_samples) is not int or bootstrap_samples != 0 and bootstrap_samples < MIN_BOOTSTRAP:
         raise ValueError('samples >=1; bootstrap 0 or >=200 required')
@@ -152,6 +156,8 @@ def replay(trace, cost_fit=None, samples=1000, bootstrap_samples=200, seed=1234,
     trace.check()
     if train_trace is not None:
         train_trace.check()
+        if train_trace.geometry != trace.geometry:
+            raise ValueError('training trace geometry differs')
         if train_trace.manifest['model'] != trace.manifest['model'] or train_trace.manifest['layers'] != trace.manifest['layers']:
             raise ValueError('training trace model/layers differ')
         if train_trace.root == trace.root or train_trace.manifest['data'] == trace.manifest['data']:

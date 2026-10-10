@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "scope": "dense decoder conformance only",
+  "format": "all",
+  "backend": "stdlib-cpu",
+  "comparison": "exact little-endian decoder bytes; zero tolerance",
+  "fixture_set_sha256": "7b0d2f9f27cb5be7ef076565a53474a76c4e613498ddb620cc7b80209d6f4d5e",
+  "fixture_count": 33,
+  "fixture_failures": [],
+  "codebooks": [
+    {
+      "name": "3inst",
+      "states": 65536,
+      "dtype": "fp16-le",
+      "sha256": "ad88de2dcff5bb05fff2faec37cceceb43aa1c2e8203f9d81a6fbd6dd3393eea",
+      "expected_sha256": "ad88de2dcff5bb05fff2faec37cceceb43aa1c2e8203f9d81a6fbd6dd3393eea",
+      "matches": true
+    },
+    {
+      "name": "mcg",
+      "states": 65536,
+      "dtype": "fp16-le",
+      "sha256": "95383563929baa9d1ae5de0be22490284382673620bdd85929feea7bdbef04a9",
+      "expected_sha256": "95383563929baa9d1ae5de0be22490284382673620bdd85929feea7bdbef04a9",
+      "matches": true
+    },
+    {
+      "name": "mul1",
+      "states": 65536,
+      "dtype": "fp16-le",
+      "sha256": "bc48d02cb1c14939dc47b90f870dd689d63e3b1ab69a157e65538db68677a6c8",
+      "expected_sha256": "bc48d02cb1c14939dc47b90f870dd689d63e3b1ab69a157e65538db68677a6c8",
+      "matches": true
+    },
+    {
+      "name": "exlr8-fp32",
+      "states": 65536,
+      "sha256": "44e78f7a0260c97e54c7f0122e7df4bcdd362601baa36f45d8038973877c624d",
+      "expected_sha256": "44e78f7a0260c97e54c7f0122e7df4bcdd362601baa36f45d8038973877c624d",
+      "matches": true
+    },
+    {
+      "name": "exlr8-e4m3",
+      "states": 65536,
+      "sha256": "852259a151b9d7c4d8cc6b7537ba5f548e78681488e926953c04e94b275591b9",
+      "expected_sha256": "852259a151b9d7c4d8cc6b7537ba5f548e78681488e926953c04e94b275591b9",
+      "matches": true
+    }
+  ],
+  "errors": [],
+  "gpu_status": "UNAVAILABLE",
+  "matmul_status": "NOT_RUN",
+  "dense_reconstruction_status": "EXTERNAL_ONLY",
+  "claims_excluded": [
+    "model",
+    "quality",
+    "collective",
+    "whole-engine",
+    "performance"
+  ],
+  "rounding": {
+    "state_inputs": 65536,
+    "halfway_neighbor_inputs": 756,
+    "finite_inputs_checked": 66300,
+    "mismatches": 0,
+    "nonfinite_inputs_rejected": 3,
+    "signed_zero_preserved": true,
+    "nonfinite_policy": "reject fixture input; generated MCG values are finite"
+  },
+  "trellis_order": {
+    "cases": 24,
+    "states_per_case": 256,
+    "failures": []
+  },
+  "negative_control": {
+    "name": "stock-unrounded-EXL3-MCG",
+    "states": 65536,
+    "different_fp32_states": 64372,
+    "expected": "REJECT",
+    "status": "REJECTED"
+  },
+  "status": "PASS"
+}

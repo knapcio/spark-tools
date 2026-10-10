@@ -50,6 +50,16 @@ def worker(ctx):
 
 
 def alive(pid):
+    # A minimal container may not run an init process that reaps orphaned
+    # grandchildren.  Such a process is already dead and cannot execute, even
+    # though kill(pid, 0) continues to find its zombie table entry.
+    status = Path(f'/proc/{pid}/status')
+    try:
+        if any(line.startswith('State:') and '\tZ ' in line
+               for line in status.read_text().splitlines()):
+            return False
+    except (FileNotFoundError, PermissionError, OSError):
+        pass
     try:
         os.kill(pid, 0)
         return True

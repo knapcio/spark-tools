@@ -1,0 +1,169 @@
+tensorfold:requests_total{key="fixture",status="200"} 0
+# TYPE tensorfold:requests_running gauge
+tensorfold:requests_running 0
+# TYPE tensorfold:num_requests_running gauge
+tensorfold:num_requests_running 0
+# TYPE tensorfold:requests_waiting gauge
+tensorfold:requests_waiting 0
+# TYPE tensorfold:num_requests_waiting gauge
+tensorfold:num_requests_waiting 0
+# TYPE tensorfold:generation_tokens_running gauge
+tensorfold:generation_tokens_running 0
+# TYPE tensorfold:prompt_tokens_total counter
+tensorfold:prompt_tokens_total 0
+# TYPE tensorfold:generation_tokens_total counter
+tensorfold:generation_tokens_total 0
+# TYPE tensorfold:mtp_drafted_total counter
+tensorfold:mtp_drafted_total 0
+# TYPE tensorfold:spec_decode_num_draft_tokens_total counter
+tensorfold:spec_decode_num_draft_tokens_total 0
+# TYPE tensorfold:mtp_accepted_total counter
+tensorfold:mtp_accepted_total 0
+# TYPE tensorfold:spec_decode_num_accepted_tokens_total counter
+tensorfold:spec_decode_num_accepted_tokens_total 0
+# TYPE tensorfold:decode_rounds_total counter
+tensorfold:decode_rounds_total 0
+# TYPE tensorfold:client_disconnections_total counter
+tensorfold:client_disconnections_total 0
+# TYPE tensorfold:preemptions_total counter
+tensorfold:preemptions_total 0
+# TYPE tensorfold:request_latency_seconds histogram
+tensorfold:request_latency_seconds_bucket{le="0.01"} 0
+tensorfold:request_latency_seconds_bucket{le="0.05"} 0
+tensorfold:request_latency_seconds_bucket{le="0.1"} 0
+tensorfold:request_latency_seconds_bucket{le="0.25"} 0
+tensorfold:request_latency_seconds_bucket{le="0.5"} 0
+tensorfold:request_latency_seconds_bucket{le="1"} 0
+tensorfold:request_latency_seconds_bucket{le="2.5"} 0
+tensorfold:request_latency_seconds_bucket{le="5"} 0
+tensorfold:request_latency_seconds_bucket{le="10"} 0
+tensorfold:request_latency_seconds_bucket{le="30"} 0
+tensorfold:request_latency_seconds_bucket{le="60"} 0
+tensorfold:request_latency_seconds_bucket{le="120"} 0
+tensorfold:request_latency_seconds_bucket{le="300"} 0
+tensorfold:request_latency_seconds_bucket{le="+Inf"} 0
+tensorfold:request_latency_seconds_sum 0
+tensorfold:request_latency_seconds_count 0
+# TYPE tensorfold:e2e_request_latency_seconds histogram
+tensorfold:e2e_request_latency_seconds_bucket{le="0.01"} 0
+tensorfold:e2e_request_latency_seconds_bucket{le="0.05"} 0
+tensorfold:e2e_request_latency_seconds_bucket{le="0.1"} 0
+tensorfold:e2e_request_latency_seconds_bucket{le="0.25"} 0
+tensorfold:e2e_request_latency_seconds_bucket{le="0.5"} 0
+tensorfold:e2e_request_latency_seconds_bucket{le="1"} 0
+tensorfold:e2e_request_latency_seconds_bucket{le="2.5"} 0
+tensorfold:e2e_request_latency_seconds_bucket{le="5"} 0
+tensorfold:e2e_request_latency_seconds_bucket{le="10"} 0
+tensorfold:e2e_request_latency_seconds_bucket{le="30"} 0
+tensorfold:e2e_request_latency_seconds_bucket{le="60"} 0
+tensorfold:e2e_request_latency_seconds_bucket{le="120"} 0
+tensorfold:e2e_request_latency_seconds_bucket{le="300"} 0
+tensorfold:e2e_request_latency_seconds_bucket{le="+Inf"} 0
+tensorfold:e2e_request_latency_seconds_sum 0
+tensorfold:e2e_request_latency_seconds_count 0
+# TYPE tensorfold:time_to_first_token_seconds histogram
+tensorfold:time_to_first_token_seconds_bucket{le="0.01"} 0
+tensorfold:time_to_first_token_seconds_bucket{le="0.05"} 0
+tensorfold:time_to_first_token_seconds_bucket{le="0.1"} 0
+tensorfold:time_to_first_token_seconds_bucket{le="0.25"} 0
+tensorfold:time_to_first_token_seconds_bucket{le="0.5"} 0
+tensorfold:time_to_first_token_seconds_bucket{le="1"} 0
+tensorfold:time_to_first_token_seconds_bucket{le="2.5"} 0
+tensorfold:time_to_first_token_seconds_bucket{le="5"} 0
+tensorfold:time_to_first_token_seconds_bucket{le="10"} 0
+tensorfold:time_to_first_token_seconds_bucket{le="30"} 0
+tensorfold:time_to_first_token_seconds_bucket{le="60"} 0
+tensorfold:time_to_first_token_seconds_bucket{le="120"} 0
+tensorfold:time_to_first_token_seconds_bucket{le="300"} 0
+tensorfold:time_to_first_token_seconds_bucket{le="+Inf"} 0
+tensorfold:time_to_first_token_seconds_sum 0
+tensorfold:time_to_first_token_seconds_count 0
+# TYPE tensorfold:request_decode_seconds histogram
+tensorfold:request_decode_seconds_bucket{le="0.01"} 0
+tensorfold:request_decode_seconds_bucket{le="0.05"} 0
+tensorfold:request_decode_seconds_bucket{le="0.1"} 0
+tensorfold:request_decode_seconds_bucket{le="0.25"} 0
+tensorfold:request_decode_seconds_bucket{le="0.5"} 0
+tensorfold:request_decode_seconds_bucket{le="1"} 0
+tensorfold:request_decode_seconds_bucket{le="2.5"} 0
+tensorfold:request_decode_seconds_bucket{le="5"} 0
+tensorfold:request_decode_seconds_bucket{le="10"} 0
+tensorfold:request_decode_seconds_bucket{le="30"} 0
+tensorfold:request_decode_seconds_bucket{le="60"} 0
+tensorfold:request_decode_seconds_bucket{le="120"} 0
+tensorfold:request_decode_seconds_bucket{le="300"} 0
+tensorfold:request_decode_seconds_bucket{le="+Inf"} 0
+tensorfold:request_decode_seconds_sum 0
+tensorfold:request_decode_seconds_count 0
+# TYPE tensorfold:request_decode_time_seconds histogram
+tensorfold:request_decode_time_seconds_bucket{le="0.01"} 0
+tensorfold:request_decode_time_seconds_bucket{le="0.05"} 0
+tensorfold:request_decode_time_seconds_bucket{le="0.1"} 0
+tensorfold:request_decode_time_seconds_bucket{le="0.25"} 0
+tensorfold:request_decode_time_seconds_bucket{le="0.5"} 0
+tensorfold:request_decode_time_seconds_bucket{le="1"} 0
+tensorfold:request_decode_time_seconds_bucket{le="2.5"} 0
+tensorfold:request_decode_time_seconds_bucket{le="5"} 0
+tensorfold:request_decode_time_seconds_bucket{le="10"} 0
+tensorfold:request_decode_time_seconds_bucket{le="30"} 0
+tensorfold:request_decode_time_seconds_bucket{le="60"} 0
+tensorfold:request_decode_time_seconds_bucket{le="120"} 0
+tensorfold:request_decode_time_seconds_bucket{le="300"} 0
+tensorfold:request_decode_time_seconds_bucket{le="+Inf"} 0
+tensorfold:request_decode_time_seconds_sum 0
+tensorfold:request_decode_time_seconds_count 0
+# TYPE tensorfold:request_prefill_seconds histogram
+tensorfold:request_prefill_seconds_bucket{le="0.01"} 0
+tensorfold:request_prefill_seconds_bucket{le="0.05"} 0
+tensorfold:request_prefill_seconds_bucket{le="0.1"} 0
+tensorfold:request_prefill_seconds_bucket{le="0.25"} 0
+tensorfold:request_prefill_seconds_bucket{le="0.5"} 0
+tensorfold:request_prefill_seconds_bucket{le="1"} 0
+tensorfold:request_prefill_seconds_bucket{le="2.5"} 0
+tensorfold:request_prefill_seconds_bucket{le="5"} 0
+tensorfold:request_prefill_seconds_bucket{le="10"} 0
+tensorfold:request_prefill_seconds_bucket{le="30"} 0
+tensorfold:request_prefill_seconds_bucket{le="60"} 0
+tensorfold:request_prefill_seconds_bucket{le="120"} 0
+tensorfold:request_prefill_seconds_bucket{le="300"} 0
+tensorfold:request_prefill_seconds_bucket{le="+Inf"} 0
+tensorfold:request_prefill_seconds_sum 0
+tensorfold:request_prefill_seconds_count 0
+# TYPE tensorfold:request_prefill_time_seconds histogram
+tensorfold:request_prefill_time_seconds_bucket{le="0.01"} 0
+tensorfold:request_prefill_time_seconds_bucket{le="0.05"} 0
+tensorfold:request_prefill_time_seconds_bucket{le="0.1"} 0
+tensorfold:request_prefill_time_seconds_bucket{le="0.25"} 0
+tensorfold:request_prefill_time_seconds_bucket{le="0.5"} 0
+tensorfold:request_prefill_time_seconds_bucket{le="1"} 0
+tensorfold:request_prefill_time_seconds_bucket{le="2.5"} 0
+tensorfold:request_prefill_time_seconds_bucket{le="5"} 0
+tensorfold:request_prefill_time_seconds_bucket{le="10"} 0
+tensorfold:request_prefill_time_seconds_bucket{le="30"} 0
+tensorfold:request_prefill_time_seconds_bucket{le="60"} 0
+tensorfold:request_prefill_time_seconds_bucket{le="120"} 0
+tensorfold:request_prefill_time_seconds_bucket{le="300"} 0
+tensorfold:request_prefill_time_seconds_bucket{le="+Inf"} 0
+tensorfold:request_prefill_time_seconds_sum 0
+tensorfold:request_prefill_time_seconds_count 0
+# TYPE tensorfold:request_time_per_output_token_seconds histogram
+tensorfold:request_time_per_output_token_seconds_bucket{le="0.0025"} 0
+tensorfold:request_time_per_output_token_seconds_bucket{le="0.005"} 0
+tensorfold:request_time_per_output_token_seconds_bucket{le="0.0075"} 0
+tensorfold:request_time_per_output_token_seconds_bucket{le="0.01"} 0
+tensorfold:request_time_per_output_token_seconds_bucket{le="0.015"} 0
+tensorfold:request_time_per_output_token_seconds_bucket{le="0.02"} 0
+tensorfold:request_time_per_output_token_seconds_bucket{le="0.025"} 0
+tensorfold:request_time_per_output_token_seconds_bucket{le="0.03"} 0
+tensorfold:request_time_per_output_token_seconds_bucket{le="0.04"} 0
+tensorfold:request_time_per_output_token_seconds_bucket{le="0.05"} 0
+tensorfold:request_time_per_output_token_seconds_bucket{le="0.075"} 0
+tensorfold:request_time_per_output_token_seconds_bucket{le="0.1"} 0
+tensorfold:request_time_per_output_token_seconds_bucket{le="0.15"} 0
+tensorfold:request_time_per_output_token_seconds_bucket{le="0.2"} 0
+tensorfold:request_time_per_output_token_seconds_bucket{le="0.3"} 0
+tensorfold:request_time_per_output_token_seconds_bucket{le="0.5"} 0
+tensorfold:request_time_per_output_token_seconds_bucket{le="1"} 0
+tensorfold:request_time_per_output_token_seconds_bucket{le="+Inf"} 0
+tensorfold:request_time_per_output_token_seconds_sum 0
+tensorfold:request_time_per_output_token_seconds_count 0

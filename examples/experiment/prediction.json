@@ -1,0 +1,13 @@
+[
+  {
+    "status": "estimated",
+    "cycle_bench_hard_panel": {
+      "status": "estimated",
+      "cycle_ms": 80.0,
+      "committed_per_cycle": 2.0,
+      "tok_s_per_stream": 25.0
+    },
+    "passes_status": "assumed prior; executed c1 distribution unknown",
+    "routing_status": "assumed occupancy; reuse/pad hygiene prevent extra stale routes"
+  }
+]

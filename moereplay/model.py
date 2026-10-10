@@ -7,32 +7,53 @@ import math
 import random
 import statistics
 import hashlib
+from moereplay.geometry import LEGACY_GEOMETRY, Layout, load_geometry, resolve_layouts
 
 LAYOUTS = {'TP4': (1, 4), 'EP2xTP2': (2, 2), 'EP4': (4, 1)}
 STATUSES = ('measured', 'estimated', 'assumed')
 BYTES_TP4 = 4866048  # 3*6144*512/2 packed INT4 + BF16 g128 scales
 
 
-def placement(n, name, freq=None):
+def placement(n, name, freq=None, geometry=None):
     # Adapted from knapcio's existing expert-placement analysis.
     # Stable descending frequency; capacity E/n; minimum load ties choose first rank.
+    size = 256 if geometry is None else load_geometry(geometry).num_experts
+    if type(n) is not int or not 1 <= n <= size:
+        raise ValueError('EP group count must be in [1,num_experts]')
     if name == 'contiguous':
-        return [e*n//256 for e in range(256)]
+        return [e*n//size for e in range(size)]
     if name == 'round-robin':
-        return [e % n for e in range(256)]
+        return [e % n for e in range(size)]
     if name != 'greedy' or freq is None:
         raise ValueError('unknown placement or missing held-out frequency')
-    loads, counts, result = [0]*n, [0]*n, [0]*256
-    for e in sorted(range(256), key=lambda e: -freq[e]):
-        r = min((r for r in range(n) if counts[r] < 256//n), key=lambda r: loads[r])
+    capacities = Counter(e*n//size for e in range(size))
+    loads, counts, result = [0]*n, [0]*n, [0]*size
+    for e in sorted(range(size), key=lambda e: -freq[e]):
+        r = min((r for r in range(n) if counts[r] < capacities[r]), key=lambda r: loads[r])
         result[e] = r
         loads[r] += freq[e]
         counts[r] += 1
     return result
 
 
-def rank_work(routes, layout, owners, hottest=()):
-    n, tp = LAYOUTS[layout]
+def rank_work(routes, layout, owners, hottest=(), geometry=None):
+    if geometry is None:
+        n, tp = LAYOUTS[layout]
+        world, expert_bytes = 4, BYTES_TP4*n
+    else:
+        geometry = load_geometry(geometry)
+        selected = resolve_layouts(geometry, [layout])[0]
+        n, tp, world = selected.ep, selected.tp, geometry.world_size
+        expert_bytes = None if geometry.expert_bytes is None else geometry.expert_bytes//tp
+        if len(owners) != geometry.num_experts or any(type(r) is not int or not 0 <= r < n for r in owners):
+            raise ValueError('owners must assign every expert to a valid EP group')
+        if any(type(e) is not int or not 0 <= e < geometry.num_experts for e in hottest) or len(set(hottest)) != len(hottest):
+            raise ValueError('invalid hottest experts')
+        from moereplay.routes import valid_ids
+        for row in routes:
+            valid_ids(row, geometry)
+        if not routes:
+            raise ValueError('nonempty routes required')
     seen, slots = [set() for _ in range(n)], [0]*n
     multiplicities = [Counter() for _ in range(n)]
     per_row = [[] for _ in range(n)]
@@ -57,35 +78,51 @@ def rank_work(routes, layout, owners, hottest=()):
     distinct = [len(s) for s in seen]
     # Group members share exactly the same distinct experts and TP-shard bytes.
     physical_d = [d for d in distinct for _ in range(tp)]
-    expert_bytes = BYTES_TP4*n
     return dict(D_union=len(set(e for row in routes for e in row)), D_r=physical_d,
-                max_rank_D=max(physical_d), mean_rank_D=sum(physical_d)/4,
-                max_over_mean=max(physical_d)/(sum(physical_d)/4), bytes_r=[d*expert_bytes for d in physical_d],
+                max_rank_D=max(physical_d), mean_rank_D=sum(physical_d)/world,
+                max_over_mean=max(physical_d)/(sum(physical_d)/world), bytes_r=[d*expert_bytes if expert_bytes is not None else None for d in physical_d],
                 routed_slots_r=[s for s in slots for _ in range(tp)],
                 local_slots_per_row_r=[s for s in per_row for _ in range(tp)],
                 expert_multiplicities_r=[sorted(s.values()) for s in multiplicities for _ in range(tp)],
                 local_route_sha256_r=[hashlib.sha256(json.dumps(p,separators=(',',':')).encode()).hexdigest() for p in patterns for _ in range(tp)],
                 duplicate_rows=sum(len(set(row)) != len(row) for row in routes),
-                bytes_status='estimated',
+                bytes_status='estimated' if expert_bytes is not None else 'unavailable',
                 bytes_scope='packed weights + scales touched once per distinct expert; not DRAM counters')
 
 
 class Costs:
-    def __init__(self, fit=None):
+    def __init__(self, fit=None, geometry=None, layouts=None):
         self.fits = {}
         self.source = None
+        self.geometry = load_geometry(geometry) if geometry is not None else LEGACY_GEOMETRY
+        self.explicit_geometry = geometry is not None
+        self.layouts = {l.name: l for l in resolve_layouts(self.geometry, layouts)}
         from pathlib import Path
         self.prior = json.loads(Path(__file__).with_name('prior.json').read_text())
         if fit is not None:
             from moereplay.routes import sha256
             data = json.loads(Path(fit).read_text())
+            if 'geometry' in data:
+                if load_geometry(data['geometry']) != self.geometry or data.get('geometry_fingerprint') != self.geometry.fingerprint:
+                    raise ValueError('cost fit geometry or fingerprint mismatch')
+                if data.get('schema') != 'moe-cost-fit v2':
+                    raise ValueError('geometry-bound fit requires moe-cost-fit v2')
+                bound = resolve_layouts(self.geometry, data.get('layouts', []))
+                for l in bound:
+                    if l.name in self.layouts and self.layouts[l.name] != l:
+                        raise ValueError('cost fit layout mismatch')
+            elif self.explicit_geometry:
+                raise ValueError('explicit geometry requires a geometry-bound cost fit')
+            elif data.get('schema') == 'moe-cost-fit v2' or 'geometry_fingerprint' in data:
+                raise ValueError('cost fit geometry required')
             from moereplay.cost_adapter import deployment_records
-            data, self.adapter = deployment_records(data, Path(fit))
+            data, self.adapter = deployment_records(data, Path(fit), self.geometry if 'geometry' in data else None,
+                                                     data.get('layouts') if 'geometry' in data else None)
             records = data['per_layout_M']
             self.source = dict(file=Path(fit).name, sha256=sha256(fit))
             for r in records:
                 key = (r['layout'], r['M'])
-                if key[0] not in LAYOUTS or type(key[1]) is not int or key[1] <= 0 or key in self.fits:
+                if key[0] not in self.layouts or type(key[1]) is not int or key[1] <= 0 or key in self.fits:
                     raise ValueError('invalid or duplicate fit layout/M')
                 a, b = r['a_us'], r['b_us_per_distinct_local_expert']
                 if any(type(x) not in (int, float) or not math.isfinite(x) for x in (a,b)) or b < 0:
@@ -103,10 +140,24 @@ class Costs:
                                       raw_fit=r.get('raw_fit','unknown'),
                                       excluded_points=r.get('excluded_points', []),
                                       applicability='exact measured workload signature and matched-route validation required')
+                if self.explicit_geometry:
+                    self.fits[key].update(geometry_fingerprint=self.geometry.fingerprint,
+                                          layout=self.layouts[key[0]].to_dict(), M=key[1])
 
     def resolve(self, layout, m):
+        if isinstance(layout, Layout):
+            layout = layout.name
+        if layout not in self.layouts:
+            raise ValueError('unknown cost layout')
+        if self.explicit_geometry and (type(m) is not int or m < 1):
+            raise ValueError('positive M required')
         if (layout, m) in self.fits:
             return self.fits[layout,m]
+        if self.explicit_geometry:
+            return dict(status='unavailable', calibration_status='unavailable',
+                        geometry_fingerprint=self.geometry.fingerprint, source=self.source,
+                        layout=self.layouts[layout].to_dict(), M=m,
+                        reason='no geometry-bound timing fit for layout and M')
         n, _ = LAYOUTS[layout]
         return dict(a_us=self.prior['a_us'], b_us_per_distinct_local_expert=self.prior['b_us_per_distinct_local_expert']*n,
                     status='estimated', calibration_status='measured' if n == 1 else 'estimated',
@@ -117,7 +168,22 @@ class Costs:
                     prior=True, M_dependence='cross-M OLS; only the listed M,D cells were measured')
 
     def evaluate(self, layout, m, ds, work=None):
+        if isinstance(layout, Layout):
+            layout = layout.name
+        if type(m) is not int or m < 1:
+            raise ValueError('positive M required')
         fit = self.resolve(layout, m)
+        if self.explicit_geometry and (len(ds) != self.geometry.world_size or any(type(d) is not int or not 0 <= d <= min(self.geometry.num_experts, self.geometry.top_k*m) for d in ds)):
+            raise ValueError('rank distinct counts do not match geometry')
+        if self.explicit_geometry:
+            tp = self.layouts[layout].tp
+            if any(len(set(ds[start:start+tp])) != 1 for start in range(0, len(ds), tp)):
+                raise ValueError('TP group ranks must share distinct expert counts')
+        if fit['status'] == 'unavailable':
+            return dict(rank_us=[None]*len(ds), layer_us=None, fit=fit, status='unavailable',
+                        extrapolation='unknown', calibration_eligible=False,
+                        calibration_reasons=[fit['reason']], M_extrapolation=True,
+                        negative_prediction_clipped_r=[False]*len(ds))
         raw = [fit['a_us'] + fit['b_us_per_distinct_local_expert']*d for d in ds]
         # OLS may fit a negative intercept. Preserve it; idle-rank extrapolation
         # cannot produce physical negative latency. Clipping is explicit.
@@ -170,7 +236,9 @@ def percentile(values, q):
         raise ValueError('nonempty values and q in [0,1] required')
     position = (len(ordered)-1)*q
     low, high = math.floor(position), math.ceil(position)
-    return ordered[low]+(ordered[high]-ordered[low])*(position-low)
+    # Keep serialized intervals stable across supported Python versions; their
+    # arithmetic can otherwise differ by one binary-float ULP.
+    return round(ordered[low]+(ordered[high]-ordered[low])*(position-low), 15)
 
 
 def bootstrap(values, clusters, samples=200, seed=1234):

@@ -9,8 +9,11 @@ import os
 from pathlib import Path
 import shutil
 import tempfile
+import struct
+from moereplay.geometry import LEGACY_GEOMETRY, load_geometry
 
 SCHEMA = 'moe-routes v1'
+SCHEMA_V2 = 'moe-routes v2'
 MAX_STEP_ROWS = 65536
 
 
@@ -28,7 +31,12 @@ def integer(x, label, minimum=0):
     return x
 
 
-def valid_ids(row):
+def valid_ids(row, geometry=None):
+    if geometry is not None:
+        geometry = load_geometry(geometry)
+        if len(row) != geometry.top_k or any(type(e) is not int or not 0 <= e < geometry.num_experts for e in row) or len(set(row)) != geometry.top_k:
+            raise ValueError('routes must contain top_k distinct logical expert IDs within geometry')
+        return struct.pack('<%dH' % geometry.top_k, *row)
     if len(row) != 8 or any(type(e) is not int or not 0 <= e < 256 for e in row) or len(set(row)) != 8:
         raise ValueError('routes must contain eight distinct logical expert IDs in [0,256)')
     return bytes(row)
@@ -56,7 +64,7 @@ def valid_row(row, i):
 
 class Writer:
     """Create-only atomic directory; holds at most one step and open layer files."""
-    def __init__(self, out, layers, model, source, semantics):
+    def __init__(self, out, layers, model, source, semantics, geometry=None):
         self.out = Path(out)
         if self.out.exists():
             raise ValueError('output directory already exists')
@@ -68,11 +76,14 @@ class Writer:
             raise ValueError('model/source with measured or assumed status required')
         if semantics not in ('decode-verify', 'prefill-proxy'):
             raise ValueError('unsupported step semantics')
+        self.geometry = load_geometry(geometry) if geometry is not None else LEGACY_GEOMETRY
+        self.schema = SCHEMA_V2 if geometry is not None else SCHEMA
+        self.extension = 'u16le' if geometry is not None else 'u8'
         self.out.parent.mkdir(parents=True, exist_ok=True)
         self.tmp = Path(tempfile.mkdtemp(prefix='.moe-routes-', dir=str(self.out.parent)))
         self.layers = list(layers)
         self.model, self.source, self.semantics = model, source, semantics
-        self.files = {l: (self.tmp / ('layer-%d.u8' % l)).open('wb') for l in layers}
+        self.files = {l: (self.tmp / ('layer-%d.%s' % (l, self.extension))).open('wb') for l in layers}
         self.index = (self.tmp / 'rows.jsonl').open('w')
         self.count = 0
         self.last_step = -1
@@ -93,7 +104,7 @@ class Writer:
         for layer in self.layers:
             if len(experts[layer]) != len(rows):
                 raise ValueError('layer shape mismatch')
-            buffers[layer] = b''.join(valid_ids(r) for r in experts[layer])
+            buffers[layer] = b''.join(valid_ids(r, self.geometry if self.schema == SCHEMA_V2 else None) for r in experts[layer])
         validate_step(normalized, self.semantics)
         for l, b in buffers.items():
             self.files[l].write(b)
@@ -106,13 +117,21 @@ class Writer:
         if not self.count:
             raise ValueError('empty trace')
         self.close()
-        data = [{'layer': l, 'file': 'layer-%d.u8' % l, 'shape': [self.count, 8], 'dtype': 'uint8'} for l in self.layers]
+        data = [{'layer': l, 'file': 'layer-%d.%s' % (l, self.extension),
+                 'shape': [self.count, self.geometry.top_k],
+                 'dtype': 'uint8' if self.schema == SCHEMA else 'uint16'} for l in self.layers]
         for item in data:
             item['sha256'] = sha256(self.tmp / item['file'])
         manifest = dict(schema=SCHEMA, model=self.model, layers=self.layers, num_experts=256,
                         top_k=8, rows=self.count, step_semantics=self.semantics,
                         row_index=dict(file='rows.jsonl', sha256=sha256(self.tmp / 'rows.jsonl')),
                         data=data, source=self.source)
+        if self.schema == SCHEMA_V2:
+            for item in data:
+                item['byte_order'] = 'little'
+            manifest.update(schema=SCHEMA_V2, geometry=self.geometry.to_dict(),
+                            geometry_fingerprint=self.geometry.fingerprint,
+                            num_experts=self.geometry.num_experts, top_k=self.geometry.top_k, data=data)
         (self.tmp / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
         # create-only: refuse a destination created during conversion as well.
         if self.out.exists():
@@ -158,7 +177,16 @@ class Trace:
         self.root = Path(directory).resolve()
         self.manifest = json.loads((self.root / 'manifest.json').read_text())
         m = self.manifest
-        if m.get('schema') != SCHEMA or m.get('num_experts') != 256 or m.get('top_k') != 8:
+        if m.get('schema') == SCHEMA_V2:
+            self.geometry = load_geometry(m.get('geometry'))
+            integer(m.get('num_experts'), 'num_experts', 1)
+            integer(m.get('top_k'), 'top_k', 1)
+            if m.get('geometry_fingerprint') != self.geometry.fingerprint or m.get('num_experts') != self.geometry.num_experts or m.get('top_k') != self.geometry.top_k:
+                raise ValueError('route geometry fingerprint or dimensions mismatch')
+            self.item_bytes = 2
+        elif m.get('schema') == SCHEMA and m.get('num_experts') == 256 and m.get('top_k') == 8:
+            self.geometry, self.item_bytes = LEGACY_GEOMETRY, 1
+        else:
             raise ValueError('unsupported route schema or geometry')
         integer(m.get('rows'), 'rows', 1)
         if m.get('step_semantics') not in ('decode-verify', 'prefill-proxy'):
@@ -181,11 +209,11 @@ class Trace:
         self._maps, self._files = {}, []
         try:
             for d in m['data']:
-                if d.get('dtype') != 'uint8' or d.get('shape') != [m['rows'], 8]:
+                if d.get('dtype') != ('uint8' if self.item_bytes == 1 else 'uint16') or d.get('shape') != [m['rows'], self.geometry.top_k] or self.item_bytes == 2 and d.get('byte_order') != 'little':
                     raise ValueError('invalid binary shape/dtype')
                 f = self.path(d['file']).open('rb')
                 self._files.append(f)
-                if os.fstat(f.fileno()).st_size != m['rows'] * 8:
+                if os.fstat(f.fileno()).st_size != m['rows'] * self.geometry.top_k * self.item_bytes:
                     raise ValueError('binary length mismatch')
                 self._maps[d['layer']] = mmap.mmap(f.fileno(), 0, access=mmap.ACCESS_READ)
         except BaseException:
@@ -204,7 +232,9 @@ class Trace:
         integer(index, 'row')
         if index >= self.manifest['rows']:
             raise ValueError('row outside trace')
-        return self._maps[layer][index*8:(index+1)*8]
+        width = self.geometry.top_k * self.item_bytes
+        data = self._maps[layer][index*width:(index+1)*width]
+        return data if self.item_bytes == 1 else struct.unpack('<%dH' % self.geometry.top_k, data)
 
     def rows(self):
         count, previous = 0, -1
@@ -241,12 +271,15 @@ class Trace:
             widths.add(len(rows))
             for r in rows:
                 for l in self.manifest['layers']:
-                    valid_ids(list(self.row(l, r['row'])))
+                    valid_ids(list(self.row(l, r['row'])), self.geometry if self.item_bytes == 2 else None)
         if steps < min_steps:
             raise ValueError('too few steps')
-        return dict(status='measured', structural_check='PASS', provenance='declared source, not independently certified',
+        result = dict(status='measured', structural_check='PASS', provenance='declared source, not independently certified',
                     rows=self.manifest['rows'], steps=steps, layers=self.manifest['layers'], physical_widths=sorted(widths),
                     step_semantics=self.manifest['step_semantics'])
+        if self.item_bytes == 2:
+            result.update(geometry=self.geometry.to_dict(), geometry_fingerprint=self.geometry.fingerprint)
+        return result
 
     def close(self):
         for m in self._maps.values():

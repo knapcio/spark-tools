@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "scope": "dense decoder conformance only",
+  "status": "PLAN_ONLY",
+  "runner": "gr8-dense",
+  "executes": false,
+  "source_validation": "check-sources before execution",
+  "claims_excluded": [
+    "model",
+    "quality",
+    "collective",
+    "whole-engine",
+    "performance"
+  ],
+  "record": [
+    "host",
+    "UTC and Europe/Warsaw time",
+    "image digest or environment identity",
+    "source revisions and file hashes",
+    "commands and return codes",
+    "stdout/stderr",
+    "fixture SHA256 before/after",
+    "test counts and all skips"
+  ],
+  "upstreams": {
+    "gr8": {
+      "repository": "https://github.com/kindlingai/gr8",
+      "revision": "d40ab1d8e010e125890b9220f3cf1cd80a4a8e06",
+      "license": "MIT, Copyright (c) 2026 g6 engine contributors",
+      "files": {
+        "engine/loader-rs/tests/make_exlr8_fixture.py": "a3185f22547b49c125691ed4620b7e6c39a1268346d1a0b61d025b1772194155",
+        "engine/loader-rs/tests/exlr8_fixture.rs": "7b1b371383c3c674b47380bc8a426dd7b8887e40feb7155755f71a0546ec5bd6",
+        "engine/loader-rs/Cargo.toml": "9f55ad8b90cf08e245df45dad1e664c0b5370f7ee24ffab012b2dc7123037038",
+        "LICENSE": "04e824320814e8b48da067bdcf816490b64d66556a9a1c681d0c01ba51203cbf"
+      }
+    },
+    "exlr8": {
+      "repository": "https://github.com/kindlingai/exlr8",
+      "revision": "d56e3ecf7aa3104be0b77b59b076406562fd20c5",
+      "license": "MIT, Copyright (c) 2025 Turboderp (loader/LICENSE)",
+      "files": {
+        "loader/exlr8.py": "44f51ad076cb6b986b24b2861072fb7529f850c212a00bd8b977dd6965022a98",
+        "loader/LICENSE": "93ccc2f4c97c03bc767c611c75f3bb16b97e49606f5cd3ca05d7f6201ff8f8de"
+      }
+    }
+  },
+  "requires": [
+    "disposable pinned gr8 and exlr8 checkouts",
+    "PyTorch CPU with float8_e4m3fn",
+    "Rust supporting slice::as_chunks (>=1.88)",
+    "Cargo"
+  ],
+  "max_seconds": 600,
+  "commands": [
+    {
+      "cwd": "{gr8}",
+      "argv": [
+        "{python}",
+        "engine/loader-rs/tests/make_exlr8_fixture.py",
+        "{exlr8}",
+        "{gr8}/engine/loader-rs/tests/data/exlr8-fixture.safetensors"
+      ],
+      "max_seconds": 300
+    },
+    {
+      "cwd": "{gr8}",
+      "argv": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "engine/loader-rs/Cargo.toml",
+        "--target-dir",
+        "{results}/target",
+        "--test",
+        "exlr8_fixture",
+        "--",
+        "--nocapture"
+      ],
+      "max_seconds": 300
+    }
+  ],
+  "exact_decoder": {
+    "comparison": "FP32 LE bytes / 64-bit FNV-1a; full-byte equality for small tensors",
+    "matrices": 11,
+    "tests": 4,
+    "formats": [
+      "TRELLIS",
+      "INT4",
+      "MXFP8",
+      "FP8_BLOCK",
+      "FP8_ROW",
+      "BF16",
+      "FP32"
+    ],
+    "trellis_cases": [
+      "K4 out 256x256",
+      "K4 in 256x256",
+      "K3 out 128x128",
+      "K2 in 128x128"
+    ]
+  },
+  "toleranced_matmul": null,
+  "acceptance": "Require a fixture hash record, 4 passed Rust tests, zero failures/ignored tests; this covers dense loader functions only",
+  "writes": [
+    "synthetic fixture inside disposable gr8 checkout",
+    "Cargo output under {results}/target"
+  ]
+}

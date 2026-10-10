@@ -45,7 +45,17 @@ def bench_signature(layout, m, d):
                 duplicate_rows=sum(len(set(row))!=8 for row in ids))
 
 
-def deployment_records(data, path):
+def deployment_records(data, path, geometry=None, layouts=None):
+    if geometry is None:
+        layout_groups = {'TP4':1, 'EP2xTP2':2, 'EP4':4}
+        experts, top_k = 256, 8
+    else:
+        from moereplay.geometry import load_geometry, resolve_layouts
+        geometry = load_geometry(geometry)
+        layout_groups = {l.name:l.ep for l in resolve_layouts(geometry, layouts)}
+        experts, top_k = geometry.num_experts, geometry.top_k
+        if 'per_pass' in data:
+            raise ValueError('legacy synthetic benchmark adapter requires legacy unbound cost schema')
     records = data.get('per_layout_M')
     if not isinstance(records,list) or not records:
         raise ValueError('cost fit requires nonempty per_layout_M list')
@@ -70,20 +80,21 @@ def deployment_records(data, path):
     for record in records:
         r = dict(record)
         key = (r.get('layout'),r.get('M'))
-        if key[0] not in ('TP4','EP2xTP2','EP4') or type(key[1]) is not int or key[1]<=0 or key in keys:
+        if key[0] not in layout_groups or type(key[1]) is not int or key[1]<=0 or key in keys:
             raise ValueError('invalid or duplicate fit layout/M')
         keys.add(key)
         if any(type(r.get(k)) not in (int,float) or not math.isfinite(r[k]) for k in ('a_us','b_us_per_distinct_local_expert')):
             raise ValueError('finite fit coefficients required')
         points = r.get('points',[])
-        if any(type(p.get('D')) is not int or p['D']<0 or p['D']>min(256//{'TP4':1,'EP2xTP2':2,'EP4':4}[r['layout']],8*r['M']) for p in points):
+        capacity = experts if geometry is not None else experts//layout_groups[r['layout']]
+        if any(type(p.get('D')) is not int or p['D']<0 or p['D']>min(capacity,top_k*r['M']) for p in points):
             raise ValueError('invalid fit local D')
         # EP producer's combined OLS uses stress points too. With no companion,
         # its known synthetic routing contract still identifies invalid cases.
         if not measurements and 'per_pass' in data:
             points = [dict(p,**bench_signature(r['layout'],r['M'],p['D']),matched_route_validation=False) for p in points]
         # Any TP4 top8 row with total union <8 is necessarily invalid.
-        points = [dict(p,duplicate_rows=r['M']) if r['layout']=='TP4' and p['D']<8 else p for p in points]
+        points = [dict(p,duplicate_rows=r['M']) if layout_groups[r['layout']]==1 and p['D']<top_k else p for p in points]
         if measurements:
             selected = [p for p in measurements if p['layout']==r['layout'] and p['M']==r['M']]
             points = []

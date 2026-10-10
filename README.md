@@ -1,18 +1,20 @@
 # Spark Tools
 
-A simulator and lab for testing runtime ideas and statically checking kernel
-changes for NVIDIA GB10 / DGX Spark. The simulator, `cyclesim`, models the cost
-of a decode cycle; the lab brings together scheduler/rank replay, EXL3 and
-EXLR8 checkpoint inspection, TensorFold source/API probes, MoE replay and
-static GB10 kernel checks. Use these tools to compare ideas on a CPU before
-spending time on hardware experiments.
+A simulator and lab for testing inference configurations, flags, schedulers,
+MoE layouts and kernel changes for NVIDIA GB10 / DGX Spark. Most checks run on
+a laptop without a GPU; the optional device validator compares CUDA's runtime
+residency answer with compiler resources and the CPU occupancy model on one
+Spark. Four Sparks are not required.
 
 | Tool | What it does | GPU needed? | Model dependence |
 |---|---|---|---|
-| `gb10check` | Reads compiler resources and checks PTX/SASS ordering | No | Model-agnostic; GB10 target and explicit launch geometry |
+| `gb10check` | Checks compiler resources, repeat-build provenance, PTX/SASS ordering and optional CUDA residency API results | Static: no; device validation: one GPU | Model-agnostic; GB10 target and explicit launch geometry |
 | `cyclesim` | Predicts decode-cycle cost and throughput | No | Needs timing calibration; includes a GLM-5.3 TP4 example |
-| `moereplay` | Expert placement and critical-rank route costs | No | Fixed 256 experts, top-8, four ranks and packed-weight geometry; timings need calibration |
-| `lab` | Replays scheduling/rank faults; inspects EXL3/EXLR8 checkpoints and TensorFold sources/endpoints | No | Runtime adapters are explicit; scheduler timing needs calibration |
+| `moereplay` | Replays routing, placement and critical-rank costs for caller-defined MoE geometry | No | Geometry is configurable; each geometry needs its own timing fit |
+| `lab conformance` | Exhaustively checks EXL3 and rounded-E4M3 EXLR8 decoding against pinned synthetic fixtures | CPU suite: no; TensorFold CUDA runner: one GPU | Decoder/layout scope only; no weights or model download |
+| `lab observations` | Normalizes pinned vLLM/TensorFold measurements and builds exact-cell train/holdout lookups | No | Versioned runtime adapters; never extrapolates |
+| `lab experiment` | Verifies local evidence manifests and produces bounded machine/readable reports | No | Recomputes tool decisions; does not run workloads |
+| `lab` replay and inspection | Replays scheduler/rank faults; inspects EXL3/EXLR8 checkpoints and TensorFold sources/endpoints | Usually no | Runtime adapters are explicit; scheduler timing needs calibration |
 | `abharness` | Compares A/B/A-prime measurements and checks near ties | Client: no | Model-agnostic; caller supplies instrumented observations |
 | `qpanel` | Compares task passes against an A/A2 null calibration | Client: no | Model-agnostic; caller supplies tasks and scoring |
 
@@ -32,6 +34,11 @@ cyclesim whatif --config examples/cyclesim/calibration.json \
 python3 -m examples.cyclesim.smoke
 python3 examples/moereplay/run.py
 lab acceptance --before examples/lab/before.prom --after examples/lab/after.prom --k 2
+lab conformance cpu --format exlr8
+lab observations import --adapter tensorfold-native-v1 \
+  --input examples/observations/tensorfold-streaming.json \
+  --metadata examples/observations/tensorfold-native-import.json
+lab experiment check examples/experiment/manifest.json
 ```
 
 The checker reports `PASS`; the other commands print predictions or counter
@@ -40,13 +47,16 @@ has `--help`. Use `lab schedreplay --help` or `lab rankharness --help` for the
 replay commands. Rank replay needs the optional CPU PyTorch/Gloo and NumPy
 dependencies: `python3 -m pip install -e '.[ranks]'`.
 
-Optional EXL3/TensorFold checks use resources you supply:
+Optional EXL3/TensorFold checks use resources you supply. Inspection and the
+CPU conformance suite do not download checkpoint payloads:
 
 ```sh
 lab exl3 inspect /path/to/exl3-model
 lab exlr8 inspect-hf kindlingai/glm-5.3-exlr8-k2-k3-k4
 lab tensorfold source-manifest /path/to/TensorFold --require-exl3
 lab tensorfold probe --endpoint http://127.0.0.1:8000/v1 --compare-draft
+lab conformance manifest --runner tensorfold-cuda
+lab conformance manifest --runner gr8-dense
 ```
 
 ## Platforms
@@ -72,6 +82,13 @@ file utilities use the standard library; rank replay adds CPU PyTorch/Gloo and
 NumPy. `abharness` and `qpanel` run from any machine that can reach an
 OpenAI-compatible endpoint. The endpoint's server may need a GPU.
 
+The external conformance manifests pin exact TensorFold, `gr8` and EXLR8 source
+revisions and verify selected source hashes before execution. The `gr8` path
+uses small synthetic fixtures on CPU. The TensorFold CUDA path and
+`gb10check validate-device` need one available GPU; neither needs four Sparks
+or model weights. A PASS is decoder or residency-API evidence, not a throughput
+or end-to-end model-quality result.
+
 ## Examples and limits
 
 Each example has a command, expected output and runtime:
@@ -80,7 +97,13 @@ Each example has a command, expected output and runtime:
 [rank faults](examples/rankharness/), [file/counter utilities](examples/lab/),
 [A/B/A-prime and near ties](examples/abharness/),
 [quality calibration](examples/qpanel/), and
-[EXL3/TensorFold adapters](examples/exl3-tensorfold/).
+[EXL3/TensorFold adapters](examples/exl3-tensorfold/),
+[decoder conformance](examples/conformance/),
+[runtime observations](examples/observations/), and
+[evidence manifests](examples/experiment/).
+The observation examples include a [recorded exact-cell Qwen3.8 Flash Next
+TensorFold panel on one GB10](examples/observations/qwen38-gb10/); it is a
+reproducible evidence example, not a cross-system speed claim.
 
 Static checks cannot establish GPU correctness or speed. Replay leaves out
 real allocator, network, cache and asynchronous execution effects. The six
@@ -91,16 +114,20 @@ accuracy guarantees. New models need measurements; endpoint fixtures do not
 measure a real model. See [calibration](docs/calibration.md),
 [endpoint usage](docs/endpoints.md) and [scope](docs/scope.md).
 
-MoE replay uses fixed 256-expert, top-8, four-rank and packed-weight geometry.
-Runtime support is unknown: no runtime version pin or compatibility check is
-recorded. Layout and collective assumptions do not establish serving support.
+Legacy MoE replay keeps the original 256-expert, top-8, four-rank calibrated
+example. Version 2 traces accept explicit expert count, top-k, world size and
+optional per-expert bytes. Timings are unavailable until a fit is bound to the
+exact geometry; legacy GLM timings are never reused for another shape. Layout
+and collective assumptions do not establish serving support.
 
 EXL3 inspection establishes header/layout compatibility only. EXLR8 remote
-inspection does not recompute payload hashes or execute its required rounded-
-E4M3 decoder. TensorFold source inventory does not compile kernels, and its API
-probe does not establish throughput, quality, GPU correctness or multi-rank
-safety. Those claims require separate measurements on the target runtime and
-hardware.
+inspection does not download or recompute weight payloads. The separate CPU
+conformance suite exercises all decoder states and synthetic dense layouts,
+but not model inference. TensorFold source inventory does not compile kernels,
+and its API probe does not establish throughput, quality, GPU correctness or
+multi-rank safety. Observation calibration supports only identical recorded
+cells and deliberately refuses interpolation or extrapolation. Those broader
+claims require separate measurements on the target runtime and hardware.
 
 By knapcio. Apache-2.0 with retained upstream MIT notices. See
 [CREDITS.md](CREDITS.md), [NOTICE](NOTICE), [LICENSE](LICENSE) and

@@ -1,0 +1,498 @@
+{
+  "schema": 1,
+  "target": "sm_121",
+  "cases": [
+    {
+      "id": "block-32",
+      "threads": 32
+    },
+    {
+      "id": "block-64",
+      "threads": 64
+    },
+    {
+      "id": "block-96",
+      "threads": 96
+    },
+    {
+      "id": "block-128",
+      "threads": 128
+    },
+    {
+      "id": "block-160",
+      "threads": 160
+    },
+    {
+      "id": "block-192",
+      "threads": 192
+    },
+    {
+      "id": "block-224",
+      "threads": 224
+    },
+    {
+      "id": "block-256",
+      "threads": 256
+    },
+    {
+      "id": "block-288",
+      "threads": 288
+    },
+    {
+      "id": "block-320",
+      "threads": 320
+    },
+    {
+      "id": "block-352",
+      "threads": 352
+    },
+    {
+      "id": "block-384",
+      "threads": 384
+    },
+    {
+      "id": "block-416",
+      "threads": 416
+    },
+    {
+      "id": "block-448",
+      "threads": 448
+    },
+    {
+      "id": "block-480",
+      "threads": 480
+    },
+    {
+      "id": "block-512",
+      "threads": 512
+    },
+    {
+      "id": "block-544",
+      "threads": 544
+    },
+    {
+      "id": "block-576",
+      "threads": 576
+    },
+    {
+      "id": "block-608",
+      "threads": 608
+    },
+    {
+      "id": "block-640",
+      "threads": 640
+    },
+    {
+      "id": "block-672",
+      "threads": 672
+    },
+    {
+      "id": "block-704",
+      "threads": 704
+    },
+    {
+      "id": "block-736",
+      "threads": 736
+    },
+    {
+      "id": "block-768",
+      "threads": 768
+    },
+    {
+      "id": "block-800",
+      "threads": 800
+    },
+    {
+      "id": "block-832",
+      "threads": 832
+    },
+    {
+      "id": "block-864",
+      "threads": 864
+    },
+    {
+      "id": "block-896",
+      "threads": 896
+    },
+    {
+      "id": "block-928",
+      "threads": 928
+    },
+    {
+      "id": "block-960",
+      "threads": 960
+    },
+    {
+      "id": "block-992",
+      "threads": 992
+    },
+    {
+      "id": "block-1024",
+      "threads": 1024
+    },
+    {
+      "id": "register-31",
+      "threads": 128,
+      "register_pressure": 31,
+      "launch_bound": 128
+    },
+    {
+      "id": "register-32",
+      "threads": 128,
+      "register_pressure": 32,
+      "launch_bound": 128
+    },
+    {
+      "id": "register-33",
+      "threads": 128,
+      "register_pressure": 33,
+      "launch_bound": 128
+    },
+    {
+      "id": "register-63",
+      "threads": 128,
+      "register_pressure": 63,
+      "launch_bound": 128
+    },
+    {
+      "id": "register-64",
+      "threads": 128,
+      "register_pressure": 64,
+      "launch_bound": 128
+    },
+    {
+      "id": "register-65",
+      "threads": 128,
+      "register_pressure": 65,
+      "launch_bound": 128
+    },
+    {
+      "id": "register-127",
+      "threads": 128,
+      "register_pressure": 127,
+      "launch_bound": 128
+    },
+    {
+      "id": "register-128",
+      "threads": 128,
+      "register_pressure": 128,
+      "launch_bound": 128
+    },
+    {
+      "id": "register-129",
+      "threads": 128,
+      "register_pressure": 129,
+      "launch_bound": 128
+    },
+    {
+      "id": "register-223",
+      "threads": 128,
+      "register_pressure": 223,
+      "launch_bound": 128
+    },
+    {
+      "id": "register-21",
+      "threads": 128,
+      "register_pressure": 21,
+      "launch_bound": 128
+    },
+    {
+      "id": "register-22",
+      "threads": 128,
+      "register_pressure": 22,
+      "launch_bound": 128
+    },
+    {
+      "id": "register-23",
+      "threads": 128,
+      "register_pressure": 23,
+      "launch_bound": 128
+    },
+    {
+      "id": "register-55",
+      "threads": 128,
+      "register_pressure": 55,
+      "launch_bound": 128
+    },
+    {
+      "id": "register-56",
+      "threads": 128,
+      "register_pressure": 56,
+      "launch_bound": 128
+    },
+    {
+      "id": "register-57",
+      "threads": 128,
+      "register_pressure": 57,
+      "launch_bound": 128
+    },
+    {
+      "id": "register-119",
+      "threads": 128,
+      "register_pressure": 119,
+      "launch_bound": 128
+    },
+    {
+      "id": "register-120",
+      "threads": 128,
+      "register_pressure": 120,
+      "launch_bound": 128
+    },
+    {
+      "id": "register-121",
+      "threads": 128,
+      "register_pressure": 121,
+      "launch_bound": 128
+    },
+    {
+      "id": "register-215",
+      "threads": 128,
+      "register_pressure": 215,
+      "launch_bound": 128
+    },
+    {
+      "id": "register-216",
+      "threads": 128,
+      "register_pressure": 216,
+      "launch_bound": 128
+    },
+    {
+      "id": "register-217",
+      "threads": 128,
+      "register_pressure": 217,
+      "launch_bound": 128
+    },
+    {
+      "id": "static-127",
+      "threads": 128,
+      "static_shared_bytes": 127
+    },
+    {
+      "id": "static-128",
+      "threads": 128,
+      "static_shared_bytes": 128
+    },
+    {
+      "id": "static-129",
+      "threads": 128,
+      "static_shared_bytes": 129
+    },
+    {
+      "id": "static-32767",
+      "threads": 128,
+      "static_shared_bytes": 32767
+    },
+    {
+      "id": "static-32768",
+      "threads": 128,
+      "static_shared_bytes": 32768
+    },
+    {
+      "id": "static-32769",
+      "threads": 128,
+      "static_shared_bytes": 32769
+    },
+    {
+      "id": "static-49151",
+      "threads": 128,
+      "static_shared_bytes": 49151
+    },
+    {
+      "id": "static-49152",
+      "threads": 128,
+      "static_shared_bytes": 49152
+    },
+    {
+      "id": "ordinary-127",
+      "threads": 128,
+      "dynamic_shared_bytes": 127
+    },
+    {
+      "id": "ordinary-128",
+      "threads": 128,
+      "dynamic_shared_bytes": 128
+    },
+    {
+      "id": "ordinary-129",
+      "threads": 128,
+      "dynamic_shared_bytes": 129
+    },
+    {
+      "id": "ordinary-49151",
+      "threads": 128,
+      "dynamic_shared_bytes": 49151
+    },
+    {
+      "id": "ordinary-49152",
+      "threads": 128,
+      "dynamic_shared_bytes": 49152
+    },
+    {
+      "id": "ordinary-too-large",
+      "threads": 128,
+      "dynamic_shared_bytes": 49153,
+      "expect": "invalid"
+    },
+    {
+      "id": "optin-98304",
+      "threads": 128,
+      "dynamic_shared_bytes": 98304,
+      "optin_dynamic_bytes": 101376,
+      "carveout": 100
+    },
+    {
+      "id": "optin-101375",
+      "threads": 128,
+      "dynamic_shared_bytes": 101375,
+      "optin_dynamic_bytes": 101376,
+      "carveout": 100
+    },
+    {
+      "id": "optin-101376",
+      "threads": 128,
+      "dynamic_shared_bytes": 101376,
+      "optin_dynamic_bytes": 101376,
+      "carveout": 100
+    },
+    {
+      "id": "optin-too-large",
+      "threads": 128,
+      "dynamic_shared_bytes": 101377,
+      "optin_dynamic_bytes": 101376,
+      "expect": "invalid"
+    },
+    {
+      "id": "optin-setting-too-large",
+      "threads": 128,
+      "optin_dynamic_bytes": 101377,
+      "expect": "invalid"
+    },
+    {
+      "id": "static-optin-limit",
+      "threads": 128,
+      "static_shared_bytes": 4096,
+      "dynamic_shared_bytes": 97280,
+      "optin_dynamic_bytes": 97280,
+      "carveout": 100
+    },
+    {
+      "id": "static-optin-too-large",
+      "threads": 128,
+      "static_shared_bytes": 4096,
+      "dynamic_shared_bytes": 97281,
+      "optin_dynamic_bytes": 97280,
+      "expect": "invalid"
+    },
+    {
+      "id": "bound-valid",
+      "threads": 128,
+      "launch_bound": 128
+    },
+    {
+      "id": "bound-exceeded",
+      "threads": 129,
+      "launch_bound": 128,
+      "expect": "invalid"
+    },
+    {
+      "id": "zero-threads",
+      "threads": 0,
+      "expect": "invalid"
+    },
+    {
+      "id": "too-many-threads",
+      "threads": 1025,
+      "expect": "invalid"
+    },
+    {
+      "id": "invalid-carveout",
+      "threads": 128,
+      "carveout": 101,
+      "expect": "invalid"
+    },
+    {
+      "id": "flag-0-carveout-default",
+      "threads": 128,
+      "dynamic_shared_bytes": 8192,
+      "carveout": -1,
+      "flags": 0
+    },
+    {
+      "id": "flag-0-carveout-0",
+      "threads": 128,
+      "dynamic_shared_bytes": 8192,
+      "carveout": 0,
+      "flags": 0
+    },
+    {
+      "id": "flag-0-carveout-25",
+      "threads": 128,
+      "dynamic_shared_bytes": 8192,
+      "carveout": 25,
+      "flags": 0
+    },
+    {
+      "id": "flag-0-carveout-50",
+      "threads": 128,
+      "dynamic_shared_bytes": 8192,
+      "carveout": 50,
+      "flags": 0
+    },
+    {
+      "id": "flag-0-carveout-75",
+      "threads": 128,
+      "dynamic_shared_bytes": 8192,
+      "carveout": 75,
+      "flags": 0
+    },
+    {
+      "id": "flag-0-carveout-100",
+      "threads": 128,
+      "dynamic_shared_bytes": 8192,
+      "carveout": 100,
+      "flags": 0
+    },
+    {
+      "id": "flag-1-carveout-default",
+      "threads": 128,
+      "dynamic_shared_bytes": 8192,
+      "carveout": -1,
+      "flags": 1
+    },
+    {
+      "id": "flag-1-carveout-0",
+      "threads": 128,
+      "dynamic_shared_bytes": 8192,
+      "carveout": 0,
+      "flags": 1
+    },
+    {
+      "id": "flag-1-carveout-25",
+      "threads": 128,
+      "dynamic_shared_bytes": 8192,
+      "carveout": 25,
+      "flags": 1
+    },
+    {
+      "id": "flag-1-carveout-50",
+      "threads": 128,
+      "dynamic_shared_bytes": 8192,
+      "carveout": 50,
+      "flags": 1
+    },
+    {
+      "id": "flag-1-carveout-75",
+      "threads": 128,
+      "dynamic_shared_bytes": 8192,
+      "carveout": 75,
+      "flags": 1
+    },
+    {
+      "id": "flag-1-carveout-100",
+      "threads": 128,
+      "dynamic_shared_bytes": 8192,
+      "carveout": 100,
+      "flags": 1
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "schema": "spark-observation-import",
+  "version": 1,
+  "adapter": "vllm-bench-serve-v1",
+  "source_id": "vllm-fixture",
+  "runtime": {"id": "vllm", "source_revision": "276fbcff2717bd934cfa37c8a2e4c391f3e7237b"},
+  "config_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "model_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "workload": {"id": "fixture-greedy", "concurrency": 1},
+  "request_ids": ["vllm-r1", "vllm-r2", "vllm-r3", "vllm-r4"]
+}
