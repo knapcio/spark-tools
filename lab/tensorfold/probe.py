@@ -82,6 +82,20 @@ def _model_ids(catalog):
     return ids
 
 
+def _model_catalog_semantic(catalog):
+    _model_ids(catalog)
+    rows = []
+    for source in catalog["data"]:
+        row = {"id": source["id"]}
+        for key in ("object", "owned_by"):
+            if key in source:
+                if not isinstance(source[key], str):
+                    raise ValueError(f"/v1/models contains an invalid {key} field")
+                row[key] = source[key]
+        rows.append(row)
+    return {"object": catalog.get("object"), "data": sorted(rows, key=lambda row: row["id"])}
+
+
 def _choice(response):
     if not isinstance(response, dict) or response.get("error"):
         raise ValueError("chat completion returned an error")
@@ -176,6 +190,9 @@ def probe(endpoint, model=None, token=None, timeout=90, compare_draft=False,
         "api": "openai-chat-completions",
         "model": model,
         "model_catalog_sha256": hashlib.sha256(catalog_raw).hexdigest(),
+        "model_catalog_semantic_sha256": hashlib.sha256(
+            canonical(_model_catalog_semantic(catalog))
+        ).hexdigest(),
         "model_catalog_ms": round(catalog_ms, 3),
         "draft_serial_equal": equal,
         "expected_text_equal": expected,

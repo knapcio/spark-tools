@@ -83,6 +83,11 @@ and, with `--compare-draft`, compares serial (`draft: false`) and drafted
 latency, but never generated text or the endpoint address. Authentication may
 be supplied through `--token-env`; the token is never written.
 
+The report includes both the exact catalog-response hash and a semantic catalog
+hash over stable model identity fields. Use the exact hash for byte-level
+provenance and the semantic hash when comparing endpoints whose catalog adds
+dynamic metadata such as creation timestamps.
+
 One matching request does not establish general numerical equality. Use the
 A/B/A-prime harness and a representative preregistered prompt panel for a
 release decision.

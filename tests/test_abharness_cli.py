@@ -34,9 +34,7 @@ def test_create_only_preregistration_and_reject_rule_before_freezing(tmp_path):
     dump(RULE, config)
     assert main(['preregister', '--config', str(config), '--prereg', str(plan)]) == 0
     assert verify(plan, SOURCES)[0] == RULE
-    with pytest.raises(SystemExit) as error:
-        main(['preregister', '--config', str(config), '--prereg', str(plan)])
-    assert error.value.code == 2
+    assert main(['preregister', '--config', str(config), '--prereg', str(plan)]) == 0
     invalid = tmp_path / 'invalid.json'
     dump(dict(RULE, prose_saving_ms=0), config)
     with pytest.raises(SystemExit):

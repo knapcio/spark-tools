@@ -12,6 +12,8 @@ import tempfile
 import os
 import time
 import unittest
+from unittest import mock
+from moereplay import cli as moereplay_cli
 from moereplay.routes import Writer, Trace, sha256, valid_ids, valid_row
 from moereplay.model import placement, rank_work, Costs, BYTES_TP4, bootstrap
 from moereplay.converters import convert_schema1
@@ -104,6 +106,40 @@ class RoutesTests(unittest.TestCase):
     def test_create_only(self):
         create(self.out)
         with self.assertRaisesRegex(ValueError,'exists'):create(self.out)
+
+    def test_cli_small_output_is_atomic_idempotent_and_conflict_safe(self):
+        output = self.root / 'presets.json'
+        with contextlib.redirect_stdout(io.StringIO()):
+            main(['presets', '--out', str(output)])
+            main(['presets', '--out', str(output)])
+        expected = output.read_bytes()
+        output.write_bytes(b'different')
+        with contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+            main(['presets', '--out', str(output)])
+        self.assertEqual(output.read_bytes(), b'different')
+        self.assertNotEqual(expected, b'different')
+
+    def test_cli_small_output_recovers_from_prepublication_crash(self):
+        output = self.root / 'presets.json'
+        real = moereplay_cli.publish_bytes
+
+        class InjectedCrash(BaseException):
+            pass
+
+        def crash(path, data, **kwargs):
+            def fault(stage):
+                if stage == 'full_before_publish':
+                    raise InjectedCrash(stage)
+            return real(path, data, _fault=fault, **kwargs)
+
+        with mock.patch.object(moereplay_cli, 'publish_bytes', crash), \
+                contextlib.redirect_stdout(io.StringIO()), self.assertRaises(InjectedCrash):
+            main(['presets', '--out', str(output)])
+        self.assertFalse(output.exists())
+        self.assertEqual(len(list(self.root.glob('.presets.json.atomic-*'))), 1)
+        with contextlib.redirect_stdout(io.StringIO()):
+            main(['presets', '--out', str(output)])
+        self.assertTrue(output.is_file())
 
     def test_min_steps_and_all_layers(self):
         create(self.out)
@@ -374,7 +410,10 @@ class ReplayTests(unittest.TestCase):
         create(self.out);p=self.root/'check.json'
         main(['--check',str(self.out),'--out',str(p)])
         self.assertEqual(json.loads(p.read_text())['structural_check'],'PASS')
+        main(['--check',str(self.out),'--out',str(p)])
+        p.write_text('different')
         with self.assertRaises(SystemExit):main(['--check',str(self.out),'--out',str(p)])
+        self.assertEqual(p.read_text(),'different')
 
     def test_prefill_prompt_holdout(self):
         w=Writer(self.out,[3],'test',dict(status='assumed'),'prefill-proxy')

@@ -10,6 +10,13 @@ All notable changes to Spark Tools are documented here. Versions follow
 - Crash-safe create-only publication for small immutable byte records, with
   exact retry validation, atomic no-overwrite behavior and deterministic fault
   tests for macOS and Linux.
+- Preregistrations, experiment reports and small MoE replay CLI reports now use
+  crash-safe publication. Multi-file reports publish optional metadata first
+  and the validated primary record last, without deleting canonical files on
+  failure.
+- TensorFold endpoint probes include a stable semantic model-catalog hash in
+  addition to the exact response-byte hash, so dynamic metadata does not look
+  like a model-identity change.
 
 ## [0.4.0] - 2026-10-11
 

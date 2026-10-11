@@ -5,6 +5,7 @@ import argparse
 import json
 from pathlib import Path
 import sys
+from common.atomic_publish import publish_bytes
 from moereplay.routes import Trace
 from moereplay.converters import convert_pt, convert_schema1
 from moereplay.replay import replay, parse_proxy_widths
@@ -64,8 +65,6 @@ def run_cli(argv=None):
         if a.command == 'convert-schema1':
             result = convert_schema1(a.input,a.out,a.model,a.source_status,geometry)
             print(json.dumps(result,indent=2)); return result
-        if getattr(a,'out',None) and Path(a.out).exists():
-            raise ValueError('output exists')
         if a.command == 'presets':
             result = dict(schema='moe-geometry-presets v1', presets=PRESETS)
         elif a.command == 'regression':
@@ -91,8 +90,7 @@ def run_cli(argv=None):
                     result = replay(trace,a.cost_fit,a.samples,a.bootstrap,a.seed,a.replicate_h,a.details,a.extrapolate_layers,rows_per_request=a.rows_per_request,layouts=a.layouts)
         out = json.dumps(result,indent=2,allow_nan=False)+'\n'
         if getattr(a,'out',None):
-            with open(a.out,'x') as f:
-                f.write(out)
+            publish_bytes(a.out, out.encode(), mode=0o666)
         else:
             print(out,end='')
         if a.command == 'regression' and result['check'] != 'PASS':

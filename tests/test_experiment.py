@@ -356,11 +356,59 @@ def test_cli_delegation_and_create_only_outputs(tmp_path, capsys):
     assert main(["report", str(path), "--out", str(out), "--markdown", str(md)]) == 0
     assert json.loads(out.read_text())["tool_decisions"][0]["status"] == "FAIL"
     assert "static.json" not in md.read_text()
-    for args in (["--out", str(path)], ["--out", str(out)],
-                 ["--out", str(tmp_path / "fresh.json"), "--markdown", str(md)]):
+    assert main(["report", str(path), "--out", str(out), "--markdown", str(md)]) == 0
+    fresh = tmp_path / "fresh.json"
+    assert main(["report", str(path), "--out", str(fresh), "--markdown", str(md)]) == 0
+    assert fresh.read_bytes() == out.read_bytes()
+    for args in (["--out", str(path)],):
         with pytest.raises(SystemExit) as error: main(["report", str(path), *args])
         assert error.value.code == 2
-    assert not (tmp_path / "fresh.json").exists()
+
+
+def test_report_crash_between_secondary_and_primary_is_retryable(tmp_path, monkeypatch):
+    from lab.experiment import cli
+    path = save(tmp_path, static_manifest(tmp_path, "FAIL"))
+    out, md = tmp_path / "report.json", tmp_path / "report.md"
+    real = cli.publish_bytes
+    calls = 0
+
+    def stop_before_primary(*args, **kwargs):
+        nonlocal calls
+        calls += 1
+        if calls == 2:
+            raise OSError("synthetic interruption")
+        return real(*args, **kwargs)
+
+    monkeypatch.setattr(cli, "publish_bytes", stop_before_primary)
+    with pytest.raises(SystemExit) as error:
+        cli.main(["report", str(path), "--out", str(out), "--markdown", str(md)])
+    assert error.value.code == 2
+    assert md.is_file() and not out.exists()
+
+    monkeypatch.setattr(cli, "publish_bytes", real)
+    assert cli.main(["report", str(path), "--out", str(out), "--markdown", str(md)]) == 0
+    assert json.loads(out.read_text())["integrity"]["status"] == "PASS"
+
+
+def test_report_conflict_never_unlinks_existing_canonical(tmp_path):
+    path = save(tmp_path, static_manifest(tmp_path, "FAIL"))
+    out, md = tmp_path / "report.json", tmp_path / "report.md"
+    out.write_text("existing primary")
+    md.write_text("existing secondary")
+    with pytest.raises(SystemExit) as error:
+        main(["report", str(path), "--out", str(out), "--markdown", str(md)])
+    assert error.value.code == 2
+    assert out.read_text() == "existing primary"
+    assert md.read_text() == "existing secondary"
+
+
+def test_report_rejects_shared_primary_and_secondary_destination(tmp_path):
+    path = save(tmp_path, static_manifest(tmp_path, "FAIL"))
+    shared = tmp_path / "report"
+    with pytest.raises(SystemExit) as error:
+        main(["report", str(path), "--out", str(shared), "--markdown", str(shared)])
+    assert error.value.code == 2
+    assert not shared.exists()
 
 
 def test_cli_diagnostic_does_not_echo_private_artifact_path(tmp_path, capsys):

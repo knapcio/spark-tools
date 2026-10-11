@@ -2,9 +2,9 @@
 """Check and report explicit local experiment evidence; never execute workloads."""
 import argparse
 import json
-import os
 from pathlib import Path
 
+from common.atomic_publish import publish_bytes, validate_bytes
 from .manifest import InvalidExperiment
 from .report import build_report, markdown
 
@@ -26,24 +26,33 @@ def main(argv=None):
             print(json.dumps({"schema": "spark-experiment-check", "version": 1,
                               "identity": result["identity"], "integrity": result["integrity"]}, sort_keys=True))
         else:
-            # Create-only prevents clobbering any evidence/input, including aliases.
-            # Open both destinations before writing so conflicts produce no report.
-            streams = []
+            if args.markdown:
+                try:
+                    same_destination = (args.out.resolve(strict=False)
+                                        == args.markdown.resolve(strict=False))
+                except (OSError, RuntimeError):
+                    raise InvalidExperiment("report destination is unavailable or unsafe") from None
+                if same_destination:
+                    raise InvalidExperiment("JSON and Markdown report destinations must differ")
+            primary = encoded.encode("utf-8")
+            secondary = markdown(result).encode("utf-8") if args.markdown else None
             try:
-                streams.append((args.out, args.out.open("x", encoding="utf-8")))
-                if args.markdown:
-                    streams.append((args.markdown, args.markdown.open("x", encoding="utf-8")))
-                streams[0][1].write(encoded)
-                if len(streams) == 2:
-                    streams[1][1].write(markdown(result))
+                records = [(args.out, primary)]
+                if secondary is not None:
+                    records.append((args.markdown, secondary))
+                for path, expected in records:
+                    try:
+                        validate_bytes(path, expected)
+                    except FileNotFoundError:
+                        pass
+
+                # The optional human-readable report is secondary. Publish it
+                # first and the JSON report last as the pair's commit point.
+                if secondary is not None:
+                    publish_bytes(args.markdown, secondary, mode=0o666)
+                publish_bytes(args.out, primary, mode=0o666)
             except OSError:
-                for path, stream in streams:
-                    stream.close()
-                    os.unlink(path)
                 raise InvalidExperiment("report destination unavailable or already exists") from None
-            finally:
-                for _, stream in streams:
-                    stream.close()
     except InvalidExperiment as exc:
         parser.error(str(exc))
     return 0

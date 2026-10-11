@@ -366,6 +366,31 @@ class TensorFoldProbeTests(unittest.TestCase):
         self.assertEqual([row["draft"] for row in report["arms"]], [False, True])
         self.assertNotIn("SPARK_TOOLS_OK", json.dumps(report))
 
+    def test_model_catalog_semantic_hash_ignores_dynamic_fields(self):
+        class DynamicCatalog(Handler):
+            counter = 0
+
+            def do_GET(self):
+                type(self).counter += 1
+                self._send({"object": "list", "data": [{
+                    "id": "fixture", "object": "model", "owned_by": "synthetic",
+                    "created": type(self).counter,
+                }]})
+
+        server = ThreadingHTTPServer(("127.0.0.1", 0), DynamicCatalog)
+        thread = threading.Thread(target=server.serve_forever, daemon=True)
+        thread.start()
+        self.addCleanup(server.server_close)
+        self.addCleanup(server.shutdown)
+        endpoint = f"http://127.0.0.1:{server.server_port}"
+        first = probe(endpoint)
+        second = probe(endpoint)
+        self.assertNotEqual(first["model_catalog_sha256"], second["model_catalog_sha256"])
+        self.assertEqual(
+            first["model_catalog_semantic_sha256"],
+            second["model_catalog_semantic_sha256"],
+        )
+
     def test_probe_fails_on_draft_mismatch(self):
         report = probe(self.serve(mismatch=True), compare_draft=True)
         self.assertEqual(report["status"], "FAIL")
