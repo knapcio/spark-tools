@@ -18,6 +18,12 @@ Spark. Four Sparks are not required.
 | `abharness` | Compares A/B/A-prime measurements and checks near ties | Client: no | Model-agnostic; caller supplies instrumented observations |
 | `qpanel` | Compares task passes against an A/A2 null calibration | Client: no | Model-agnostic; caller supplies tasks and scoring |
 
+The `common.atomic_publish` module provides crash-safe, create-only publication
+for small immutable byte records. It writes a unique same-directory temporary
+file, makes its contents durable, publishes without replacing an existing path,
+and validates identical retries. Interrupted temporary files are ignored and
+left to an explicit cleanup policy.
+
 ## Five-minute quickstart
 
 From the checkout, with Python 3.10+ on macOS or Linux:

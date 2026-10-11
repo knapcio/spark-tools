@@ -7,6 +7,11 @@ first-divergence T0 logic and quality difference arithmetic come from the
 existing labs and tests. Changes are package imports, CLI adapters, explicit
 configuration, anonymised calibration labels and public documentation.
 
+The common utilities include create-only atomic publication for small immutable
+byte records on macOS and Linux. It establishes file and directory durability,
+no-overwrite publication and exact-byte validation; it is not a transaction
+across multiple files, a replicated log or an orphan-file cleanup service.
+
 The scheduler retains its original text-only, bounded policy and fixed
 execution contracts. It is not a general scheduler emulator. Timing tables
 can be replaced, but allocator, graph, preemption, multimodal and device

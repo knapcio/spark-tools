@@ -3,6 +3,14 @@
 All notable changes to Spark Tools are documented here. Versions follow
 [Semantic Versioning](https://semver.org/).
 
+## Unreleased
+
+### Added
+
+- Crash-safe create-only publication for small immutable byte records, with
+  exact retry validation, atomic no-overwrite behavior and deterministic fault
+  tests for macOS and Linux.
+
 ## [0.4.0] - 2026-10-11
 
 ### Added
