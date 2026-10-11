@@ -47,6 +47,11 @@ has `--help`. Use `lab schedreplay --help` or `lab rankharness --help` for the
 replay commands. Rank replay needs the optional CPU PyTorch/Gloo and NumPy
 dependencies: `python3 -m pip install -e '.[ranks]'`.
 
+`cyclesim` prediction, sensitivity and target records carry a readable
+calibration label plus canonical calibration and optional kernel-table
+SHA-256 digests. This makes archived results traceable without embedding local
+paths in output.
+
 Optional EXL3/TensorFold checks use resources you supply. Inspection and the
 CPU conformance suite do not download checkpoint payloads:
 

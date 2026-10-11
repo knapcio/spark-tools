@@ -3,6 +3,16 @@
 All notable changes to Spark Tools are documented here. Versions follow
 [Semantic Versioning](https://semver.org/).
 
+## [0.4.0] - 2026-10-11
+
+### Added
+
+- Every `cyclesim` prediction, sensitivity row and target row now includes a
+  human-readable calibration label, schema version and canonical SHA-256
+  digest. Runs backed by an ingested kernel table include its digest as well.
+  Digests are independent of JSON whitespace and key ordering, and local paths
+  are never recorded.
+
 ## [0.3.1] - 2026-10-10
 
 ### Fixed
@@ -97,6 +107,7 @@ All notable changes to Spark Tools are documented here. Versions follow
 - Portable examples, calibration fixtures, attribution, packaging and a
   fail-closed export audit.
 
+[0.4.0]: https://github.com/knapcio/spark-tools/compare/v0.3.1...v0.4.0
 [0.3.1]: https://github.com/knapcio/spark-tools/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/knapcio/spark-tools/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/knapcio/spark-tools/compare/v0.1.0...v0.2.0

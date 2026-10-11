@@ -12,7 +12,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parents[1] / "examples/cyclesim"
 from cyclesim.utilities import JsonStream, acceptance, dump, sha256, trace_events, union_us, validate_survival
-from cyclesim.model import Model, edits, union_experts
+from cyclesim.model import Model, document_sha256, edits, union_experts
 from cyclesim.profile import analyze, classify, ingest, check_capture
 from cyclesim.build_ledger import weight
 
@@ -191,6 +191,33 @@ class Profiles(unittest.TestCase):
 class Predictions(unittest.TestCase):
     def setUp(self):self.model=Model(json.loads((HERE/'calibration.json').read_text()))
 
+    def test_prediction_provenance_is_stable_and_present_everywhere(self):
+        reordered = json.loads(json.dumps(self.model.data, sort_keys=True))
+        self.assertEqual(document_sha256(self.model.data), document_sha256(reordered))
+        changed = copy.deepcopy(reordered)
+        changed['closure_ms'] += .001
+        self.assertNotEqual(document_sha256(self.model.data), document_sha256(changed))
+        expected = {
+            'calibration_label': 'glm53-tp4-nvfp4-k3-example-v1',
+            'calibration_schema': 5,
+            'calibration_sha256': document_sha256(self.model.data),
+            'kernel_table_sha256': None,
+        }
+        for result in (self.model.predict(), self.model.sensitivity(1, 'prose'),
+                       *self.model.targets()):
+            with self.subTest(result=result.get('target_tok_s', result.get('status'))):
+                self.assertEqual({key: result[key] for key in expected}, expected)
+
+    def test_calibration_label_validation_and_stack_fallback(self):
+        calibration = copy.deepcopy(self.model.data)
+        del calibration['calibration_label']
+        self.assertEqual(Model(calibration).calibration_label, calibration['stack'])
+        for label in ('', 'bad\nlabel', 'x' * 161, 7):
+            with self.subTest(label=label):
+                calibration['calibration_label'] = label
+                with self.assertRaisesRegex(ValueError, 'calibration_label'):
+                    Model(calibration)
+
     def test_baseline_fit(self):
         for domain in ('prose','code'):
             p=self.model.predict(domain=domain)
@@ -252,6 +279,8 @@ class Predictions(unittest.TestCase):
                     'total_us_per_cycle':{'mean':10000,'median':10000},'estimated_bytes_read':2e9}]})
             model=Model(json.loads((HERE/'calibration.json').read_text()), kernel_table=p)
             a=model.predict();b=model.predict(kernel_ms={'r0-k0':-.8})
+            self.assertEqual(a['kernel_table_sha256'], document_sha256(json.loads(p.read_text())))
+            self.assertNotIn(str(p), json.dumps(a))
             self.assertEqual(set(a['category_ms']),{'moe_routed','draft_graph','host_sampling'})
             self.assertAlmostEqual(a['cycle_bench_hard_panel']['cycle_ms'],73.4)
             self.assertAlmostEqual(b['delta_vs_baseline']['cycle_ms'],-.8)

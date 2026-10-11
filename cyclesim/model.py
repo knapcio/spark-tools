@@ -3,6 +3,7 @@
 """Decode-cycle cost model: calibrated anchors, prefix survival and bounded what-ifs."""
 import argparse
 import copy
+import hashlib
 import json
 import math
 from pathlib import Path
@@ -10,6 +11,13 @@ from cyclesim.utilities import validate_survival
 
 HERE = Path(__file__).resolve().parent
 DOMAINS = ('prose', 'code', 'structured', 'json')
+
+
+def document_sha256(value):
+    """Hash parsed JSON canonically, independent of whitespace and key order."""
+    encoded = json.dumps(value, sort_keys=True, separators=(',', ':'),
+                         ensure_ascii=False, allow_nan=False).encode('utf-8')
+    return 'sha256:' + hashlib.sha256(encoded).hexdigest()
 
 
 def finite(x, low=-math.inf, high=math.inf):
@@ -45,7 +53,14 @@ class Model:
         self.data = calibration
         if self.data.get('schema') != 5:
             raise ValueError('calibration schema 5 required')
+        label = self.data.get('calibration_label', self.data.get('stack', 'schema-5'))
+        if (not isinstance(label, str) or not label.strip() or len(label) > 160 or
+                any(ord(char) < 32 or ord(char) == 127 for char in label)):
+            raise ValueError('calibration_label must be a nonempty printable string of at most 160 characters')
+        self.calibration_label = label.strip()
+        self.calibration_sha256 = document_sha256(self.data)
         self.table = json.loads(Path(kernel_table).read_text()) if kernel_table else None
+        self.kernel_table_sha256 = document_sha256(self.table) if self.table else None
         if self.table and (self.table.get('schema') != 1 or not self.table.get('kernels')):
             raise ValueError('kernel table must contain an ingested profile')
         if self.table:
@@ -66,6 +81,13 @@ class Model:
                 finite(value, 0)
             if self.table.get('unprofiled_cycle_ms') is not None:
                 finite(self.table['unprofiled_cycle_ms'], 1e-9)
+
+    def provenance(self):
+        """Portable prediction identity without leaking a local input path."""
+        return {'calibration_label': self.calibration_label,
+                'calibration_schema': self.data['schema'],
+                'calibration_sha256': self.calibration_sha256,
+                'kernel_table_sha256': self.kernel_table_sha256}
 
     def baseline_parts(self, c, domain):
         if c not in (1, 2, 4) or domain not in DOMAINS:
@@ -313,7 +335,8 @@ class Model:
             rig_column = {'tok_s_per_stream':hard*rig_fit['factor'], 'cycle_ms':cycle/rig_fit['factor'],
                           'committed_per_cycle':committed, 'aggregate_tok_s':hard*rig_fit['factor'],
                           'status':'estimated independent RigMark T=0 low-effort panel fit; run5 held out; prompt generalization unknown'}
-        return {'c':c, 'domain':domain, 'k':k, 'requested_k':requested_k, 'head':head, 'policy':policy,
+        return {**self.provenance(),
+                'c':c, 'domain':domain, 'k':k, 'requested_k':requested_k, 'head':head, 'policy':policy,
                 'tau':tau, 'status':'estimated', 'scenario_basis':basis,
                 'cycle_bench_hard_panel': {'cycle_ms':cycle, 'committed_per_cycle':committed,
                     'tok_s_per_stream':hard, 'aggregate_tok_s':c*hard, 'status':'estimated'},
@@ -340,7 +363,7 @@ class Model:
         cycle = base['cycle_bench_hard_panel']['cycle_ms']
         committed = base['cycle_bench_hard_panel']['committed_per_cycle']
         factor = self.data['external_factors'][domain] * self.data['external_c_factors'][str(c)]
-        return {'c': c, 'domain': domain, 'status': 'estimated local derivative',
+        return {**self.provenance(), 'c': c, 'domain': domain, 'status': 'estimated local derivative',
                 'category_per_ms_saved': {cat: {'hard_tok_s': 1000*committed/cycle**2,
                                                'calibrated_tok_s': factor*1000*committed/cycle**2,
                                                'budget_ms': budget} for cat, budget in base['category_ms'].items()},
@@ -353,7 +376,7 @@ class Model:
         p = self.predict(1, 'prose')
         hard = p['cycle_bench_hard_panel']
         factor = self.data['external_factors']['prose']
-        return [{'target_tok_s': rate, 'column': col, 'status': 'estimated',
+        return [{**self.provenance(), 'target_tok_s': rate, 'column': col, 'status': 'estimated',
                  'cycle_ms_at_current_acceptance': 1000*hard['committed_per_cycle']*f/rate,
                  'committed_at_current_cycle': rate*hard['cycle_ms']/1000/f,
                  'required_prefix_sum': rate*hard['cycle_ms']/1000/f - 1,

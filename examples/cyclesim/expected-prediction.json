@@ -1,5 +1,9 @@
 [
   {
+    "calibration_label": "glm53-tp4-nvfp4-k3-example-v1",
+    "calibration_schema": 5,
+    "calibration_sha256": "sha256:af08ae7a0a2a8206f4439fc29dff69b521c732cd34278d3dd3fb36b52ccd9f87",
+    "kernel_table_sha256": null,
     "c": 1,
     "domain": "prose",
     "k": 3,

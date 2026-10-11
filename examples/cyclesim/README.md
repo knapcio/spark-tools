@@ -24,6 +24,13 @@ contains the full output. The prose FP8 projection hypothesis predicts +2.10%;
 the glue-lite hypothesis predicts +0.41%. The deterministic comparison is in
 `expected-comparison.json`.
 
+Every prediction, sensitivity row and target row includes a human-readable
+`calibration_label`, the calibration schema and a canonical SHA-256 digest.
+The digest is stable across JSON whitespace and key ordering, so archived runs
+can be tied back to their exact calibration content without recording a local
+file path. Predictions made with an ingested kernel table also include its
+canonical digest.
+
 The existing projection example assumes two 6144 by 12288 projections per
 cycle and 100 GB/s effective bandwidth for BF16 and FP8. FP8 includes two-byte
 per-output-channel scales. The resulting 1.50970368 ms saving is applied to
