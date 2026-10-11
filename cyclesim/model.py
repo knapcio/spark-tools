@@ -50,17 +50,16 @@ def edits(values):
 class Model:
     def __init__(self, calibration=None, kernel_table=None):
         if calibration is None: raise ValueError('explicit calibration configuration required')
-        self.data = calibration
+        # Own the effective calibration. A caller mutating its input after
+        # construction must not silently change predictions under an old ID.
+        self.data = copy.deepcopy(calibration)
         if self.data.get('schema') != 5:
             raise ValueError('calibration schema 5 required')
-        label = self.data.get('calibration_label', self.data.get('stack', 'schema-5'))
-        if (not isinstance(label, str) or not label.strip() or len(label) > 160 or
-                any(ord(char) < 32 or ord(char) == 127 for char in label)):
-            raise ValueError('calibration_label must be a nonempty printable string of at most 160 characters')
-        self.calibration_label = label.strip()
-        self.calibration_sha256 = document_sha256(self.data)
+        self._calibration_label()
+        document_sha256(self.data)
         self.table = json.loads(Path(kernel_table).read_text()) if kernel_table else None
-        self.kernel_table_sha256 = document_sha256(self.table) if self.table else None
+        if self.table:
+            document_sha256(self.table)
         if self.table and (self.table.get('schema') != 1 or not self.table.get('kernels')):
             raise ValueError('kernel table must contain an ingested profile')
         if self.table:
@@ -81,6 +80,29 @@ class Model:
                 finite(value, 0)
             if self.table.get('unprofiled_cycle_ms') is not None:
                 finite(self.table['unprofiled_cycle_ms'], 1e-9)
+
+    def _calibration_label(self):
+        explicit = 'calibration_label' in self.data
+        label = self.data.get('calibration_label') if explicit else self.data.get('stack')
+        valid = (isinstance(label, str) and bool(label.strip()) and len(label) <= 160 and
+                 not any(ord(char) < 32 or ord(char) == 127 for char in label))
+        if explicit and not valid:
+            raise ValueError('calibration_label must be a nonempty printable string of at most 160 characters')
+        # Legacy schema-5 files never promised a valid stack label. Preserve
+        # their behavior and let the digest provide the unique identity.
+        return label.strip() if valid else 'schema-5-unlabelled'
+
+    @property
+    def calibration_label(self):
+        return self._calibration_label()
+
+    @property
+    def calibration_sha256(self):
+        return document_sha256(self.data)
+
+    @property
+    def kernel_table_sha256(self):
+        return document_sha256(self.table) if self.table else None
 
     def provenance(self):
         """Portable prediction identity without leaking a local input path."""

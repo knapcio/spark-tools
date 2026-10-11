@@ -212,11 +212,35 @@ class Predictions(unittest.TestCase):
         calibration = copy.deepcopy(self.model.data)
         del calibration['calibration_label']
         self.assertEqual(Model(calibration).calibration_label, calibration['stack'])
+        for stack in (None, '', 'bad\nstack', 'x' * 161, 7):
+            with self.subTest(stack=stack):
+                calibration['stack'] = stack
+                model = Model(calibration)
+                self.assertEqual(model.calibration_label, 'schema-5-unlabelled')
+                self.assertEqual(model.predict()['calibration_label'], 'schema-5-unlabelled')
         for label in ('', 'bad\nlabel', 'x' * 161, 7):
             with self.subTest(label=label):
                 calibration['calibration_label'] = label
                 with self.assertRaisesRegex(ValueError, 'calibration_label'):
                     Model(calibration)
+
+    def test_prediction_digest_tracks_effective_immutable_input(self):
+        calibration = copy.deepcopy(self.model.data)
+        model = Model(calibration)
+        before = model.predict()
+        calibration['closure_ms'] += 10
+        after_external_mutation = model.predict()
+        self.assertEqual(after_external_mutation['calibration_sha256'],
+                         before['calibration_sha256'])
+        self.assertEqual(after_external_mutation['cycle_bench_hard_panel'],
+                         before['cycle_bench_hard_panel'])
+
+        model.data['closure_ms'] += 1
+        after_effective_mutation = model.predict()
+        self.assertNotEqual(after_effective_mutation['calibration_sha256'],
+                            before['calibration_sha256'])
+        self.assertNotEqual(after_effective_mutation['cycle_bench_hard_panel']['cycle_ms'],
+                            before['cycle_bench_hard_panel']['cycle_ms'])
 
     def test_baseline_fit(self):
         for domain in ('prose','code'):
